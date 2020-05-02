@@ -1,0 +1,63 @@
+;;; init.el -*- lexical-binding: t; -*-
+
+(doom! :completion
+       company
+       ivy
+
+       :checkers
+       syntax
+
+       :ui
+       doom
+       doom-dashboard
+       doom-quit
+       hl-todo
+       modeline
+       nav-flash
+       ophints
+       (popup +all +defaults)
+       treemacs
+       vc-gutter
+       vi-tilde-fringe
+       window-select
+       workspaces
+
+       :editor
+       (evil +everywhere)
+       file-templates
+       fold
+       multiple-cursors
+       parinfer
+       rotate-text
+       snippets
+
+       :emacs
+       dired
+       electric
+       ibuffer
+       vc
+
+       :tools
+       direnv
+       docker
+       terraform
+       (eval +overlay)
+       (lookup +docsets)
+       magit
+       lsp
+
+       :lang
+       clojure
+       javascript
+       python
+       rust
+       (java +lsp)
+       emacs-lisp
+       sh
+       web
+       data
+       markdown
+       org
+
+       :config
+       (default +bindings +smartparens))
