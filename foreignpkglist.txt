@@ -1,0 +1,14 @@
+betterlockscreen
+brave-bin
+direnv
+joker-bin
+nvm
+rust-analyzer
+siji-git
+slack-desktop
+spotify
+spotify-tui
+stern-bin
+yadm-git
+yay
+ytop

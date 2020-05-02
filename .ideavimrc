@@ -1,0 +1,8 @@
+" Basic settings
+set showmode
+set hlsearch
+set incsearch
+set ignorecase
+
+" Extensions
+set commentary

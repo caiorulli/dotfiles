@@ -1,0 +1,2 @@
+setxkbmap br
+export TERMINAL=alacritty
