@@ -114,8 +114,8 @@ bindsym $mod+Shift+less move workspace to output left
 
 bindsym $mod+Escape exec betterlockscreen -l dim
 
-bindsym --release $mod+z exec scrot ~/pictures/scrot/screenshot.jpg
-bindsym --release $mod+Shift+z exec scrot -s ~/pictures/scrot/screenshot.jpg
+bindsym --release $mod+z exec scrot ~/Pictures/scrot/screenshot.jpg
+bindsym --release $mod+Shift+z exec scrot -s ~/Pictures/scrot/screenshot.jpg
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -6,7 +6,8 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+alias l='ls -la'
+PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
 # Gnome keyring setup
 if [ -n "$DESKTOP_SESSION" ];then
@@ -24,6 +25,7 @@ if type direnv > /dev/null; then
     eval "$(direnv hook bash)"
 fi
 
+# nvm setup
 [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 
 # fzf setup

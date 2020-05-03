@@ -30,6 +30,7 @@ eslint
 exa
 fakeroot
 fd
+feh
 flex
 fzf
 gcc
