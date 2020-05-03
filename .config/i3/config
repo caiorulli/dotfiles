@@ -112,7 +112,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-bindsym $mod+Escape exec betterlockscreen -l dim
+bindsym $mod+Escape exec ~/.config/i3/lock.sh
 
 bindsym --release $mod+z exec scrot ~/Pictures/scrot/screenshot.jpg
 bindsym --release $mod+Shift+z exec scrot -s ~/Pictures/scrot/screenshot.jpg
