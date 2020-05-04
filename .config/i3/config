@@ -2,6 +2,8 @@
 
 set $mod Mod4
 
+font pango:Fantasque Sans Mono 8 
+
 exec --no-startup-id nm-applet
 exec --no-startup-id blueman-applet
 
@@ -159,6 +161,4 @@ bindsym $mod+x mode "$mode_display"
 
 bar {
     status_command i3blocks
-    
-    font pango:Fantasque Sans Mono 8 
 }

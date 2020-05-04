@@ -21,7 +21,6 @@ dhcpcd
 direnv
 discord
 discount
-dmenu
 docker-compose
 efibootmgr
 emacs
@@ -50,8 +49,6 @@ kubectl
 kubectx
 leiningen
 libtool
-lightdm
-lightdm-gtk-greeter
 linux
 linux-firmware
 lsof
@@ -61,6 +58,7 @@ man-pages
 mariadb-clients
 maven
 neofetch
+neomutt
 network-manager-applet
 networkmanager
 networkmanager-vpnc
