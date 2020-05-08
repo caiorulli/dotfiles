@@ -1,8 +1,6 @@
 [user]
 	email = caiorulli@gmail.com
 	name = Caio Rulli
-[credential]
-	helper = /usr/lib/git-core/git-credential-libsecret
 [git]
 	editor = vim
 [core]

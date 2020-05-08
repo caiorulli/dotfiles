@@ -14,7 +14,6 @@ blender
 blueman
 bluez-utils
 brave-bin
-chromium
 clojure
 cmatrix
 dhcpcd
@@ -34,7 +33,6 @@ fzf
 gcc
 gimp
 git
-gnome-keyring
 groff
 grub
 hdparm
@@ -43,6 +41,7 @@ i3-gaps
 i3blocks
 intel-ucode
 iw
+jdk8-openjdk
 joker-bin
 jq
 kubectl
@@ -86,9 +85,7 @@ rust-analyzer
 rust-racer
 rustup
 scrot
-seahorse
 shellcheck
-slack-desktop
 smartmontools
 spotify
 spotify-tui
@@ -100,7 +97,6 @@ texinfo
 tig
 unclutter
 unzip
-vifm
 vim
 vlc
 wget

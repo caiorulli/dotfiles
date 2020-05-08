@@ -13,12 +13,6 @@ alias gco='git checkout'
 
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
-# Gnome keyring setup
-if [ -n "$DESKTOP_SESSION" ];then
-    eval "$(gnome-keyring-daemon --start)"
-    export SSH_AUTH_SOCK
-fi
-
 # Hub setup
 if type hub > /dev/null; then
     eval "$(hub alias -s)"

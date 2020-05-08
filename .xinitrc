@@ -35,8 +35,13 @@ fi
 # Keymap setup
 setxkbmap br
 
-# Gnome keyring setup
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-export SSH_AUTH_SOCK
+~/.fehbg
+picom &
+unclutter &
 
-exec i3
+while true; do
+    xsetroot -name "$(date) | $(acpi -b)"
+    sleep 1s
+done &
+
+exec dwm
