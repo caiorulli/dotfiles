@@ -5,8 +5,12 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Aliases
 alias ls='ls --color=auto'
 alias l='ls -la'
+alias gst='git status'
+alias gco='git checkout'
+
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
 # Gnome keyring setup
