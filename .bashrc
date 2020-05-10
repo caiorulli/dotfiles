@@ -13,11 +13,6 @@ alias gco='git checkout'
 
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
-# Hub setup
-if type hub > /dev/null; then
-    eval "$(hub alias -s)"
-fi
-
 # Direnv setup
 if type direnv > /dev/null; then
     eval "$(direnv hook bash)"
