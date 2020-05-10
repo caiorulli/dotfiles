@@ -36,7 +36,6 @@ git
 groff
 grub
 hdparm
-hub
 i3-gaps
 i3blocks
 intel-ucode
@@ -81,6 +80,7 @@ qutebrowser
 ripgrep
 rlwrap
 rtorrent
+ruby
 rust-analyzer
 rust-racer
 rustup

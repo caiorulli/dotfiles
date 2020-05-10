@@ -9,11 +9,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='vim'
 export TERMINAL=alacritty
 
-# Hub setup
-if type hub > /dev/null; then
-	eval "$(hub alias -s)"
-fi
-
 # Direnv setup
 if type direnv > /dev/null; then
 	eval "$(direnv hook zsh)"
