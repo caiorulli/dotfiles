@@ -40,7 +40,7 @@ picom &
 unclutter &
 
 while true; do
-    xsetroot -name "$(date) | $(acpi -b)"
+    xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
     sleep 1s
 done &
 
