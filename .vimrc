@@ -25,6 +25,8 @@ set hidden
 set updatetime=300
 set signcolumn=yes
 
+let g:ale_completion_enabled = 1
+
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -58,7 +60,6 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>h :History<CR>
 nnoremap <leader>f :Rg<CR>
 
-let g:rustfmt_autosave = 1
-
-let g:ale_fixers = {'javascript': ['eslint']}
+let g:ale_linters = { 'rust': ['rls'] }
+let g:ale_fixers = { 'javascript': ['eslint'], 'rust': ['rustfmt'] }
 let g:ale_fix_on_save = 1

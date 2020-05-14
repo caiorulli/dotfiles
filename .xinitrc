@@ -39,9 +39,10 @@ setxkbmap br
 picom &
 unclutter &
 
-while true; do
-    xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
-    sleep 1s
-done &
+# DWM bar script
+# while true; do
+#     xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
+#     sleep 1s
+# done &
 
-exec dwm
+exec xmonad
