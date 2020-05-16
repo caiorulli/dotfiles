@@ -106,6 +106,9 @@ xdg-user-dirs
 xf86-video-intel
 xf86-video-nouveau
 xf86-video-vesa
+xmobar
+xmonad
+xmonad-contrib
 xorg-docs
 xorg-fonts-100dpi
 xorg-fonts-75dpi

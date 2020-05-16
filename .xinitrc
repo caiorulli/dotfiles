@@ -40,9 +40,9 @@ picom &
 unclutter &
 
 # DWM bar script
-# while true; do
-#     xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
-#     sleep 1s
-# done &
+while true; do
+    xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
+    sleep 1s
+done &
 
-exec xmonad
+exec dwm

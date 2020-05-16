@@ -11,7 +11,7 @@ myTerminal    = "st"
 myBorderWidth = 2
 myModMask     = mod4Mask
 
-myWorkspaces = ["term","web","3","4","5","6","7","8","music"]
+myWorkspaces = ["term","web","dev","4","5","6","7","8","music"]
 
 nord1 = "#3B4252"
 nord9 = "#81A1C1"
