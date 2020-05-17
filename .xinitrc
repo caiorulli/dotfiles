@@ -40,9 +40,31 @@ picom &
 unclutter &
 
 # DWM bar script
+dwm_corona_cases() {
+  cases="$(curl https://corona-stats.online/BR\?format=json | jq '.data[0].cases') cases"
+  echo "$cases";
+}
+
+dwm_corona_deaths() {
+  deaths="$(curl https://corona-stats.online/BR\?format=json | jq '.data[0].deaths') deaths"
+  echo "$deaths";
+}
+
+dwm_battery(){
+  cat /sys/class/power_supply/BAT0/capacity
+}
+
+dwm_date(){
+  date '+%d/%m/%Y %H:%M'
+}
+
+dwm_weather(){
+  curl wttr.in/Sao_Paulo?format=1
+}
+
 while true; do
-    xsetroot -name " $(cat /sys/class/power_supply/BAT0/capacity)% | $(date '+%d/%m/%Y %H:%M:%S') "
-    sleep 1s
+  xsetroot -name " $(dwm_weather) | $(dwm_corona_cases) | $(dwm_corona_deaths) | $(dwm_battery)% | $(dwm_date) "
+  sleep 1m
 done &
 
 exec dwm
