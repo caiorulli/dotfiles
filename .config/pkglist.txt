@@ -16,6 +16,7 @@ bluez-utils
 brave-bin
 clojure
 cmatrix
+cowsay
 dhcpcd
 direnv
 discord
@@ -51,6 +52,7 @@ linux
 linux-firmware
 lsof
 m4
+maim
 make
 man-pages
 mariadb-clients
@@ -85,7 +87,6 @@ ruby
 rust-analyzer
 rust-racer
 rustup
-scrot
 shellcheck
 smartmontools
 spotify
