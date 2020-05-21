@@ -39,8 +39,6 @@
 
        :tools
        direnv
-       docker
-       terraform
        (eval +overlay)
        (lookup +docsets)
        magit
@@ -48,13 +46,9 @@
 
        :lang
        clojure
-       javascript
-       python
-       rust
-       (java +lsp)
+       (rust +lsp)
        emacs-lisp
        sh
-       web
        data
        markdown
        org
