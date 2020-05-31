@@ -5,6 +5,8 @@
 
 ;;; Code:
 
+;; Straight
+
 (defvar straight-use-package-by-default t)
 
 (defvar bootstrap-version)
@@ -23,7 +25,11 @@
 
 (straight-use-package 'use-package)
 
-(use-package which-key)
+;; General packages
+
+(use-package which-key
+  :config
+  (which-key-mode 1))
 
 (use-package better-defaults)
 
@@ -35,19 +41,41 @@
   :config
   (counsel-mode 1))
 
+(use-package swiper)
+
 (use-package amx)
 
-(use-package projectile)
+(use-package ripgrep)
 
-(use-package company)
-
-(use-package flycheck
+(use-package projectile
   :config
-  (global-flycheck-mode))
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (setq projectile-project-search-path '("~/Code/"
+                                         "~/Code/suckless/"
+                                         "~/Code/oss/"))
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode 1))
+
+(use-package counsel-projectile
+  :after counsel projectile
+  :config
+  (counsel-projectile-mode 1))
+
+(use-package company
+  :config
+  (global-company-mode))
+
+(use-package flycheck)
 
 (use-package magit)
 
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode))
+
 (use-package treemacs)
+
+;; Evil
 
 (use-package evil
   :init
@@ -62,12 +90,34 @@
   :config
   (evil-collection-init))
 
+(use-package evil-nerd-commenter
+  :after evil
+  :config
+  (evilnc-default-hotkeys))
+
+(use-package evil-magit
+  :after evil magit)
+
+(use-package treemacs-evil
+  :after treemacs evil)
+
+(use-package treemacs-magit
+  :after treemacs magit)
+
+;; Lisp
+
 (use-package parinfer
   :init
   (progn
     (defvar parinfer-extensions '(defaults evil))
     (add-hook 'clojure-mode-hook #'parinfer-mode)
     (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)))
+
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+;; Clojure
 
 (use-package clojure-mode)
 
@@ -77,19 +127,26 @@
 
 (use-package flycheck-joker)
 
+;; Rust
+
 (use-package lsp-mode)
 
-(use-package rust-mode)
+(use-package rustic)
+
+;; UI
 
 (use-package nord-theme
   :config
   (load-theme 'nord t))
 
 ;; Setting transparency
-(set-frame-parameter (selected-frame) 'alpha '(90 80))
-(add-to-list 'default-frame-alist '(alpha 90 80))
+(set-frame-parameter (selected-frame) 'alpha '(85 75))
+(add-to-list 'default-frame-alist '(alpha 85 75))
 
 (set-face-attribute 'default nil :font "Fantasque Sans Mono" :height 120)
+
+(global-linum-mode t)
+(setq inhibit-splash-screen t)
 
 (provide 'init)
 ;;; init.el ends here
