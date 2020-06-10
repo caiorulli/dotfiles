@@ -13,7 +13,8 @@ bison
 blender
 blueman
 bluez-utils
-brave-bin
+cabal-install
+chromium
 clojure
 cmatrix
 cowsay
@@ -22,6 +23,7 @@ direnv
 discord
 discount
 docker-compose
+dwarffortress
 efibootmgr
 emacs
 eslint
@@ -29,9 +31,11 @@ exa
 fakeroot
 fd
 feh
+firefox
 flex
 fzf
 gcc
+ghc
 gimp
 git
 groff
@@ -57,6 +61,8 @@ make
 man-pages
 mariadb-clients
 maven
+mesa-demos
+mit-scheme
 neofetch
 neomutt
 network-manager-applet
@@ -66,6 +72,8 @@ nftables
 nmap
 ntp
 numlockx
+nvidia
+nvidia-prime
 nvm
 otf-fantasque-sans-mono
 pass
@@ -91,8 +99,10 @@ shellcheck
 smartmontools
 spotify
 spotify-tui
+stack
 steam
 stern-bin
+stone-soup
 sudo
 terraform
 texinfo
@@ -102,6 +112,9 @@ unclutter
 unzip
 vim
 vlc
+vulkan-headers
+vulkan-intel
+vulkan-tools
 wget
 which
 wqy-zenhei
@@ -109,6 +122,9 @@ xdg-user-dirs
 xf86-video-intel
 xf86-video-nouveau
 xf86-video-vesa
+xmobar
+xmonad
+xmonad-contrib
 xorg-docs
 xorg-fonts-100dpi
 xorg-fonts-75dpi
@@ -145,4 +161,3 @@ xss-lock
 yadm
 yay
 ytop
-zsh-completions

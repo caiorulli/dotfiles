@@ -47,6 +47,7 @@
        :lang
        clojure
        (rust +lsp)
+       haskell
        emacs-lisp
        sh
        data
