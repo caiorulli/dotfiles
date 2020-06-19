@@ -13,6 +13,10 @@ alias gco='git checkout'
 
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
+# Keep empty for UNLIMITED POWER I mean unlimited history
+HISTSIZE= 
+HISTFILESIZE=
+
 # Direnv setup
 if type direnv > /dev/null; then
     eval "$(direnv hook bash)"
