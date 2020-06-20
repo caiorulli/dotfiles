@@ -294,7 +294,7 @@ defaults = desktopConfig {
            `additionalKeysP`
            [ ("M-<Escape>", spawn "slock")
            , ("<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
-           , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@")
+           , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
            , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
            , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
            , ("M-C-f", spawn "firefox")

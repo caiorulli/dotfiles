@@ -37,6 +37,9 @@
        ibuffer
        vc
 
+       :app
+       rss
+
        :tools
        direnv
        (eval +overlay)

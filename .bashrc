@@ -10,6 +10,7 @@ alias ls='ls --color=auto'
 alias l='ls -la'
 alias gst='git status'
 alias gco='git checkout'
+alias doom='~/.emacs.d/bin/doom'
 
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 
