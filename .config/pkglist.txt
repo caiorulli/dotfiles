@@ -41,12 +41,9 @@ git
 groff
 grub
 hdparm
-i3-gaps
-i3blocks
 intel-ucode
 iw
 jdk8-openjdk
-joker-bin
 jq
 kubectl
 kubectx
@@ -62,9 +59,11 @@ man-pages
 mariadb-clients
 maven
 mesa-demos
+minecraft-launcher
 mit-scheme
+mpv
+mupdf
 neofetch
-neomutt
 network-manager-applet
 networkmanager
 networkmanager-vpnc
@@ -76,6 +75,7 @@ nvidia
 nvidia-prime
 nvm
 otf-fantasque-sans-mono
+pamixer
 pass
 patch
 picom
@@ -90,6 +90,7 @@ qtox
 qutebrowser
 ripgrep
 rlwrap
+rsync
 rtorrent
 ruby
 rust-analyzer
@@ -104,6 +105,7 @@ steam
 stern-bin
 stone-soup
 sudo
+syncthing
 terraform
 texinfo
 tig

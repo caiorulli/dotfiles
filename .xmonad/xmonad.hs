@@ -50,7 +50,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces = ["term","web","dev","irc","5","6","7","game", "music"]
+myWorkspaces = ["term","web","dev","irc","vid","6","7","game", "mus"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -293,13 +293,15 @@ defaults = desktopConfig {
     }
            `additionalKeysP`
            [ ("M-<Escape>", spawn "slock")
-           , ("<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
-           , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-           , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +10%")
-           , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -10%")
-           , ("M-C-f", spawn "firefox")
+           , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
+           , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
+           , ("<XF86AudioMute>", spawn "pamixer -t")
+           , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 5")
+           , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5")
+           , ("M-C-w", spawn "qutebrowser")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
+           , ("M-o", spawn "~/.dmenu/setxkbmap.sh")
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
