@@ -2,6 +2,7 @@ acpi
 alacritty
 alsa-firmware
 alsa-utils
+arc-gtk-theme
 autoconf
 automake
 aws-cli
@@ -10,6 +11,7 @@ bat
 bdf-unifont
 binutils
 bison
+bitwarden-cli
 blender
 blueman
 bluez-utils
@@ -38,6 +40,7 @@ gcc
 ghc
 gimp
 git
+git-annex
 groff
 grub
 hdparm
@@ -110,6 +113,7 @@ terraform
 texinfo
 tig
 toxic
+udisks2
 unclutter
 unzip
 vim
