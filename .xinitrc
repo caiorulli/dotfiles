@@ -38,5 +38,6 @@ setxkbmap br
 ~/.fehbg
 picom &
 unclutter &
+dunst &
 
 exec xmonad

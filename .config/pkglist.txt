@@ -25,6 +25,7 @@ direnv
 discord
 discount
 docker-compose
+dunst
 dwarffortress
 efibootmgr
 emacs
@@ -106,7 +107,6 @@ spotify-tui
 stack
 steam
 stern-bin
-stone-soup
 sudo
 syncthing
 terraform
