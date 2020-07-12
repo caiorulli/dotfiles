@@ -10,6 +10,7 @@
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout.Gaps
 import XMonad.Util.EZConfig
 import Data.Monoid
 import System.Exit
@@ -50,7 +51,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces = ["term","web","dev","irc","vid","6","7","game", "mus"]
+myWorkspaces = ["term","web","dev","disc","5","6","steam","game", "mus"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -187,7 +188,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = gaps [(U,10), (D,10), (R,10), (L,10)] $ tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -292,16 +293,17 @@ defaults = desktopConfig {
         startupHook        = myStartupHook
     }
            `additionalKeysP`
-           [ ("M-<Escape>", spawn "slock")
+           [ ("M-<Escape>", spawn "~/.xmonad/lock.sh")
            , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
            , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
            , ("<XF86AudioMute>", spawn "pamixer -t")
            , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 5")
            , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5")
-           , ("M-C-w", spawn "qutebrowser")
+           , ("M-C-w", spawn "brave")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
            , ("M-o", spawn "~/.dmenu/setxkbmap.sh")
+           , ("M-C-g", sendMessage $ ToggleGaps)
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.

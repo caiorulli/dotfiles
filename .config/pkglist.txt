@@ -15,6 +15,7 @@ bitwarden-cli
 blender
 blueman
 bluez-utils
+brave-bin
 cabal-install
 chromium
 clojure
@@ -92,6 +93,7 @@ pulseaudio-bluetooth
 python-pipenv
 qtox
 qutebrowser
+riot-desktop
 ripgrep
 rlwrap
 rsync

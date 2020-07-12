@@ -48,6 +48,7 @@
        lsp
 
        :lang
+       (cc +lsp)
        clojure
        (rust +lsp)
        haskell
