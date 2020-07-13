@@ -294,6 +294,7 @@ defaults = desktopConfig {
     }
            `additionalKeysP`
            [ ("M-<Escape>", spawn "~/.xmonad/lock.sh")
+           , ("M-g", sendMessage $ ToggleGaps)
            , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
            , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
            , ("<XF86AudioMute>", spawn "pamixer -t")
@@ -303,7 +304,6 @@ defaults = desktopConfig {
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
            , ("M-o", spawn "~/.dmenu/setxkbmap.sh")
-           , ("M-C-g", sendMessage $ ToggleGaps)
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.

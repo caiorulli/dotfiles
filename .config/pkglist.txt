@@ -17,6 +17,7 @@ blueman
 bluez-utils
 brave-bin
 cabal-install
+castget
 chromium
 clojure
 cmatrix
@@ -37,6 +38,7 @@ fd
 feh
 firefox
 flex
+foliate
 fzf
 gcc
 ghc

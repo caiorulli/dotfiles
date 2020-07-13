@@ -1,0 +1,16 @@
+[*]
+id3contenttype=Podcast
+spool=/home/caio/Music/podcasts
+filename=%(date)-%(title).mp3
+
+[notrelated]
+url=https://notrelated.xyz/rss
+spool=/home/caio/Music/podcasts/notrelated
+
+[pawcast]
+url=https://anchor.fm/s/f6a6558/podcast/rss
+spool=/home/caio/Music/podcasts/pawcast
+
+[hipsters.tech]
+url=https://hipsters.tech/feed/podcast/
+spool=/home/caio/Music/podcasts/hipsters.tech

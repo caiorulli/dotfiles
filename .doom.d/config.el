@@ -18,14 +18,16 @@
         "https://dev.to/feed/teekay"
         "https://medium.com/feed/@kentbeck_7670"
         "https://medium.com/feed/quintoandar-tech-blog"
-        "https://overreacted.io/rss.xml"))
+        "https://overreacted.io/rss.xml"
+        "https://jvns.ca/atom.xml"
+        "https://standardebooks.org/rss/new-releases"))
 
 ;; UI config
 (setq doom-theme 'doom-nord)
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 15))
 
 ;; Setting transparency
-(set-frame-parameter (selected-frame) 'alpha '(80 80))
-(add-to-list 'default-frame-alist '(alpha 80 80))
+(set-frame-parameter (selected-frame) 'alpha '(90 90))
+(add-to-list 'default-frame-alist '(alpha 90 90))
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
