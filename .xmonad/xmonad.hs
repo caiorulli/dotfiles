@@ -303,7 +303,7 @@ defaults = desktopConfig {
            , ("M-C-w", spawn "brave")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
-           , ("M-o", spawn "~/.dmenu/setxkbmap.sh")
+           , ("M-o", spawn "~/.config/dmenu/setxkbmap.sh")
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
