@@ -2,9 +2,9 @@
 	email = crthomaz@protonmail.com
 	name = Caio Rulli
 [git]
-	editor = vim
+	editor = nvim
 [core]
-	editor = vim
+	editor = nvim
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

@@ -71,6 +71,7 @@ mit-scheme
 mpv
 mupdf
 neofetch
+neovim
 network-manager-applet
 networkmanager
 networkmanager-vpnc
@@ -120,7 +121,6 @@ toxic
 udisks2
 unclutter
 unzip
-vim
 vlc
 vulkan-headers
 vulkan-intel

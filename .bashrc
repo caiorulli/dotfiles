@@ -5,6 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export EDITOR="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -27,14 +28,15 @@ HISTFILESIZE=
 
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export LESSHISTFILE=-
-export NVM_DIR="$XDG_DATA_HOME/nvm"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-export STACK_ROOT="$XDG_DATA_HOME/stack"
-export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export STACK_ROOT="$XDG_DATA_HOME/stack"
+export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 # Direnv setup
 if type direnv > /dev/null; then
