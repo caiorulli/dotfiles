@@ -1,6 +1,6 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
+(setq org-directory "~/Documents/org")
 
 ;; Clojure
 (after! clojure-mode
@@ -20,7 +20,14 @@
         "https://medium.com/feed/quintoandar-tech-blog"
         "https://overreacted.io/rss.xml"
         "https://jvns.ca/atom.xml"
-        "https://standardebooks.org/rss/new-releases"))
+        "https://standardebooks.org/rss/new-releases"
+        "https://blog.jbrains.ca/feed.xml"
+        "https://agileotter.blogspot.com/feeds/posts/default"
+        "https://stuartsierra.com/feed"
+        "http://gigasquidsoftware.com/atom.xml"
+        "https://8thlight.com/blog/feed/rss.xml"
+        "https://feeds.feedburner.com/codinghorror"
+        "https://www.martinfowler.com/feed.atom"))
 
 ;; UI config
 (setq doom-theme 'doom-nord)

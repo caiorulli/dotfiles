@@ -293,13 +293,17 @@ defaults = desktopConfig {
         startupHook        = myStartupHook
     }
            `additionalKeysP`
-           [ ("M-<Escape>", spawn "~/.xmonad/lock.sh")
+           [ ("M-<Escape>", spawn "~/.config/xmonad/lock.sh")
            , ("M-g", sendMessage $ ToggleGaps)
            , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
            , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
            , ("<XF86AudioMute>", spawn "pamixer -t")
            , ("<XF86AudioRaiseVolume>", spawn "pamixer -i 5")
            , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5")
+           , ("<XF86AudioPlay>", spawn "playerctl play-pause")
+           , ("<XF86AudioStop>", spawn "playerctl stop")
+           , ("<XF86AudioPrev>", spawn "playerctl previous")
+           , ("<XF86AudioNext>", spawn "playerctl next")
            , ("M-C-w", spawn "brave")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")

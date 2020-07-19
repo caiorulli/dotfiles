@@ -30,6 +30,7 @@ docker-compose
 dunst
 dwarffortress
 efibootmgr
+element-desktop
 emacs
 eslint
 exa
@@ -89,6 +90,7 @@ patch
 picom
 pkgconf
 pkgstats
+playerctl
 postgresql
 pulseaudio
 pulseaudio-alsa
@@ -96,7 +98,6 @@ pulseaudio-bluetooth
 python-pipenv
 qtox
 qutebrowser
-riot-desktop
 ripgrep
 rlwrap
 rsync

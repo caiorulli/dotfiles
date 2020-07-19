@@ -1,16 +1,20 @@
 [*]
 id3contenttype=Podcast
-spool=/home/caio/Podcasts
+spool=/home/caio/Music/podcasts
 filename=%(date)-%(title).mp3
 
 [notrelated]
 url=https://notrelated.xyz/rss
-spool=/home/caio/Podcasts/notrelated
+spool=/home/caio/Music/podcasts/notrelated
 
 [pawcast]
 url=https://anchor.fm/s/f6a6558/podcast/rss
-spool=/home/caio/Podcasts/pawcast
+spool=/home/caio/Music/podcasts/pawcast
 
 [hipsters.tech]
 url=https://hipsters.tech/feed/podcast/
-spool=/home/caio/Podcasts/hipsters.tech
+spool=/home/caio/Music/podcasts/hipsters.tech
+
+[nomanifestos]
+url=https://www.nomanifestos.com/feed.xml
+spool=/home/caio/Music/podcasts/nomanifestos
