@@ -38,7 +38,7 @@
        vc
 
        :app
-       rss
+       (rss +org)
 
        :tools
        direnv
@@ -48,7 +48,6 @@
        lsp
 
        :lang
-       (cc +lsp)
        clojure
        (rust +lsp)
        haskell

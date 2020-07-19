@@ -17,7 +17,6 @@ blueman
 bluez-utils
 brave-bin
 cabal-install
-castget
 chromium
 clojure
 cmatrix
