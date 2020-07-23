@@ -18,3 +18,14 @@
 (add-to-list 'default-frame-alist '(alpha 90 90))
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
+
+(setq confirm-kill-processes nil)
+
+(after! emms
+  (emms-all)
+  (emms-default-players)
+  (setq emms-source-file-default-directory "~/Music/"))
+
+(map! :leader
+      :desc "elfeed" "a f" #'elfeed
+      :desc "emms" "a m" #'emms)

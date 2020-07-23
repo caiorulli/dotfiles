@@ -32,7 +32,7 @@
        snippets
 
        :emacs
-       dired
+       (dired +ranger)
        electric
        ibuffer
        vc
