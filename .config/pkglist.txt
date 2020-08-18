@@ -6,6 +6,7 @@ arc-gtk-theme
 autoconf
 automake
 aws-cli
+babashka-bin
 base
 bat
 bdf-unifont
@@ -44,9 +45,10 @@ gcc
 ghc
 gimp
 git
-git-annex
 groff
 grub
+haskell-haddock-library
+haskell-ide-engine
 hdparm
 intel-ucode
 iw
@@ -58,6 +60,7 @@ leiningen
 libtool
 linux
 linux-firmware
+lolcat
 lsof
 m4
 maim
@@ -70,6 +73,7 @@ minecraft-launcher
 mit-scheme
 mpv
 mupdf
+ncurses5-compat-libs
 neofetch
 neovim
 network-manager-applet
@@ -77,6 +81,7 @@ networkmanager
 networkmanager-vpnc
 nftables
 nmap
+noto-fonts-emoji
 ntp
 numlockx
 nvidia
@@ -102,13 +107,11 @@ rlwrap
 rsync
 rtorrent
 ruby
-rust-analyzer
 rust-racer
 rustup
 shellcheck
 smartmontools
 spotify
-spotify-tui
 stack
 steam
 stern-bin

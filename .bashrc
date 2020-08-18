@@ -50,4 +50,10 @@ fi
 [ -s "/usr/share/fzf/key-bindings.bash" ] && source "/usr/share/fzf/key-bindings.bash"
 [ -s "/usr/share/fzf/completion.bash" ] && source "/usr/share/fzf/completion.bash"
 
+powerwolf() {
+  echo "Meu objetivo é a conquista!" | cowsay | lolcat
+  sleep 1
+  poweroff
+}
+
 neofetch

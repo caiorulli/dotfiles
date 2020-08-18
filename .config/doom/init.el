@@ -46,16 +46,19 @@
        (lookup +docsets)
        magit
        lsp
+       (debugger +lsp)
 
        :lang
        clojure
        (rust +lsp)
-       haskell
+       (haskell +lsp)
+       (java +lsp)
        emacs-lisp
        sh
        data
        markdown
        org
+       yaml
 
        :config
        (default +bindings +smartparens))

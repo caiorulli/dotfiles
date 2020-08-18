@@ -9,13 +9,13 @@
   (put-clojure-indent 'flow 1)
   (put-clojure-indent 'provided 0))
 
+(setq lsp-java-autobuild-enabled nil)
+(after! lsp-java
+  (push "-javaagent:/home/caio/.config/doom/lombok.jar" lsp-java-vmargs))
+
 ;; UI config
 (setq doom-theme 'doom-nord)
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 15))
-
-;; Setting transparency
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
 
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
