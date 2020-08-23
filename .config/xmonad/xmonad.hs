@@ -51,7 +51,7 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces = ["term","web","dev","disc","5","6","steam","game", "mus"]
+myWorkspaces = ["term","web","dev","sig","dsc","vid","stm","game", "mus"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --

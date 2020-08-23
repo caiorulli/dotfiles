@@ -50,8 +50,10 @@ grub
 haskell-haddock-library
 haskell-ide-engine
 hdparm
+hugo
 intel-ucode
 iw
+jdk11-openjdk
 jdk8-openjdk
 jq
 kubectl
@@ -110,6 +112,7 @@ ruby
 rust-racer
 rustup
 shellcheck
+signal-desktop
 smartmontools
 spotify
 stack

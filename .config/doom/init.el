@@ -47,17 +47,17 @@
        magit
        lsp
        (debugger +lsp)
+       pdf
 
        :lang
        clojure
        (rust +lsp)
        (haskell +lsp)
-       (java +lsp)
        emacs-lisp
        sh
        data
        markdown
-       org
+       (org +hugo)
        yaml
 
        :config

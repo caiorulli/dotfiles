@@ -55,5 +55,3 @@ powerwolf() {
   sleep 1
   poweroff
 }
-
-neofetch
