@@ -109,6 +109,7 @@ rlwrap
 rsync
 rtorrent
 ruby
+rust-analyzer
 rust-racer
 rustup
 shellcheck
