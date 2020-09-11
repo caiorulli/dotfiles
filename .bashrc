@@ -19,6 +19,7 @@ alias doom='~/.emacs.d/bin/doom'
 alias fehbg='feh --randomize --bg-scale'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 
 PS1='\n\[\e[34m\]<== \u@\h \W ==>\[\e[00m\]\n\$ '
 

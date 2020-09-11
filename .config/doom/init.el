@@ -40,6 +40,9 @@
        :app
        (rss +org)
 
+       :email
+       mu4e
+
        :tools
        direnv
        (eval +overlay)
@@ -51,14 +54,15 @@
 
        :lang
        clojure
+       (cc +lsp)
        (rust +lsp)
        (haskell +lsp)
        emacs-lisp
        sh
        data
        markdown
-       (org +hugo)
        yaml
+       (org +hugo +roam)
 
        :config
        (default +bindings +smartparens))

@@ -1,12 +1,9 @@
 [user]
-	email = crthomaz@protonmail.com
+	email = caio@crthomaz.com.br
 	name = Caio Rulli
 [git]
 	editor = nvim
 [core]
 	editor = nvim
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+[pull]
+	rebase = false

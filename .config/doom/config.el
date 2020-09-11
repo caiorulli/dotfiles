@@ -26,6 +26,18 @@
   (emms-default-players)
   (setq emms-source-file-default-directory "~/Music/"))
 
+(setq +mu4e-mu4e-maildir "~/Mail")
+(set-email-account! "mailbox"
+  '((mu4e-sent-folder       . "/Sent")
+    (mu4e-drafts-folder     . "/Drafts")
+    (mu4e-trash-folder      . "/Trash")
+    (mu4e-compose-signature . "Caio Thomaz")
+    (mu4e-get-mail-command  . "mbsync -c ~/.config/isync/mbsyncrc -a")
+    (user-mail-address      . "caio@crthomaz.com.br")
+    (smtpmail-smtp-user     . "caio@crthomaz.com.br")
+    (smtpmail-smtp-server   . "smtp.mailbox.org")
+    (smtpmail-smtp-service  . 587)))
+
 (map! :leader
       :desc "elfeed" "a f" #'elfeed
       :desc "emms" "a m" #'emms)

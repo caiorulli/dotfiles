@@ -33,7 +33,6 @@ efibootmgr
 element-desktop
 emacs
 eslint
-exa
 fakeroot
 fd
 feh
@@ -52,6 +51,7 @@ haskell-ide-engine
 hdparm
 hugo
 intel-ucode
+isync
 iw
 jdk11-openjdk
 jdk8-openjdk
@@ -74,6 +74,7 @@ mesa-demos
 minecraft-launcher
 mit-scheme
 mpv
+mu
 mupdf
 ncurses5-compat-libs
 neofetch
@@ -102,8 +103,6 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 python-pipenv
-qtox
-qutebrowser
 ripgrep
 rlwrap
 rsync
@@ -121,10 +120,8 @@ steam
 stern-bin
 sudo
 syncthing
-terraform
 texinfo
 tig
-toxic
 udisks2
 unclutter
 unzip
@@ -177,4 +174,3 @@ xorg-xwud
 xss-lock
 yadm
 yay
-ytop
