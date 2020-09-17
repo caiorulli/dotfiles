@@ -16,6 +16,7 @@ bitwarden-cli
 blender
 blueman
 bluez-utils
+bottom
 brave-bin
 cabal-install
 chromium
@@ -93,6 +94,7 @@ nvm
 otf-fantasque-sans-mono
 pamixer
 pass
+pass-import
 patch
 picom
 pkgconf

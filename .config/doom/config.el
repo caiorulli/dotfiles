@@ -9,6 +9,11 @@
   (put-clojure-indent 'flow 1)
   (put-clojure-indent 'provided 0))
 
+;; Rust
+(after! rustic
+  (setq rustic-lsp-server 'rls))
+
+;; Java
 (setq lsp-java-autobuild-enabled nil)
 (after! lsp-java
   (push "-javaagent:/home/caio/.config/doom/lombok.jar" lsp-java-vmargs))
