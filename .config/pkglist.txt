@@ -45,12 +45,14 @@ gcc
 ghc
 gimp
 git
+github-cli
 groff
 grub
 haskell-haddock-library
-haskell-ide-engine
 hdparm
+hlint
 hugo
+i3lock-color
 intel-ucode
 isync
 iw

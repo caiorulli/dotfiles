@@ -307,6 +307,7 @@ defaults = desktopConfig {
            , ("M-C-w", spawn "brave")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
+           , ("M-C-b", spawn "alacritty -e btm")
            , ("M-o", spawn "~/.config/dmenu/setxkbmap.sh")
            ]
 

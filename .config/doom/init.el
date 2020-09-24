@@ -38,6 +38,7 @@
        vc
 
        :app
+       calendar
        (rss +org)
 
        :email
@@ -56,7 +57,7 @@
        clojure
        (cc +lsp)
        (rust +lsp)
-       (haskell +lsp)
+       (haskell +dante)
        emacs-lisp
        sh
        data

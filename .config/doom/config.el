@@ -21,7 +21,6 @@
 ;; UI config
 (setq doom-theme 'doom-nord)
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 15))
-
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
 (setq confirm-kill-processes nil)
