@@ -1,16 +1,6 @@
---
--- xmonad example config file.
---
--- A template showing all available configuration hooks,
--- and how to override the defaults in your own xmonad.hs conf file.
---
--- Normally, you'd only override those defaults you care about.
---
-
 import XMonad
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
-import XMonad.Layout.Gaps
 import XMonad.Util.EZConfig
 import Data.Monoid
 import System.Exit
@@ -18,52 +8,43 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
--- The preferred terminal program, which is used in a binding below and by
--- certain contrib modules.
---
-myTerminal    = "alacritty"
+myTerminal :: String
+myTerminal = "alacritty"
 
--- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
--- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
--- Width of the window border in pixels.
---
-myBorderWidth   = 2
+myBorderWidth :: Dimension
+myBorderWidth = 2
 
--- modMask lets you specify which modkey you want to use. The default
--- is mod1Mask ("left alt").  You may also consider using mod3Mask
--- ("right alt"), which does not conflict with emacs keybindings. The
--- "windows key" is usually mod4Mask.
---
-myModMask       = mod4Mask
+myModMask :: KeyMask
+myModMask = mod4Mask
 
--- The default number of workspaces (virtual screens) and their names.
--- By default we use numeric strings, but any string may be used as a
--- workspace name. The number of workspaces is determined by the length
--- of this list.
---
--- A tagging example:
---
--- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
---
+myWorkspaces :: [String]
 myWorkspaces = ["term","web","dev","sig","dsc","vid","stm","game", "mus"]
 
--- Border colors for unfocused and focused windows, respectively.
---
-nord1 = "#3B4252"
-nord9 = "#81A1C1"
+nord :: [String]
+nord = [ ""
+       , "#3B4252"
+       , ""
+       , ""
+       , ""
+       , ""
+       , ""
+       , ""
+       , ""
+       , "#81A1C1"
+       ]
 
-myNormalBorderColor  = nord1
-myFocusedBorderColor = nord9
+myNormalBorderColor :: String
+myNormalBorderColor  = nord !! 1
 
-------------------------------------------------------------------------
--- Key bindings. Add, modify or remove key bindings here.
---
+myFocusedBorderColor :: String
+myFocusedBorderColor = nord !! 9
+
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
@@ -158,9 +139,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
-------------------------------------------------------------------------
--- Mouse bindings: default actions bound to mouse events
---
 myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
@@ -188,7 +166,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = gaps [(U,10), (D,10), (R,10), (L,10)] $ tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -217,6 +195,7 @@ myLayout = gaps [(U,10), (D,10), (R,10), (L,10)] $ tiled ||| Mirror tiled ||| Fu
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
+myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
@@ -232,6 +211,7 @@ myManageHook = composeAll
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
+myEventHook :: Event -> X All
 myEventHook = mempty
 
 ------------------------------------------------------------------------
@@ -240,6 +220,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
+myLogHook :: X ()
 myLogHook = return ()
 
 ------------------------------------------------------------------------
@@ -250,6 +231,7 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
+myStartupHook :: X ()
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr"
 
@@ -258,10 +240,16 @@ myStartupHook = do
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
+myBar :: String
 myBar = "xmobar"
-myPP = xmobarPP { ppCurrent = xmobarColor nord9 "" . wrap "<" ">" }
+
+myPP :: PP
+myPP = xmobarPP { ppCurrent = xmobarColor (nord !! 9) "" . wrap "<" ">" }
+
+toggleStrutsKey :: XConfig l -> (KeyMask, KeySym)
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
+main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 
 -- A structure containing your configuration settings, overriding
@@ -294,7 +282,6 @@ defaults = desktopConfig {
     }
            `additionalKeysP`
            [ ("M-<Escape>", spawn "~/.config/xmonad/lock.sh")
-           , ("M-g", sendMessage $ ToggleGaps)
            , ("<Print>", spawn "maim | xclip -selection clipboard -t image/png")
            , ("S-<Print>", spawn "maim -s | xclip -selection clipboard -t image/png")
            , ("<XF86AudioMute>", spawn "pamixer -t")
@@ -316,7 +303,7 @@ help :: String
 help = unlines ["The default modifier key is 'alt'. Default keybindings:",
     "",
     "-- launching and killing programs",
-    "mod-Shift-Enter  Launch xterminal",
+    "mod-Shift-Enter  Launch " ++ myTerminal,
     "mod-p            Launch dmenu",
     "mod-Shift-p      Launch passmenu",
     "mod-Shift-c      Close/kill the focused window",

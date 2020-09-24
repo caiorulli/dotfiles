@@ -1,6 +1,9 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
 (setq org-directory "~/Documents/org")
+(setq projectile-project-search-path '("~/Code/"
+                                       "~/Code/oss/"
+                                       "~/Code/suckless"))
 
 ;; Clojure
 (after! clojure-mode
