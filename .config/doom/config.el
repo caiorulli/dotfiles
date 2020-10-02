@@ -1,5 +1,6 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
+;; Directories
 (setq org-directory "~/Documents/org")
 (setq projectile-project-search-path '("~/Code/"
                                        "~/Code/oss/"
@@ -26,6 +27,9 @@
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 15))
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
+(display-time-mode t)
+(display-battery-mode t)
+
 (setq confirm-kill-processes nil)
 
 (after! emms
@@ -33,6 +37,7 @@
   (emms-default-players)
   (setq emms-source-file-default-directory "~/Music/"))
 
+;; Email
 (setq +mu4e-mu4e-maildir "~/Mail")
 (set-email-account! "mailbox"
   '((mu4e-sent-folder       . "/Sent")
@@ -48,3 +53,12 @@
 (map! :leader
       :desc "elfeed" "a f" #'elfeed
       :desc "emms" "a m" #'emms)
+
+;; Transparency
+(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+
+(defun transparency (value)
+  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  (interactive "nTransparency Value 0 - 100 opaque:")
+  (set-frame-parameter (selected-frame) 'alpha value))

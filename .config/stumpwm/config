@@ -1,0 +1,60 @@
+;; -*-lisp-*-
+
+(in-package :stumpwm)
+
+(set-prefix-key (kbd "s-z"))
+
+(defun alist-define-keys (map alist)
+  "define key using alist."
+  (loop for (key . command) in alist
+        do (define-key map (kbd key) command)))
+
+(defmacro create-map (var key &key (on *top-map*))
+  `(progn
+     (defparameter ,var (make-sparse-keymap))
+     (define-key ,on (kbd ,key) ',var)
+     ,var))
+
+(alist-define-keys *top-map*
+                   '(("s-h" . "move-focus left")
+                     ("s-j" . "move-focus down")
+                     ("s-k" . "move-focus up")
+                     ("s-l" . "move-focus right")
+
+                     ("s-H" . "move-window left")
+                     ("s-J" . "move-window down")
+                     ("s-K" . "move-window up")
+                     ("s-L" . "move-window right")
+
+                     ("s-M-H" . "exchange-direction left")
+                     ("s-M-J" . "exchange-direction down")
+                     ("s-M-K" . "exchange-direction up")
+                     ("s-M-L" . "exchange-direction right")
+
+                     ("s-a" . "time")
+                     ("s-;" . "colon")
+                     ("s-!" . "exec")
+
+                     ("s-b" . "fullscreen")
+
+                     ("s-TAB" . "grouplist")
+
+                     ("s-m" . "banish window")
+
+                     ("s-n" . "next-in-frame")
+                     ("s-p" . "prev-in-frame")
+
+                     ("s-q" . "session-menu")
+
+                     ("s-o" . "show-menu")
+
+                     ("s-x" . "run-shell-command")))
+
+(loop for i from 1 to 9
+      do (let ((key (kbd (format nil "s-~A" i)))
+               (action (format nil "select-window-by-number ~A" (1- i))))
+           (define-key *top-map* key action)))
+
+;; Message window font
+(set-font "Fantasque Sans Mono")
+

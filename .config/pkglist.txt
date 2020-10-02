@@ -20,6 +20,7 @@ bottom
 brave-bin
 cabal-install
 chromium
+clj-kondo-bin
 clojure
 cmatrix
 cowsay
@@ -56,8 +57,10 @@ i3lock-color
 intel-ucode
 isync
 iw
+jdk11-graalvm-bin
 jdk11-openjdk
 jdk8-openjdk
+jet-bin
 jq
 kubectl
 kubectx
@@ -79,6 +82,7 @@ mit-scheme
 mpv
 mu
 mupdf
+native-image-jdk11-bin
 ncurses5-compat-libs
 neofetch
 neovim
@@ -115,6 +119,7 @@ ruby
 rust-analyzer
 rust-racer
 rustup
+sbcl
 shellcheck
 signal-desktop
 smartmontools
@@ -125,6 +130,7 @@ stern-bin
 sudo
 syncthing
 texinfo
+thunderbird
 tig
 udisks2
 unclutter
