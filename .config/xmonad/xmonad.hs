@@ -24,19 +24,25 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myWorkspaces :: [String]
-myWorkspaces = ["term","web","dev","sig","dsc","vid","stm","game", "mus"]
+myWorkspaces = ["term","web","dev","disc","sig","vid","stm","game", "mus"]
 
 nord :: [String]
-nord = [ ""
+nord = [ "#2E3440"
        , "#3B4252"
-       , ""
-       , ""
-       , ""
-       , ""
-       , ""
-       , ""
-       , ""
+       , "#434C5E"
+       , "#4C566A"
+       , "#D8DEE9"
+       , "#E5E9F0"
+       , "#ECEFF4"
+       , "#8FBCBB"
+       , "#88C0D0"
        , "#81A1C1"
+       , "#5E81AC"
+       , "#BF616A"
+       , "#D08770"
+       , "#EBCB8B"
+       , "#A3BE8C"
+       , "#B48EAD"
        ]
 
 myNormalBorderColor :: String
@@ -166,6 +172,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
+myLayout :: Choose Tall (Choose (Mirror Tall) Full) a
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -258,6 +265,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 --
 -- No need to modify this.
 --
+defaults :: XConfig (Choose Tall (Choose (Mirror Tall) Full))
 defaults = desktopConfig {
       -- simple stuff
         terminal           = myTerminal,

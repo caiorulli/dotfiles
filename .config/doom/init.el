@@ -58,6 +58,7 @@
        scheme
        common-lisp
        emacs-lisp
+       (cc +lsp)
        (rust +lsp)
        (haskell +dante)
        sh

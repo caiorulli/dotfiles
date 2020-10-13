@@ -27,9 +27,6 @@
 (setq doom-font (font-spec :family "Fantasque Sans Mono" :size 15))
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
-(display-time-mode t)
-(display-battery-mode t)
-
 (setq confirm-kill-processes nil)
 
 (after! emms

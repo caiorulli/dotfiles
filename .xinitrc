@@ -43,4 +43,7 @@ picom &
 unclutter &
 dunst &
 
-exec xmonad
+# exec xmonad
+
+dwmblocks &
+exec dwm
