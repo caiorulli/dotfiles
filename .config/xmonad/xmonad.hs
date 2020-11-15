@@ -2,8 +2,10 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.LayoutModifier
+import XMonad.Layout.Tabbed
+import XMonad.Prompt.XMonad
 import XMonad.Util.EZConfig
+import XMonad.Util.SpawnOnce
 import Data.Monoid
 import System.Exit
 
@@ -144,8 +146,7 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout :: (Choose Tall (Choose (Mirror Tall) Full)) a
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = tiled ||| Mirror tiled ||| Full ||| simpleTabbed
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -176,12 +177,15 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
-    [ isFullscreen                  --> doFullFloat
-    , className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
-    , title     =? "Steam"          --> doShift ( myWorkspaces !! 6 )
-    , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    [ isFullscreen           --> doFullFloat
+    , className =? "MPlayer" --> doFloat
+    , className =? "Gimp"    --> doFloat
+    , className =? "firefox" --> doShift ( myWorkspaces !! 1 )
+    , className =? "emacs"   --> doShift ( myWorkspaces !! 2 )
+    , className =? "discord" --> doShift ( myWorkspaces !! 3 )
+    , className =? "signal"  --> doShift ( myWorkspaces !! 4 )
+    , title     =? "Steam"   --> doShift ( myWorkspaces !! 6 )
+    , className =? "spotify" --> doShift ( myWorkspaces !! 8 )]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -213,7 +217,11 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook :: X ()
-myStartupHook = return ()
+myStartupHook = do
+  spawnOnce "firefox"
+  spawnOnce "emacs"
+  spawnOnce "steam"
+  spawnOnce "discord"
 
 myBar :: String
 myBar = "xmobar"
@@ -227,7 +235,6 @@ toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm, xK_b)
 main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey xConfig
 
-xConfig :: XConfig (ModifiedLayout FullscreenFull (Choose Tall (Choose (Mirror Tall) Full)))
 xConfig = fullscreenSupport $ def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -260,8 +267,10 @@ xConfig = fullscreenSupport $ def {
            , ("<XF86AudioNext>", spawn "playerctl next")
            , ("M-C-w", spawn "firefox")
            , ("M-C-e", spawn "emacs")
-           , ("M-C-s", spawn "spotify")
+           , ("M-C-s", spawn "steam")
+           , ("M-C-d", spawn "discord")
            , ("M-C-b", spawn "alacritty -e btm")
+           , ("M-i", xmonadPrompt def)
            , ("M-o", spawn "~/.config/dmenu/setxkbmap.sh")
            ]
 
