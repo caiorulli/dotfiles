@@ -1,6 +1,8 @@
 import XMonad
-import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.LayoutModifier
 import XMonad.Util.EZConfig
 import Data.Monoid
 import System.Exit
@@ -51,21 +53,13 @@ myNormalBorderColor  = nord !! 1
 myFocusedBorderColor :: String
 myFocusedBorderColor = nord !! 9
 
-myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
+myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
-    -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
-
-    -- launch dmenu
     , ((modm,               xK_p     ), spawn "dmenu_run")
-
-    -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "passmenu")
-
-    -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
-
-     -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
     --  Reset the layouts on the current workspace to default
@@ -74,40 +68,21 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
 
-    -- Move focus to the next window
     , ((modm,               xK_Tab   ), windows W.focusDown)
-
-    -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
-
-    -- Move focus to the previous window
     , ((modm,               xK_k     ), windows W.focusUp  )
-
-    -- Move focus to the master window
     , ((modm,               xK_m     ), windows W.focusMaster  )
-
-    -- Swap the focused window and the master window
     , ((modm,               xK_Return), windows W.swapMaster)
-
-    -- Swap the focused window with the next window
     , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
-
-    -- Swap the focused window with the previous window
     , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
 
-    -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
-
-    -- Expand the master area
     , ((modm,               xK_l     ), sendMessage Expand)
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
-    -- Increment the number of windows in the master area
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
-
-    -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Toggle the status bar gap
@@ -116,10 +91,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
-    -- Quit xmonad
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
-
-    -- Restart xmonad
+    , ((modm .|. shiftMask, xK_q     ), io exitSuccess)
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- Run xmessage with a summary of the default keybindings (useful for beginners)
@@ -144,19 +116,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-
-myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
+myMouseBindings :: XConfig l -> M.Map (KeyMask, Button) (Window -> X ())
+myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- mod-button1, Set the window to floating mode and move by dragging
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
+    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
+                                      >> windows W.shiftMaster)
 
     -- mod-button2, Raise the window to the top of the stack
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
+    , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
 
     -- mod-button3, Set the window to floating mode and resize by dragging
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
+    , ((modm, button3), \w -> focus w >> mouseResizeWindow w
+                                      >> windows W.shiftMaster)
 
     -- you may also bind events to the mouse scroll wheel (button4 and button5)
     ]
@@ -172,7 +144,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout :: Choose Tall (Choose (Mirror Tall) Full) a
+myLayout :: (Choose Tall (Choose (Mirror Tall) Full)) a
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -204,8 +176,10 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
+    [ isFullscreen                  --> doFullFloat
+    , className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+    , title     =? "Steam"          --> doShift ( myWorkspaces !! 6 )
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
 
@@ -239,14 +213,8 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook :: X ()
-myStartupHook = do
-  spawn "xsetroot -cursor_name left_ptr"
+myStartupHook = return ()
 
-------------------------------------------------------------------------
--- Now run xmonad with all the defaults we set up.
-
--- Run xmonad with the settings you specify. No need to modify this.
---
 myBar :: String
 myBar = "xmobar"
 
@@ -254,20 +222,13 @@ myPP :: PP
 myPP = xmobarPP { ppCurrent = xmobarColor (nord !! 9) "" . wrap "<" ">" }
 
 toggleStrutsKey :: XConfig l -> (KeyMask, KeySym)
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
+toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm, xK_b)
 
 main :: IO ()
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey xConfig
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults :: XConfig (Choose Tall (Choose (Mirror Tall) Full))
-defaults = desktopConfig {
-      -- simple stuff
+xConfig :: XConfig (ModifiedLayout FullscreenFull (Choose Tall (Choose (Mirror Tall) Full)))
+xConfig = fullscreenSupport $ def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -277,11 +238,9 @@ defaults = desktopConfig {
         normalBorderColor  = myNormalBorderColor,
         focusedBorderColor = myFocusedBorderColor,
 
-      -- key bindings
         keys               = myKeys,
         mouseBindings      = myMouseBindings,
 
-      -- hooks, layouts
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
@@ -299,7 +258,7 @@ defaults = desktopConfig {
            , ("<XF86AudioStop>", spawn "playerctl stop")
            , ("<XF86AudioPrev>", spawn "playerctl previous")
            , ("<XF86AudioNext>", spawn "playerctl next")
-           , ("M-C-w", spawn "brave")
+           , ("M-C-w", spawn "firefox")
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "spotify")
            , ("M-C-b", spawn "alacritty -e btm")
@@ -308,7 +267,7 @@ defaults = desktopConfig {
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
-help = unlines ["The default modifier key is 'alt'. Default keybindings:",
+help = unlines ["The modifier key is 'super'. Keybindings:",
     "",
     "-- launching and killing programs",
     "mod-Shift-Enter  Launch " ++ myTerminal,

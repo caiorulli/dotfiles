@@ -55,12 +55,10 @@
 
        :lang
        clojure
-       scheme
-       common-lisp
        emacs-lisp
+       (haskell +dante)
        (cc +lsp)
        (rust +lsp)
-       (haskell +dante)
        sh
        data
        markdown

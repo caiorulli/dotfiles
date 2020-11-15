@@ -19,7 +19,6 @@ bluez-utils
 bottom
 brave-bin
 cabal-install
-chromium
 clj-kondo-bin
 clojure
 cmatrix
@@ -50,6 +49,7 @@ github-cli
 groff
 grub
 haskell-haddock-library
+haskell-language-server-bin
 hdparm
 hlint
 hugo
@@ -63,11 +63,11 @@ jdk8-openjdk
 jet-bin
 jq
 kubectl
-kubectx
 leiningen
 libtool
 linux
 linux-firmware
+linux-headers
 lolcat
 lsof
 lutris
@@ -75,11 +75,9 @@ m4
 maim
 make
 man-pages
-mariadb-clients
 maven
 mesa-demos
 minecraft-launcher
-mit-scheme
 mpv
 mu
 mupdf
@@ -95,7 +93,6 @@ nmap
 noto-fonts-emoji
 ntp
 numlockx
-nvidia
 nvidia-prime
 nvm
 otf-fantasque-sans-mono
@@ -121,7 +118,6 @@ ruby
 rust-analyzer
 rust-racer
 rustup
-sbcl
 shellcheck
 signal-desktop
 smartmontools
@@ -138,6 +134,7 @@ tig
 udisks2
 unclutter
 unzip
+virtualbox
 vlc
 vulkan-headers
 vulkan-intel
