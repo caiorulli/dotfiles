@@ -1,9 +1,9 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.Tabbed
-import XMonad.Prompt.XMonad
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Actions.NoBorders
+import XMonad.Actions.GridSelect
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
 import Data.Monoid
@@ -83,6 +83,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     -- Push window back into tiling
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+    , ((modm,               xK_g     ), withFocused toggleBorder)
 
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
@@ -146,7 +147,7 @@ myMouseBindings XConfig {XMonad.modMask = modm} = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full ||| simpleTabbed
+myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -197,7 +198,7 @@ myManageHook = composeAll
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
 myEventHook :: Event -> X All
-myEventHook = mempty
+myEventHook = fullscreenEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -219,9 +220,19 @@ myLogHook = return ()
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "firefox"
-  spawnOnce "emacs"
   spawnOnce "steam"
-  spawnOnce "discord"
+
+keyboardGridSelect :: [(String, X())]
+keyboardGridSelect =
+  [ ("BR", spawn "setxkbmap br")
+  , ("US", spawn "setxkbmap us -variant alt-intl")
+  ]
+
+monitorGridSelect :: [(String, X ())]
+monitorGridSelect =
+  [ ("Two monitors", spawn "xrandr --output HDMI1 --auto --right-of eDP1; ~/.fehbg")
+  , ("One monitor", spawn "xrandr --output HDMI1 --off; ~/.fehbg")
+  ]
 
 myBar :: String
 myBar = "xmobar"
@@ -235,7 +246,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm, xK_b)
 main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey xConfig
 
-xConfig = fullscreenSupport $ def {
+xConfig = ewmh $ def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -269,9 +280,11 @@ xConfig = fullscreenSupport $ def {
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "steam")
            , ("M-C-d", spawn "discord")
-           , ("M-C-b", spawn "alacritty -e btm")
-           , ("M-i", xmonadPrompt def)
-           , ("M-o", spawn "~/.config/dmenu/setxkbmap.sh")
+           , ("M-C-b", spawn "bluetooth-manager")
+           , ("M-C-m", spawn "alacritty -e btm")
+           , ("M-o", runSelectedAction def keyboardGridSelect)
+           , ("M-x", runSelectedAction def monitorGridSelect)
+           -- , ("M-S-h", debugStackFull)
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
