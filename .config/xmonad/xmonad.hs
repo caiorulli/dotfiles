@@ -1,6 +1,5 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Actions.NoBorders
 import XMonad.Actions.GridSelect
@@ -178,15 +177,16 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
-    [ isFullscreen           --> doFullFloat
-    , className =? "MPlayer" --> doFloat
-    , className =? "Gimp"    --> doFloat
-    , className =? "firefox" --> doShift ( myWorkspaces !! 1 )
-    , className =? "emacs"   --> doShift ( myWorkspaces !! 2 )
-    , className =? "discord" --> doShift ( myWorkspaces !! 3 )
-    , className =? "signal"  --> doShift ( myWorkspaces !! 4 )
-    , title     =? "Steam"   --> doShift ( myWorkspaces !! 6 )
-    , className =? "spotify" --> doShift ( myWorkspaces !! 8 )]
+    [ className =? "MPlayer"      --> doFloat
+    , className =? "Gimp"         --> doFloat
+    , className =? "firefox"      --> doShift ( myWorkspaces !! 1 )
+    , className =? "emacs"        --> doShift ( myWorkspaces !! 2 )
+    , className =? "discord"      --> doShift ( myWorkspaces !! 3 )
+    , className =? "signal"       --> doShift ( myWorkspaces !! 3 )
+    , className =? "Thunderbird"  --> doShift ( myWorkspaces !! 3 )
+    , title     =? "Steam"        --> doShift ( myWorkspaces !! 6 )
+    , title     =? "Friends List" --> doShift ( myWorkspaces !! 6 ) <+> doFloat
+    , className =? "spotify"      --> doShift ( myWorkspaces !! 8 )]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -282,9 +282,9 @@ xConfig = ewmh $ def {
            , ("M-C-d", spawn "discord")
            , ("M-C-b", spawn "bluetooth-manager")
            , ("M-C-m", spawn "alacritty -e btm")
+           , ("M-C-p", spawn "alacritty -e pulsemixer")
            , ("M-o", runSelectedAction def keyboardGridSelect)
            , ("M-x", runSelectedAction def monitorGridSelect)
-           -- , ("M-S-h", debugStackFull)
            ]
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
