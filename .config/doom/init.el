@@ -38,11 +38,7 @@
        vc
 
        :app
-       calendar
        (rss +org)
-
-       :email
-       mu4e
 
        :tools
        direnv
@@ -63,7 +59,7 @@
        data
        markdown
        yaml
-       (org +hugo +roam)
+       (org +hugo)
 
        :config
        (default +bindings +smartparens))

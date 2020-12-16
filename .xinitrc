@@ -36,7 +36,7 @@ fi
 xsetroot -cursor_name left_ptr
 
 # Keymap setup
-setxkbmap br
+setxkbmap us -variant alt-intl
 
 ~/.fehbg
 picom &

@@ -83,5 +83,5 @@ Config { font = "xft:Fantasque Sans Mono:pixelsize=13:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %dynnetwork% | %RJTT% | %battery% | %date% || %kbd% "
+       , template = "%StdinReader% }{ %dynnetwork% | %multicpu% | %coretemp% | %date% || %kbd% "
        }

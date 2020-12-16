@@ -38,10 +38,17 @@ export NVM_DIR="$XDG_DATA_HOME/nvm"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
+export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
+export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
 
-# Direnv setup
-if type direnv > /dev/null; then
-    eval "$(direnv hook bash)"
+# Create xmonad directories if needed be
+if [ ! -d "$XDG_DATA_HOME/xmonad" ]; then
+  mkdir "$XDG_DATA_HOME/xmonad";
+fi
+
+if [ ! -d "$XDG_CACHE_HOME/xmonad" ]; then
+  mkdir "$XDG_CACHE_HOME/xmonad";
 fi
 
 # nvm setup
