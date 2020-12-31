@@ -53,8 +53,10 @@
        clojure
        emacs-lisp
        (haskell +dante)
+       (elixir +lsp)
        (cc +lsp)
        (rust +lsp)
+       (go +lsp)
        sh
        data
        markdown

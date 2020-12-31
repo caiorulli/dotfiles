@@ -24,12 +24,15 @@ cmatrix
 cowsay
 curl
 dhcpcd
+direnv
 discord
 discount
 docker-compose
 dunst
 dwarffortress
 efibootmgr
+elixir
+elixir-ls
 emacs
 eslint
 fakeroot

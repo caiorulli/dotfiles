@@ -27,7 +27,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myWorkspaces :: [String]
-myWorkspaces = ["term","web","dev","disc","etc","mail","steam","game","music"]
+myWorkspaces = ["term","web","emacs","disc","etc","mail","steam","game","music"]
 
 nord :: [String]
 nord = [ "#2E3440"
@@ -280,7 +280,7 @@ xConfig = ewmh $ def {
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "steam")
            , ("M-C-d", spawn "discord")
-           , ("M-C-b", spawn "bluetooth-manager")
+           , ("M-C-b", spawn "blueman-manager")
            , ("M-C-m", spawn "alacritty -e btm")
            , ("M-C-p", spawn "alacritty -e pulsemixer")
            , ("M-o", runSelectedAction def keyboardGridSelect)
