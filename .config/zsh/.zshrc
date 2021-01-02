@@ -3,10 +3,18 @@ autoload -Uz promptinit compinit
 promptinit
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
-prompt bart
+prompt_mytheme_setup() {
+  PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "
+}
+
+prompt_themes+=( mytheme )
+prompt mytheme
 
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt EXTENDED_HISTORY
 
 bindkey -e
 
@@ -15,6 +23,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
+alias l='ls -la --color'
 alias gst='git status'
 alias gco='git checkout'
 alias doom='~/.emacs.d/bin/doom'

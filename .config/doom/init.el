@@ -48,6 +48,7 @@
        lsp
        (debugger +lsp)
        pdf
+       docker
 
        :lang
        clojure

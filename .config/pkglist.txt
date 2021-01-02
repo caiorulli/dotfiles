@@ -18,6 +18,7 @@ blueman
 bluez-utils
 bottom
 cabal-install
+ckb-next
 clj-kondo-bin
 clojure
 cmatrix
@@ -42,6 +43,7 @@ firefox
 flex
 foliate
 fzf
+gamemode
 gcc
 gdb
 ghc
@@ -67,6 +69,7 @@ linux-firmware
 linux-headers
 lolcat
 lsof
+lutris
 m4
 maim
 make
@@ -89,6 +92,7 @@ noto-fonts-emoji
 ntp
 numlockx
 nvm
+openrgb
 otf-fantasque-sans-mono
 pamixer
 pass
@@ -182,3 +186,7 @@ xss-lock
 yadm
 yay
 zenpower-dkms
+zsh
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting

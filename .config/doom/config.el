@@ -2,8 +2,7 @@
 
 ;; Directories
 (setq org-directory "~/Documents/org")
-(setq projectile-project-search-path '("~/Code/"
-                                       "~/Code/oss/"))
+(setq projectile-project-search-path '("~/Code/"))
 
 ;; Clojure
 (after! clojure-mode

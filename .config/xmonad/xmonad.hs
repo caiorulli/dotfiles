@@ -220,6 +220,7 @@ myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "firefox"
   spawnOnce "steam"
+  spawnOnce "thunderbird"
   spawnOnce "xrandr --output HDMI-A-0 --set TearFree on"
 
 keyboardGridSelect :: [(String, X())]
