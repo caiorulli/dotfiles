@@ -220,7 +220,6 @@ myLogHook = return ()
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce "firefox"
-  spawnOnce "steam"
 
 keyboardGridSelect :: [(String, X())]
 keyboardGridSelect =
