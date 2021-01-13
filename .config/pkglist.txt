@@ -17,7 +17,9 @@ blender
 blueman
 bluez-utils
 bottom
+brave-bin
 cabal-install
+chromium
 ckb-next
 clj-kondo-bin
 clojure
@@ -39,7 +41,6 @@ eslint
 fakeroot
 fd
 feh
-firefox
 flex
 foliate
 fzf
@@ -50,6 +51,7 @@ ghc
 gimp
 git
 github-cli
+godot
 grub
 haskell-haddock-library
 hdparm
@@ -57,6 +59,7 @@ hlint
 i3lock-color
 isync
 iw
+jdk-openjdk
 jdk11-openjdk
 jdk8-openjdk
 jq
@@ -86,6 +89,7 @@ neovim
 network-manager-applet
 networkmanager
 networkmanager-vpnc
+newsboat
 nftables
 nmap
 noto-fonts-emoji

@@ -14,6 +14,9 @@ import qualified Data.Map        as M
 myTerminal :: String
 myTerminal = "alacritty"
 
+myBrowser :: String
+myBrowser = "brave"
+
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
 
@@ -178,7 +181,7 @@ myLayout = tiled ||| Mirror tiled ||| Full
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
     [ className =? "Gimp"         --> doFloat
-    , className =? "firefox"      --> doShift ( myWorkspaces !! 1 )
+    , className =? myBrowser      --> doShift ( myWorkspaces !! 1 )
     , className =? "emacs"        --> doShift ( myWorkspaces !! 2 )
     , className =? "discord"      --> doShift ( myWorkspaces !! 3 )
     , className =? "signal"       --> doShift ( myWorkspaces !! 4 )
@@ -218,7 +221,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook :: X ()
 myStartupHook = do
-  spawnOnce "firefox"
+  spawnOnce myBrowser
   spawnOnce "steam"
   spawnOnce "thunderbird"
   spawnOnce "xrandr --output HDMI-A-0 --set TearFree on"
@@ -277,12 +280,13 @@ xConfig = ewmh $ def {
            , ("<XF86AudioStop>", spawn "playerctl stop")
            , ("<XF86AudioPrev>", spawn "playerctl previous")
            , ("<XF86AudioNext>", spawn "playerctl next")
-           , ("M-C-w", spawn "firefox")
+           , ("M-C-w", spawn myBrowser)
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "steam")
            , ("M-C-d", spawn "discord")
            , ("M-C-b", spawn "blueman-manager")
            , ("M-C-m", spawn "alacritty -e btm")
+           , ("M-C-n", spawn "alacritty -e newsboat")
            , ("M-C-p", spawn "alacritty -e pulsemixer")
            , ("M-o", runSelectedAction def keyboardGridSelect)
            , ("M-x", runSelectedAction def monitorGridSelect)

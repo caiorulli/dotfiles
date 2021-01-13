@@ -6,10 +6,15 @@
 
 ;; Clojure
 (after! clojure-mode
+  ;; Midje
   (put-clojure-indent 'fact 1)
   (put-clojure-indent 'facts 1)
   (put-clojure-indent 'flow 1)
-  (put-clojure-indent 'provided 0))
+  (put-clojure-indent 'provided 0)
+
+  ;; Morse
+  (put-clojure-indent 'command-fn 1)
+  (put-clojure-indent 'message-fn 1))
 
 ;; Rust
 (after! rustic
