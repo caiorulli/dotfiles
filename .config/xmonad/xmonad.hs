@@ -180,15 +180,15 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
-    [ className =? "Gimp"         --> doFloat
-    , className =? myBrowser      --> doShift ( myWorkspaces !! 1 )
-    , className =? "emacs"        --> doShift ( myWorkspaces !! 2 )
-    , className =? "discord"      --> doShift ( myWorkspaces !! 3 )
-    , className =? "signal"       --> doShift ( myWorkspaces !! 4 )
-    , className =? "Thunderbird"  --> doShift ( myWorkspaces !! 5 )
-    , title     =? "Steam"        --> doShift ( myWorkspaces !! 6 )
-    , title     =? "Friends List" --> doShift ( myWorkspaces !! 6 ) <+> doFloat
-    , className =? "spotify"      --> doShift ( myWorkspaces !! 8 )]
+    [ className =? "Gimp"          --> doFloat
+    , className =? "Brave-browser" --> doShift ( myWorkspaces !! 1 )
+    , className =? "emacs"         --> doShift ( myWorkspaces !! 2 )
+    , className =? "discord"       --> doShift ( myWorkspaces !! 3 )
+    , className =? "signal"        --> doShift ( myWorkspaces !! 4 )
+    , className =? "Thunderbird"   --> doShift ( myWorkspaces !! 5 )
+    , title     =? "Steam"         --> doShift ( myWorkspaces !! 6 )
+    , title     =? "Friends List"  --> doShift ( myWorkspaces !! 6 ) <+> doFloat
+    , className =? "spotify"       --> doShift ( myWorkspaces !! 8 )]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -284,7 +284,9 @@ xConfig = ewmh $ def {
            , ("M-C-e", spawn "emacs")
            , ("M-C-s", spawn "steam")
            , ("M-C-d", spawn "discord")
-           , ("M-C-b", spawn "blueman-manager")
+           , ("M-C-b b", spawn "bluetoothctl -- connect 38:18:4C:02:70:5B")
+           , ("M-C-b B", spawn "bluetoothctl -- disconnect 38:18:4C:02:70:5B")
+           , ("M-C-b m", spawn "blueman-manager")
            , ("M-C-m", spawn "alacritty -e btm")
            , ("M-C-n", spawn "alacritty -e newsboat")
            , ("M-C-p", spawn "alacritty -e pulsemixer")
