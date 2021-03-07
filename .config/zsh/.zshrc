@@ -32,6 +32,11 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 
+powerwolf() {
+  borg create --verbose ::'{now}' ~/Documents ~/Pictures ~/Videos && \
+      poweroff
+}
+
 # nvm setup
 [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 

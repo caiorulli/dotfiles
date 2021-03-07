@@ -27,7 +27,6 @@
        file-templates
        fold
        multiple-cursors
-       parinfer
        rotate-text
        snippets
 
@@ -51,13 +50,13 @@
        docker
 
        :lang
-       clojure
        emacs-lisp
-       (haskell +dante)
        (elixir +lsp)
+       (haskell +dante)
        (cc +lsp)
        (rust +lsp)
        (go +lsp)
+       python
        sh
        data
        markdown

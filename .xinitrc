@@ -42,8 +42,7 @@ setxkbmap us -variant alt-intl
 picom &
 unclutter &
 dunst &
+udiskie &
 
 exec xmonad
 
-# dwmblocks &
-# exec dwm

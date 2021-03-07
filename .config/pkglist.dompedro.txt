@@ -3,10 +3,11 @@ alacritty
 alsa-firmware
 alsa-utils
 amd-ucode
+anki
 arc-gtk-theme
+arp-scan
 autoconf
 automake
-aws-cli
 babashka-bin
 base
 bat
@@ -16,6 +17,7 @@ bison
 blender
 blueman
 bluez-utils
+borg
 bottom
 brave-bin
 cabal-install
@@ -63,6 +65,7 @@ jdk-openjdk
 jdk11-openjdk
 jdk8-openjdk
 jq
+khal
 leiningen
 lib32-mesa
 lib32-vulkan-radeon
@@ -72,7 +75,6 @@ linux-firmware
 linux-headers
 lolcat
 lsof
-lutris
 m4
 maim
 make
@@ -98,6 +100,7 @@ numlockx
 nvm
 openrgb
 otf-fantasque-sans-mono
+otf-ipafont
 pamixer
 pass
 patch
@@ -111,8 +114,10 @@ pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
+pyenv
 python-pipenv
 qpdf
+ranger
 ripgrep
 rlwrap
 rofi
@@ -130,14 +135,21 @@ steam-native-runtime
 stress
 sudo
 syncthing
+telegram-desktop
 texinfo
 thunderbird
 tig
+ttf-hanazono
+ttf-sazanami
+udiskie
 udisks2
 unclutter
 unzip
+virtualbox
+virtualbox-host-modules-arch
 vulkan-radeon
 vulkan-tools
+w3m
 wget
 which
 winetricks

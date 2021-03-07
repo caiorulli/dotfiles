@@ -30,7 +30,7 @@ myModMask :: KeyMask
 myModMask = mod4Mask
 
 myWorkspaces :: [String]
-myWorkspaces = ["term","web","emacs","disc","etc","mail","steam","game","music"]
+myWorkspaces = ["term","web","emacs","chat","mail","etc","steam","game","music"]
 
 nord :: [String]
 nord = [ "#2E3440"
@@ -62,7 +62,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} = M.fromList $
 
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
     , ((modm,               xK_p     ), spawn "rofi -show run")
-    , ((modm .|. shiftMask, xK_p     ), spawn "passmenu")
+    , ((modm .|. shiftMask, xK_p     ), spawn "rofi -show drun")
     , ((modm .|. shiftMask, xK_c     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
 
@@ -180,15 +180,18 @@ myLayout = tiled ||| Mirror tiled ||| Full
 --
 myManageHook :: Query (Endo WindowSet)
 myManageHook = composeAll
-    [ className =? "Gimp"          --> doFloat
-    , className =? "Brave-browser" --> doShift ( myWorkspaces !! 1 )
-    , className =? "emacs"         --> doShift ( myWorkspaces !! 2 )
-    , className =? "discord"       --> doShift ( myWorkspaces !! 3 )
-    , className =? "signal"        --> doShift ( myWorkspaces !! 4 )
-    , className =? "Thunderbird"   --> doShift ( myWorkspaces !! 5 )
-    , title     =? "Steam"         --> doShift ( myWorkspaces !! 6 )
-    , title     =? "Friends List"  --> doShift ( myWorkspaces !! 6 ) <+> doFloat
-    , className =? "spotify"       --> doShift ( myWorkspaces !! 8 )]
+    [ className =? "Gimp"             --> doFloat
+    , className =? "Anki"             --> doFloat
+    , className =? "feh"              --> doFloat
+    , className =? "Brave-browser"    --> doShift ( myWorkspaces !! 1 )
+    , className =? "emacs"            --> doShift ( myWorkspaces !! 2 )
+    , className =? "discord"          --> doShift ( myWorkspaces !! 3 )
+    , className =? "signal"           --> doShift ( myWorkspaces !! 3 )
+    , className =? "telegram-desktop" --> doShift ( myWorkspaces !! 3 )
+    , className =? "Thunderbird"      --> doShift ( myWorkspaces !! 4 )
+    , title     =? "Steam"            --> doShift ( myWorkspaces !! 6 )
+    , title     =? "Friends List"     --> doShift ( myWorkspaces !! 6 ) <+> doFloat
+    , className =? "spotify"          --> doShift ( myWorkspaces !! 8 )]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -222,8 +225,8 @@ myLogHook = return ()
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce myBrowser
-  spawnOnce "steam"
   spawnOnce "thunderbird"
+  spawnOnce "steam"
   spawnOnce "xrandr --output HDMI-A-0 --set TearFree on"
 
 keyboardGridSelect :: [(String, X())]
