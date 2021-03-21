@@ -51,17 +51,16 @@
 
        :lang
        emacs-lisp
-       (elixir +lsp)
+       common-lisp
        (haskell +dante)
-       (cc +lsp)
+       cc
        (rust +lsp)
-       (go +lsp)
        python
        sh
        data
        markdown
        yaml
-       (org +hugo)
+       org
 
        :config
        (default +bindings +smartparens))

@@ -31,6 +31,8 @@ alias fehbg='feh --randomize --bg-scale'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+alias csi='chicken-csi'
+alias csc='chicken-csc'
 
 powerwolf() {
   borg create --verbose ::'{now}' ~/Documents ~/Pictures ~/Videos && \
