@@ -17,3 +17,7 @@
 
 ;; Scheme
 (package! geiser)
+
+;; Org
+(package! org)
+(package! evil-org)

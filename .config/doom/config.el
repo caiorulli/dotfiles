@@ -1,7 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
 ;; Directories
-(setq org-directory "~/Org")
+
 (setq projectile-project-search-path '("~/Code/"))
 
 ;; Paredit
@@ -160,6 +160,18 @@
 (setq lsp-java-autobuild-enabled nil)
 (after! lsp-java
   (push "-javaagent:/home/caio/.config/doom/lombok.jar" lsp-java-vmargs))
+
+;; Org
+
+(use-package! org
+  :config
+  (setq org-directory "~/Org"))
+
+(use-package! evil-org
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (evil-org-set-key-theme '(navigation insert textobjects additional calendar)))
 
 ;; UI config
 

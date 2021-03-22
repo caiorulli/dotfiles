@@ -60,7 +60,6 @@
        data
        markdown
        yaml
-       org
 
        :config
        (default +bindings +smartparens))
