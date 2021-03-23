@@ -8,6 +8,7 @@
 
 ;; General
 (package! paredit)
+(package! yaml-mode)
 
 ;; Clojure
 (package! clojure-mode)

@@ -15,7 +15,6 @@
        modeline
        nav-flash
        ophints
-       (popup +all +defaults)
        treemacs
        vc-gutter
        vi-tilde-fringe
@@ -55,10 +54,7 @@
        cc
        (rust +lsp)
        python
-       sh
-       data
        markdown
-       yaml
 
        :config
        (default +bindings +smartparens))

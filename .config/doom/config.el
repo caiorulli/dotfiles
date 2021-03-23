@@ -19,6 +19,8 @@
     "M->" #'paredit-forward-barf-sexp
     "M-<" #'paredit-backward-barf-sexp)))
 
+(use-package! yaml-mode)
+
 ;; Clojure
 
 (after! projectile
@@ -120,32 +122,16 @@
 ;; Scheme
 
 (use-package! scheme
-  :hook (scheme-mode . rainbow-delimiters-mode)
-  :config (advice-add #'scheme-indent-function :override #'+scheme-scheme-indent-function-a))
+  :hook (scheme-mode . rainbow-delimiters-mode))
 
 (use-package! geiser
-  :defer t
+  :after scheme
   :init
-  (setq geiser-active-implementations '(guile chicken mit chibi chez)
-        geiser-autodoc-identifier-format "%s → %s"
-        geiser-repl-current-project-function 'doom-project-root)
-  (after! scheme                        ; built-in
-    (set-repl-handler! 'scheme-mode #'+scheme/open-repl)
-    (set-eval-handler! 'scheme-mode #'geiser-eval-region)
-    (set-lookup-handlers! '(scheme-mode geiser-repl-mode)
-      :definition #'geiser-edit-symbol-at-point
-      :documentation #'geiser-doc-symbol-at-point))
+  (setq geiser-active-implementations '(mit))
   :config
-  (set-popup-rules!
-    '(("^\\*geiser messages\\*$" :slot 1 :vslot -1)
-      ("^\\*Geiser dbg\\*$"      :slot 1 :vslot -1)
-      ("^\\*Geiser xref\\*$"     :slot 1 :vslot -1)
-      ("^\\*Geiser documentation\\*$" :slot 2 :vslot 2 :select t :size 0.35)
-      ("^\\* [A-Za-z0-9_-]+ REPL \\*" :size 0.3 :quit nil :ttl nil)))
   (map! :localleader
         :map scheme-mode-map
-        "'"  #'geiser-mode-switch-to-repl
-        "\"" #'geiser-connect
+        "'"  #'run-geiser
         "["  #'geiser-squarify
         "\\" #'geiser-insert-lambda
         "s"  #'geiser-set-scheme))
