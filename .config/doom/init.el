@@ -52,7 +52,6 @@
        :lang
        emacs-lisp
        common-lisp
-       (haskell +dante)
        cc
        (rust +lsp)
        python

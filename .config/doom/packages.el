@@ -18,6 +18,10 @@
 ;; Scheme
 (package! geiser)
 
+;; Haskell
+(package! haskell-mode)
+(package! dante)
+
 ;; Org
 (package! org)
 (package! evil-org)
