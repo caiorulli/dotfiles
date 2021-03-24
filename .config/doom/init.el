@@ -15,7 +15,6 @@
        modeline
        nav-flash
        ophints
-       treemacs
        vc-gutter
        vi-tilde-fringe
        window-select

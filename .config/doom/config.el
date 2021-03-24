@@ -19,7 +19,27 @@
     "M->" #'paredit-forward-barf-sexp
     "M-<" #'paredit-backward-barf-sexp)))
 
-(use-package! yaml-mode)
+(use-package! treemacs
+  :init
+  (setq treemacs-persist-file (concat doom-cache-dir "treemacs-persist")
+        treemacs-last-error-persist-file (concat doom-cache-dir "treemacs-last-error-persist"))
+  :config
+  (map!
+   (:leader
+    "-" #'treemacs)))
+
+(use-package! treemacs-evil
+  :after treemacs)
+
+(use-package! treemacs-projectile
+  :after treemacs)
+
+(use-package! treemacs-magit
+  :after treemacs magit)
+
+(use-package! treemacs-persp
+  :after treemacs
+  :config (treemacs-set-scope-type 'Perspectives))
 
 ;; Clojure
 
@@ -147,6 +167,17 @@
   (add-hook 'haskell-mode-hook 'flycheck-mode)
   (add-hook 'haskell-mode-hook 'dante-mode))
 
+;; Javascript
+
+(use-package! tide
+  :after js-mode company flycheck
+  :hook ((js-mode . tide-setup)
+         (js-mode . tide-hl-identifier-mode))
+  :config
+  (map! :localleader
+        :map tide-mode-map
+        "f" #'tide-format))
+
 ;; Rust
 
 (after! rustic
@@ -172,9 +203,8 @@
 
 ;; UI config
 
-(setq doom-theme 'doom-nord
+(setq doom-theme 'doom-one
       doom-font (font-spec :family "Fantasque Sans Mono" :size 15)
-      doom-themes-treemacs-enable-variable-pitch nil
       confirm-kill-processes nil)
 
 ;; Transparency

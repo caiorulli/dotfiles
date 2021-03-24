@@ -1,14 +1,13 @@
 ;; -*- no-byte-compile: t; -*-
 ;;; .doom.d/packages.el
 
-;;; Examples:
-;; (package! some-package)
-;; (package! another-package :recipe (:host github :repo "username/repo"))
-;; (package! builtin-package :disable t)
-
 ;; General
 (package! paredit)
-(package! yaml-mode)
+(package! treemacs)
+(package! treemacs-evil)
+(package! treemacs-projectile)
+(package! treemacs-magit)
+(package! treemacs-persp)
 
 ;; Clojure
 (package! clojure-mode)
@@ -22,6 +21,9 @@
 ;; Haskell
 (package! haskell-mode)
 (package! dante)
+
+;; Javascript
+(package! tide)
 
 ;; Org
 (package! org)
