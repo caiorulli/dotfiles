@@ -16,7 +16,6 @@
        nav-flash
        ophints
        vc-gutter
-       vi-tilde-fringe
        window-select
        workspaces
 
@@ -29,13 +28,9 @@
        snippets
 
        :emacs
-       (dired +ranger)
        electric
        ibuffer
        vc
-
-       :app
-       (rss +org)
 
        :tools
        direnv
@@ -50,9 +45,7 @@
        :lang
        emacs-lisp
        common-lisp
-       cc
        (rust +lsp)
-       python
        markdown
 
        :config
