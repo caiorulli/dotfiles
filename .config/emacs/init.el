@@ -50,10 +50,8 @@
 (use-package projectile
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-  (setq projectile-project-search-path '("~/Code/"
-                                         "~/Code/suckless/"
-                                         "~/Code/oss/"))
-  (setq projectile-completion-system 'ivy)
+  (setq projectile-completion-system 'ivy
+        projectile-project-search-path '("~/Code/"))
   (projectile-mode 1))
 
 (use-package counsel-projectile
@@ -105,13 +103,11 @@
   :after treemacs magit)
 
 ;; Lisp
-
-(use-package parinfer
-  :init
-  (progn
-    (defvar parinfer-extensions '(defaults evil))
-    (add-hook 'clojure-mode-hook #'parinfer-mode)
-    (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)))
+(use-package paredit
+  :hook ((emacs-lisp-mode
+          clojure-mode
+          scheme-mode
+          lisp-mode) . paredit-mode))
 
 (use-package rainbow-delimiters
   :init

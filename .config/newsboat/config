@@ -1,4 +1,4 @@
-include /usr/share/doc/newsboat/contrib/colorschemes/nord
+include /usr/share/doc/newsboat/contrib/colorschemes/kinda-maia
 
 bind-key j next
 bind-key k prev
