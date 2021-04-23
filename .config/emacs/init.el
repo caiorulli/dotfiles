@@ -71,7 +71,9 @@
   :config
   (global-diff-hl-mode))
 
-(use-package treemacs)
+(use-package treemacs
+  :config
+  (define-key global-map (kbd "C-c -") #'treemacs))
 
 ;; Evil
 
@@ -88,19 +90,8 @@
   :config
   (evil-collection-init))
 
-(use-package evil-nerd-commenter
-  :after evil
-  :config
-  (evilnc-default-hotkeys))
-
-(use-package evil-magit
-  :after evil magit)
-
 (use-package treemacs-evil
   :after treemacs evil)
-
-(use-package treemacs-magit
-  :after treemacs magit)
 
 ;; Lisp
 (use-package paredit
@@ -123,6 +114,34 @@
 
 (use-package flycheck-joker)
 
+;; Scheme
+
+(use-package scheme
+  :hook (scheme-mode . rainbow-delimiters-mode))
+
+(use-package geiser
+  :after scheme
+  :init
+  (setq geiser-active-implementations '(mit chicken)))
+
+;; Haskell
+
+(use-package haskell-mode)
+
+(use-package dante
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode))
+
+;; Javascript
+
+(use-package tide
+  :after js-mode company flycheck
+  :hook ((js-mode . tide-setup)
+         (js-mode . tide-hl-identifier-mode)))
+
 ;; Rust
 
 (use-package lsp-mode)
@@ -142,7 +161,8 @@
 (set-face-attribute 'default nil :font "Fantasque Sans Mono" :height 120)
 
 (global-linum-mode t)
-(setq inhibit-splash-screen t)
+(setq inhibit-splash-screen t
+      visible-bell nil)
 
 (provide 'init)
 ;;; init.el ends here

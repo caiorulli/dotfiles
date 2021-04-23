@@ -11,8 +11,6 @@ export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 
-export BORG_REPO=/run/media/caio/crucible
-
 export EDITOR="nvim"
 
 export LESSHISTFILE=-
