@@ -71,7 +71,11 @@
   :config
   (global-diff-hl-mode))
 
-(use-package treemacs)
+(use-package treemacs
+  :config
+  (define-key projectile-mode-map (kbd "C-c -") #'treemacs))
+
+(use-package markdown-mode)
 
 ;; Evil
 
@@ -88,19 +92,8 @@
   :config
   (evil-collection-init))
 
-(use-package evil-nerd-commenter
-  :after evil
-  :config
-  (evilnc-default-hotkeys))
-
-(use-package evil-magit
-  :after evil magit)
-
 (use-package treemacs-evil
-  :after treemacs evil)
-
-(use-package treemacs-magit
-  :after treemacs magit)
+  :after evil)
 
 ;; Lisp
 (use-package paredit
@@ -121,13 +114,18 @@
 
 (use-package clj-refactor)
 
-(use-package flycheck-joker)
+(use-package flycheck-clj-kondo)
 
-;; Rust
+;; Scheme
 
-(use-package lsp-mode)
+(use-package scheme
+  :hook (scheme-mode . rainbow-delimiters-mode))
 
-(use-package rustic)
+(use-package geiser
+  :after scheme
+  :init
+  (setq geiser-active-implementations '(mit)))
+
 
 ;; UI
 
@@ -142,7 +140,8 @@
 (set-face-attribute 'default nil :font "Fantasque Sans Mono" :height 120)
 
 (global-linum-mode t)
-(setq inhibit-splash-screen t)
-
+(setq inhibit-splash-screen t
+      visible-bell nil)
+ 
 (provide 'init)
 ;;; init.el ends here

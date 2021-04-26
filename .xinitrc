@@ -5,6 +5,10 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
@@ -32,6 +36,9 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+# TearFree on
+xrandr --output HDMI-A-0 --set TearFree on
+
 # Cursor
 xsetroot -cursor_name left_ptr
 
@@ -43,6 +50,11 @@ picom &
 unclutter &
 dunst &
 udiskie &
+fcitx &
 
-exec xmonad
+# exec xmonad
 
+dwmblocks &
+while :; do
+    dwm
+done

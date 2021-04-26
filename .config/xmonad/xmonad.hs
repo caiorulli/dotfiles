@@ -24,7 +24,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 myBorderWidth :: Dimension
-myBorderWidth = 2
+myBorderWidth = 0
 
 myModMask :: KeyMask
 myModMask = mod4Mask
@@ -227,7 +227,6 @@ myStartupHook = do
   spawnOnce myBrowser
   spawnOnce "thunderbird"
   spawnOnce "steam"
-  spawnOnce "xrandr --output HDMI-A-0 --set TearFree on"
 
 keyboardGridSelect :: [(String, X())]
 keyboardGridSelect =

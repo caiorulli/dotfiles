@@ -1,4 +1,6 @@
 acpi
+adobe-source-han-sans-jp-fonts
+adobe-source-han-serif-jp-fonts
 alacritty
 alsa-firmware
 alsa-utils
@@ -16,11 +18,13 @@ binutils
 bison
 blender
 blueman
+bluez-plugins
 bluez-utils
 borg
 bottom
 brave-bin
 cabal-install
+chicken
 chromium
 ckb-next
 clj-kondo-bin
@@ -41,6 +45,9 @@ elixir-ls
 emacs
 eslint
 fakeroot
+fcitx
+fcitx-configtool
+fcitx-mozc
 fd
 feh
 flex
@@ -52,6 +59,8 @@ gdb
 ghc
 gimp
 git
+git-annex
+git-lfs
 github-cli
 godot
 grub
@@ -84,6 +93,7 @@ mangohud
 maven
 mesa
 minecraft-launcher
+mit-scheme
 mpv
 mupdf
 neofetch
@@ -102,6 +112,7 @@ openrgb
 otf-fantasque-sans-mono
 otf-ipafont
 pamixer
+pandoc
 pass
 patch
 picom
@@ -126,6 +137,7 @@ rtorrent
 rust-analyzer
 rust-racer
 rustup
+sbcl
 shellcheck
 signal-desktop
 spotify
@@ -153,6 +165,7 @@ w3m
 wget
 which
 winetricks
+wkhtmltopdf
 wqy-zenhei
 xdg-user-dirs
 xf86-video-amdgpu

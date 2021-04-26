@@ -10,14 +10,7 @@
   :hook ((emacs-lisp-mode
           clojure-mode
           scheme-mode
-          lisp-mode) . paredit-mode)
-  :config
-  (map!
-   (:leader
-    ">" #'paredit-forward-slurp-sexp
-    "<" #'paredit-backward-slurp-sexp
-    "M->" #'paredit-forward-barf-sexp
-    "M-<" #'paredit-backward-barf-sexp)))
+          lisp-mode) . paredit-mode))
 
 (use-package! treemacs
   :init
@@ -106,7 +99,6 @@
   (map!
    (:localleader
     (:map (clojure-mode-map clojurescript-mode-map)
-     "'"  #'cider-jack-in-clj
      "t"  #'cider-test-run-ns-tests
      "n"  #'cider-repl-set-ns))
 
