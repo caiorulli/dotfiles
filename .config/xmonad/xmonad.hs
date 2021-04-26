@@ -292,6 +292,7 @@ xConfig = ewmh $ def {
            , ("M-C-m", spawn "alacritty -e btm")
            , ("M-C-n", spawn "alacritty -e newsboat")
            , ("M-C-p", spawn "alacritty -e pulsemixer")
+           , ("M-C-f", spawn "feh --bg-scale --randomize ~/Pictures/wallpaper")
            , ("M-o", runSelectedAction def keyboardGridSelect)
            , ("M-x", runSelectedAction def monitorGridSelect)
            ]

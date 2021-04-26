@@ -73,7 +73,7 @@
 
 (use-package treemacs
   :config
-  (define-key projectile-mode-map (kbd "C-c -") #'treemacs))
+  (define-key global-map (kbd "C-c -") #'treemacs))
 
 (use-package markdown-mode)
 
@@ -93,7 +93,7 @@
   (evil-collection-init))
 
 (use-package treemacs-evil
-  :after evil)
+  :after treemacs evil)
 
 ;; Lisp
 (use-package paredit
@@ -124,8 +124,25 @@
 (use-package geiser
   :after scheme
   :init
-  (setq geiser-active-implementations '(mit)))
+  (setq geiser-active-implementations '(mit chicken)))
 
+;; Haskell
+
+(use-package haskell-mode)
+
+(use-package dante
+  :after haskell-mode
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  (add-hook 'haskell-mode-hook 'dante-mode))
+
+;; Javascript
+
+(use-package tide
+  :after js-mode company flycheck
+  :hook ((js-mode . tide-setup)
+         (js-mode . tide-hl-identifier-mode)))
 
 ;; UI
 
@@ -142,6 +159,6 @@
 (global-linum-mode t)
 (setq inhibit-splash-screen t
       visible-bell nil)
- 
+
 (provide 'init)
 ;;; init.el ends here
