@@ -27,6 +27,23 @@
 
 ;; General packages
 
+(use-package general
+  :config
+  (general-evil-setup)
+  (general-create-definer leader-def
+                          :states 'normal
+                          :prefix "SPC")
+
+  (general-create-definer local-leader-def
+                          :states 'normal
+                          :prefix "SPC m")
+
+  (leader-def
+    "f s" 'save-buffer
+    "q q" 'save-buffers-kill-emacs
+    "." 'counsel-find-file
+    "w" 'evil-window-map))
+
 (use-package which-key
   :config
   (which-key-mode 1))
@@ -48,14 +65,22 @@
 (use-package ripgrep)
 
 (use-package projectile
+  :general
+  (leader-def
+    "p" 'projectile-command-map)
+  
   :config
-  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-completion-system 'ivy
         projectile-project-search-path '("~/Code/"))
   (projectile-mode 1))
 
 (use-package counsel-projectile
   :after counsel projectile
+  :general
+  (leader-def
+    "SPC" 'counsel-projectile-find-file
+    "f"   'counsel-projectile-rg)
+
   :config
   (counsel-projectile-mode 1))
 
@@ -65,15 +90,19 @@
 
 (use-package flycheck)
 
-(use-package magit)
+(use-package magit
+  :general
+  (leader-def
+    "g" 'magit-status))
 
 (use-package diff-hl
   :config
   (global-diff-hl-mode))
 
 (use-package treemacs
-  :config
-  (define-key global-map (kbd "C-c -") #'treemacs))
+  :general
+  (leader-def 
+    "-" 'treemacs))
 
 (use-package markdown-mode)
 
