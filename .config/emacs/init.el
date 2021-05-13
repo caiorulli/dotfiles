@@ -31,18 +31,20 @@
   :config
   (general-evil-setup)
   (general-create-definer leader-def
-                          :states 'normal
-                          :prefix "SPC")
+    :keymaps 'override
+    :states 'normal
+    :prefix "SPC")
 
   (general-create-definer local-leader-def
-                          :states 'normal
-                          :prefix "SPC m")
+    :states 'normal
+    :prefix "SPC m")
 
   (leader-def
-    "f s" 'save-buffer
+    "s" 'save-buffer
     "q q" 'save-buffers-kill-emacs
     "." 'counsel-find-file
-    "w" 'evil-window-map))
+    "w" 'evil-window-map
+    "h" 'help-command))
 
 (use-package which-key
   :config
@@ -58,7 +60,10 @@
   :config
   (counsel-mode 1))
 
-(use-package swiper)
+(use-package swiper
+  :general
+  (leader-def
+    "f" 'swiper))
 
 (use-package amx)
 
@@ -78,8 +83,7 @@
   :after counsel projectile
   :general
   (leader-def
-    "SPC" 'counsel-projectile-find-file
-    "f"   'counsel-projectile-rg)
+    "SPC" 'counsel-projectile-find-file)
 
   :config
   (counsel-projectile-mode 1))
@@ -153,7 +157,17 @@
 (use-package geiser
   :after scheme
   :init
-  (setq geiser-active-implementations '(mit chicken)))
+  (setq geiser-active-implementations '(mit chicken))
+  :general
+  (local-leader-def
+    :keymaps 'scheme-mode-map
+    "'" 'run-geiser))
+
+(use-package geiser-mit
+  :after geiser)
+
+(use-package geiser-chicken
+  :after geiser)
 
 ;; Haskell
 
