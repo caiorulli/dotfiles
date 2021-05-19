@@ -40,9 +40,8 @@
     :prefix "SPC m")
 
   (leader-def
-    "s" 'save-buffer
+    "f s" 'save-buffer
     "q q" 'save-buffers-kill-emacs
-    "." 'counsel-find-file
     "w" 'evil-window-map
     "h" 'help-command))
 
@@ -55,18 +54,21 @@
 (use-package ivy
   :general
   (leader-def
-    "b" 'ivy-switch-buffer)
+    "b b" 'ivy-switch-buffer)
   :config
   (ivy-mode 1))
 
 (use-package counsel
+  :general
+  (leader-def
+    "." 'counsel-find-file)
   :config
   (counsel-mode 1))
 
 (use-package swiper
   :general
   (leader-def
-    "f" 'swiper))
+    "s b" 'swiper))
 
 (use-package amx)
 
