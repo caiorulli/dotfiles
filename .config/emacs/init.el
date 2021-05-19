@@ -53,6 +53,9 @@
 (use-package better-defaults)
 
 (use-package ivy
+  :general
+  (leader-def
+    "b" 'ivy-switch-buffer)
   :config
   (ivy-mode 1))
 
@@ -157,7 +160,7 @@
 (use-package geiser
   :after scheme
   :init
-  (setq geiser-active-implementations '(mit chicken))
+  (setq geiser-active-implementations '(chicken))
   :general
   (local-leader-def
     :keymaps 'scheme-mode-map
@@ -167,7 +170,9 @@
   :after geiser)
 
 (use-package geiser-chicken
-  :after geiser)
+  :after geiser
+  :config
+  (setq geiser-chicken-binary "chicken-csi"))
 
 ;; Haskell
 
