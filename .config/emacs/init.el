@@ -54,7 +54,8 @@
 (use-package ivy
   :general
   (leader-def
-    "b b" 'ivy-switch-buffer)
+    "b b" 'ivy-switch-buffer
+    "b k" 'kill-buffer)
   :config
   (ivy-mode 1))
 
@@ -88,7 +89,8 @@
   :after counsel projectile
   :general
   (leader-def
-    "SPC" 'counsel-projectile-find-file)
+    "SPC" 'counsel-projectile-find-file
+    "s p" 'counsel-projectile-rg)
 
   :config
   (counsel-projectile-mode 1))
@@ -115,6 +117,27 @@
 
 (use-package markdown-mode)
 
+;; LSP
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-l")
+  :config
+  (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  :commands lsp)
+
+(use-package lsp-ui
+  :after lsp
+  :commands lsp-ui-mode)
+
+(use-package lsp-ivy
+  :after lsp ivy
+  :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-treemacs
+  :after lsp treemacs
+  :commands lsp-treemacs-errors-list)
+
 ;; Evil
 
 (use-package evil
@@ -133,7 +156,17 @@
 (use-package treemacs-evil
   :after treemacs evil)
 
+;; Haskell
+
+(use-package haskell-mode)
+
+(use-package lsp-haskell
+  :init
+  (add-hook 'haskell-mode-hook #'lsp)
+  (add-hook 'haskell-literate-mode #'lsp))
+
 ;; Lisp
+
 (use-package paredit
   :hook ((emacs-lisp-mode
           clojure-mode
@@ -175,17 +208,6 @@
   :after geiser
   :config
   (setq geiser-chicken-binary "chicken-csi"))
-
-;; Haskell
-
-(use-package haskell-mode)
-
-(use-package dante
-  :after haskell-mode
-  :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  (add-hook 'haskell-mode-hook 'dante-mode))
 
 ;; Javascript
 
