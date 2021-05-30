@@ -153,6 +153,11 @@
   :config
   (evil-collection-init))
 
+(use-package evil-surround
+  :after evil
+  :config
+  (global-evil-surround-mode 1))
+
 (use-package treemacs-evil
   :after treemacs evil)
 
