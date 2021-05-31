@@ -31,8 +31,8 @@
   :config
   (general-evil-setup)
   (general-create-definer leader-def
-    :keymaps 'override
     :states 'normal
+    :keymaps 'override
     :prefix "SPC")
 
   (general-create-definer local-leader-def
@@ -49,22 +49,39 @@
   :config
   (which-key-mode 1))
 
+(use-package treemacs
+  :general
+  (leader-def 
+    "-" 'treemacs))
+
 (use-package better-defaults)
 
 (use-package ivy
-  :general
-  (leader-def
-    "b b" 'ivy-switch-buffer
-    "b k" 'kill-buffer)
   :config
   (ivy-mode 1))
 
 (use-package counsel
+  :after ivy
+  :demand t
   :general
   (leader-def
     "." 'counsel-find-file)
   :config
   (counsel-mode 1))
+
+(use-package perspective
+  :demand
+  :config
+  (persp-mode)
+  :general
+  (leader-def
+    "TAB" 'perspective-map
+    "b b" 'persp-switch-to-buffer*
+    "b k" 'persp-kill-buffer*))
+
+(use-package treemacs-perspective
+  :after (treemacs perspective)
+  :config (treemacs-set-scope-type 'Perspectives))
 
 (use-package swiper
   :general
@@ -85,8 +102,11 @@
         projectile-project-search-path '("~/Code/"))
   (projectile-mode 1))
 
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
 (use-package counsel-projectile
-  :after counsel projectile
+  :after (counsel projectile)
   :general
   (leader-def
     "SPC" 'counsel-projectile-find-file
@@ -94,6 +114,9 @@
 
   :config
   (counsel-projectile-mode 1))
+
+(use-package persp-projectile
+  :after (perspective projectile))
 
 (use-package company
   :config
@@ -109,11 +132,6 @@
 (use-package diff-hl
   :config
   (global-diff-hl-mode))
-
-(use-package treemacs
-  :general
-  (leader-def 
-    "-" 'treemacs))
 
 (use-package markdown-mode)
 
@@ -131,11 +149,11 @@
   :commands lsp-ui-mode)
 
 (use-package lsp-ivy
-  :after lsp ivy
+  :after (lsp ivy)
   :commands lsp-ivy-workspace-symbol)
 
 (use-package lsp-treemacs
-  :after lsp treemacs
+  :after (lsp treemacs)
   :commands lsp-treemacs-errors-list)
 
 ;; Evil
@@ -159,7 +177,8 @@
   (global-evil-surround-mode 1))
 
 (use-package treemacs-evil
-  :after treemacs evil)
+  :after (treemacs evil)
+  :commands treemacs)
 
 ;; Haskell
 
@@ -192,32 +211,10 @@
 
 (use-package flycheck-clj-kondo)
 
-;; Scheme
-
-(use-package scheme
-  :hook (scheme-mode . rainbow-delimiters-mode))
-
-(use-package geiser
-  :after scheme
-  :init
-  (setq geiser-active-implementations '(chicken))
-  :general
-  (local-leader-def
-    :keymaps 'scheme-mode-map
-    "'" 'run-geiser))
-
-(use-package geiser-mit
-  :after geiser)
-
-(use-package geiser-chicken
-  :after geiser
-  :config
-  (setq geiser-chicken-binary "chicken-csi"))
-
 ;; Javascript
 
 (use-package tide
-  :after js-mode company flycheck
+  :after (js-mode company flycheck)
   :hook ((js-mode . tide-setup)
          (js-mode . tide-hl-identifier-mode)))
 

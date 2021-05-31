@@ -23,7 +23,7 @@ myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
 myBorderWidth :: Dimension
-myBorderWidth = 0
+myBorderWidth = 2
 
 myModMask :: KeyMask
 myModMask = mod4Mask

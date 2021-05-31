@@ -52,9 +52,9 @@ dunst &
 udiskie &
 fcitx &
 
-# exec xmonad
+exec xmonad
 
-dwmblocks &
-while :; do
-    dwm
-done
+# dwmblocks &
+# while :; do
+#     dwm
+# done
