@@ -135,6 +135,10 @@
 
 (use-package markdown-mode)
 
+(use-package yaml-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
 ;; LSP
 
 (use-package lsp-mode

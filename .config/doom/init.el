@@ -15,7 +15,10 @@
        modeline
        nav-flash
        ophints
+       (popup +all +defaults)
+       (treemacs +lsp)
        vc-gutter
+       vi-tilde-fringe
        window-select
        workspaces
 
@@ -28,6 +31,7 @@
        snippets
 
        :emacs
+       (dired +ranger)
        electric
        ibuffer
        vc
@@ -43,10 +47,12 @@
        docker
 
        :lang
+       (haskell +lsp)
+       clojure
        emacs-lisp
-       common-lisp
-       (rust +lsp)
        markdown
+       yaml
+       org
 
        :config
        (default +bindings +smartparens))
