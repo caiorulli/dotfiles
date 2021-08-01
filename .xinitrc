@@ -55,6 +55,4 @@ fcitx &
 exec xmonad
 
 # dwmblocks &
-# while :; do
-#     dwm
-# done
+# exec dwm

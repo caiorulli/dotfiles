@@ -53,6 +53,7 @@
        markdown
        yaml
        org
+       nix
 
        :config
        (default +bindings +smartparens))

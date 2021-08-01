@@ -10,7 +10,6 @@ arc-gtk-theme
 arp-scan
 autoconf
 automake
-babashka-bin
 base
 bat
 bdf-unifont
@@ -31,12 +30,14 @@ clj-kondo-bin
 clojure
 cmatrix
 cowsay
+cups
 curl
 dhcpcd
 direnv
 discord
 discount
 docker-compose
+dosbox
 dunst
 dwarffortress
 efibootmgr
@@ -65,6 +66,7 @@ github-cli
 godot
 grub
 haskell-haddock-library
+haskell-language-server
 hdparm
 hlint
 i3lock-color
@@ -76,7 +78,12 @@ jdk8-openjdk
 jq
 khal
 leiningen
+lib32-gst-plugins-base-libs
+lib32-gtk3
+lib32-libxslt
 lib32-mesa
+lib32-ocl-icd
+lib32-v4l-utils
 lib32-vulkan-radeon
 libtool
 linux
@@ -137,6 +144,7 @@ rtorrent
 rust-analyzer
 rust-racer
 rustup
+samba
 sbcl
 shellcheck
 signal-desktop
@@ -164,6 +172,7 @@ vulkan-tools
 w3m
 wget
 which
+wine-staging
 winetricks
 wkhtmltopdf
 wqy-zenhei

@@ -38,3 +38,6 @@ fi
 if [ ! -d "$XDG_CACHE_HOME/xmonad" ]; then
   mkdir "$XDG_CACHE_HOME/xmonad";
 fi
+
+export NIX_PATH=$NIX_PATH:$HOME/.nix-defexpr/channels
+export WEECHAT_HOME=$XDG_CONFIG_HOME/weechat
