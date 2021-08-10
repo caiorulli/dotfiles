@@ -48,3 +48,6 @@ powerwolf() {
 
 # direnv setup
 eval "$(direnv hook zsh)"
+
+# ghcup setup
+[ -f "/home/caio/.ghcup/env" ] && source "/home/caio/.ghcup/env" # ghcup-env

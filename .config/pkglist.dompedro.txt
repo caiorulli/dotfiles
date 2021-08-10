@@ -10,6 +10,7 @@ arc-gtk-theme
 arp-scan
 autoconf
 automake
+aws-cli
 base
 bat
 bdf-unifont
@@ -64,12 +65,12 @@ git-annex
 git-lfs
 github-cli
 godot
+gparted
 grub
 haskell-haddock-library
-haskell-language-server
 hdparm
 hlint
-i3lock-color
+i3lock
 isync
 iw
 jdk-openjdk
@@ -91,6 +92,7 @@ linux-firmware
 linux-headers
 lolcat
 lsof
+lutris
 m4
 maim
 make
@@ -100,7 +102,6 @@ mangohud
 maven
 mesa
 minecraft-launcher
-mit-scheme
 mpv
 mupdf
 neofetch
@@ -110,6 +111,7 @@ networkmanager
 networkmanager-vpnc
 newsboat
 nftables
+nix
 nmap
 noto-fonts-emoji
 ntp
@@ -118,6 +120,7 @@ nvm
 openrgb
 otf-fantasque-sans-mono
 otf-ipafont
+pacman-contrib
 pamixer
 pandoc
 pass
@@ -170,6 +173,7 @@ virtualbox-host-modules-arch
 vulkan-radeon
 vulkan-tools
 w3m
+weechat
 wget
 which
 wine-staging
@@ -224,6 +228,7 @@ xss-lock
 yadm
 yay
 zenpower-dkms
+zerotier-one
 zsh
 zsh-autosuggestions
 zsh-completions
