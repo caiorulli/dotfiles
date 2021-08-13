@@ -50,7 +50,7 @@ picom &
 unclutter &
 dunst &
 udiskie &
-fcitx &
+# fcitx &
 
 exec xmonad
 
