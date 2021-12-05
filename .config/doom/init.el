@@ -48,12 +48,19 @@
 
        :lang
        (haskell +lsp)
+       elm
+       purescript
+       idris
        clojure
+       (elixir +lsp)
        emacs-lisp
+       javascript
+       (python +lsp)
+       (rust +lsp)
        markdown
        yaml
        org
-       nix
+       web
 
        :config
        (default +bindings +smartparens))

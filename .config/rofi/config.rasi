@@ -1,4 +1,5 @@
 configuration {
-  theme: "Arc-Dark";
   font: "Fantasque Sans Mono 10";
 }
+
+@theme "Arc-Dark"

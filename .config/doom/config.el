@@ -24,10 +24,7 @@
 
   ;; Morse
   (put-clojure-indent 'command-fn 1)
-  (put-clojure-indent 'message-fn 1)
-
-  ;; test.check
-  )
+  (put-clojure-indent 'message-fn 1))
 
 ;; UI config
 

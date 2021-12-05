@@ -1,14 +1,89 @@
 import qualified Data.Map as M
-import Data.Monoid
-import System.Exit
+import Data.Monoid ( All, Endo )
+import System.Exit ( exitSuccess )
 import XMonad
-import XMonad.Actions.GridSelect
-import XMonad.Actions.NoBorders
+    ( xmonad,
+      xK_b,
+      (<+>),
+      title,
+      doShift,
+      doFloat,
+      (-->),
+      (=?),
+      className,
+      composeAll,
+      (|||),
+      mouseResizeWindow,
+      button3,
+      button2,
+      mouseMoveWindow,
+      focus,
+      button1,
+      Window,
+      Button,
+      xK_r,
+      xK_e,
+      xK_w,
+      whenJust,
+      screenWorkspace,
+      xK_9,
+      xK_1,
+      xK_slash,
+      io,
+      xK_q,
+      xK_period,
+      xK_comma,
+      xK_g,
+      withFocused,
+      xK_t,
+      xK_l,
+      xK_h,
+      xK_m,
+      xK_k,
+      xK_j,
+      windows,
+      xK_Tab,
+      refresh,
+      xK_n,
+      setLayout,
+      sendMessage,
+      xK_space,
+      kill,
+      xK_c,
+      xK_p,
+      spawn,
+      xK_Return,
+      shiftMask,
+      mod4Mask,
+      Default(def),
+      Event,
+      Query,
+      Full(Full),
+      Mirror(Mirror),
+      Tall(Tall),
+      IncMasterN(IncMasterN),
+      Resize(Expand, Shrink),
+      WindowSet,
+      ChangeLayout(NextLayout),
+      (.|.),
+      X,
+      KeySym,
+      XConfig(XConfig, terminal, focusFollowsMouse, clickJustFocuses,
+              borderWidth, modMask, workspaces, normalBorderColor,
+              focusedBorderColor, keys, mouseBindings, layoutHook, manageHook,
+              handleEventHook, logHook, startupHook),
+      Layout,
+      KeyMask,
+      Dimension )
+import XMonad.Actions.GridSelect ( runSelectedAction )
+import XMonad.Actions.NoBorders ( toggleBorder )
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.EwmhDesktops
+    ( statusBar, wrap, xmobarColor, xmobarPP, PP(ppCurrent), dynamicLog )
+import XMonad.Hooks.EwmhDesktops ( ewmh, ewmhFullscreen )
 import qualified XMonad.StackSet as W
-import XMonad.Util.EZConfig
-import XMonad.Util.SpawnOnce
+import XMonad.Util.EZConfig ( additionalKeysP )
+import XMonad.Util.SpawnOnce ( spawnOnce )
+import XMonad.Layout.NoBorders (smartBorders, noBorders)
 
 myTerminal :: String
 myTerminal = "alacritty"
@@ -144,7 +219,7 @@ myMouseBindings XConfig {XMonad.modMask = modm} =
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders Full
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled = Tall nmaster delta ratio
@@ -193,15 +268,12 @@ myManageHook =
 ------------------------------------------------------------------------
 -- Event handling
 
--- * EwmhDesktops users should change this to ewmhDesktopsEventHook
-
---
 -- Defines a custom handler function for X Events. The function should
 -- return (All True) if the default handler is to be run afterwards. To
 -- combine event hooks use mappend or mconcat from Data.Monoid.
 --
 myEventHook :: Event -> X All
-myEventHook = fullscreenEventHook
+myEventHook = mempty
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -210,7 +282,7 @@ myEventHook = fullscreenEventHook
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
 myLogHook :: X ()
-myLogHook = return ()
+myLogHook = dynamicLog
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -250,7 +322,7 @@ main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey xConfig
 
 xConfig =
-  ewmh $
+  ewmhFullscreen . ewmh $
     def
       { terminal = myTerminal,
         focusFollowsMouse = myFocusFollowsMouse,
