@@ -1,0 +1,11 @@
+[user]
+	email = caio@crthomaz.com.br
+	name = Caio Rulli Thomaz
+[git]
+	editor = nvim
+[core]
+	editor = nvim
+[pull]
+	rebase = false
+[init]
+	defaultBranch = deck
