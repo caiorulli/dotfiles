@@ -1,5 +1,0 @@
-configuration {
-  font: "Fantasque Sans Mono 10";
-}
-
-@theme "Arc-Dark"
