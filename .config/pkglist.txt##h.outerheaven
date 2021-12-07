@@ -37,10 +37,6 @@ elixir-ls
 emacs
 eslint
 fakeroot
-fcitx
-fcitx-configtool
-fcitx-mozc
-fcitx-qt5
 fd
 feh
 file
@@ -66,6 +62,7 @@ hugo
 intel-ucode
 isync
 iw
+jdk-openjdk
 jdk11-openjdk
 jdk8-openjdk
 jq
@@ -86,6 +83,7 @@ man-db
 man-pages
 maven
 mesa-demos
+minecraft-launcher
 mpv
 mupdf
 ncdu

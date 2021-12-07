@@ -34,11 +34,6 @@ alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias csi='chicken-csi'
 alias csc='chicken-csc'
 
-powerwolf() {
-  borg create --verbose ::'{now}' ~/Documents ~/Pictures ~/Videos && \
-      poweroff
-}
-
 # nvm setup
 [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 
@@ -51,3 +46,8 @@ eval "$(direnv hook zsh)"
 
 # ghcup setup
 [ -f "/home/caio/.ghcup/env" ] && source "/home/caio/.ghcup/env" # ghcup-env
+
+# functions
+update-pkglist() {
+  pacman -Qqe > .config/pkglist.txt
+}
