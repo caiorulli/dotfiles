@@ -5,6 +5,7 @@ alacritty
 alsa-firmware
 alsa-utils
 arc-gtk-theme
+arp-scan
 autoconf
 automake
 aws-cli
@@ -33,7 +34,6 @@ dunst
 dwarffortress
 efibootmgr
 element-desktop
-elixir-ls
 emacs
 eslint
 fakeroot
@@ -123,6 +123,7 @@ reflector
 ripgrep
 rlwrap
 rofi
+rpi-imager
 rsync
 rtorrent
 ruby
@@ -194,6 +195,7 @@ xorg-xwud
 xss-lock
 yadm
 yay
+zerotier-one
 zsh
 zsh-autosuggestions
 zsh-completions

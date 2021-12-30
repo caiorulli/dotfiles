@@ -43,7 +43,12 @@ xrandr --output HDMI-A-0 --set TearFree on
 xsetroot -cursor_name left_ptr
 
 # Keymap setup
-setxkbmap us -variant alt-intl
+hostname=$(uname -n)
+if [ $hostname = "outerheaven" ]; then
+    setxkbmap br
+else 
+    setxkbmap us -variant alt-intl
+fi
 
 ~/.fehbg
 picom &
