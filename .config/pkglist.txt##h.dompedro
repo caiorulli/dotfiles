@@ -40,8 +40,6 @@ dosbox
 dunst
 dwarffortress
 efibootmgr
-elixir
-elixir-ls
 emacs
 eslint
 fakeroot
@@ -102,7 +100,6 @@ neofetch
 neovim
 network-manager-applet
 networkmanager
-networkmanager-vpnc
 newsboat
 nftables
 nix
@@ -111,7 +108,6 @@ noto-fonts-emoji
 ntp
 numlockx
 nvm
-openrgb
 otf-fantasque-sans-mono
 otf-ipafont
 pacman-contrib

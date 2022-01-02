@@ -4,9 +4,9 @@ x-scheme-handler/http=brave-browser.desktop
 x-scheme-handler/https=brave-browser.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-PGCD00.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-4LGCE1.desktop
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop-PGCD00.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-PGCD00.desktop;userapp-Telegram Desktop-4LGCE1.desktop;
 image/png=feh.desktop;
 application/pdf=brave-browser.desktop;

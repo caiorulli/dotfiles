@@ -30,6 +30,8 @@ export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
 export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
 
+export PROTON_LOG=1
+
 # Create xmonad directories if needed be
 if [ ! -d "$XDG_DATA_HOME/xmonad" ]; then
   mkdir "$XDG_DATA_HOME/xmonad";
