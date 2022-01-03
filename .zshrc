@@ -1,7 +1,7 @@
 # Zsh setup
 autoload -Uz promptinit compinit
 promptinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+# compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 prompt_mytheme_setup() {
   PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "
@@ -17,6 +17,8 @@ setopt HIST_FIND_NO_DUPS
 setopt EXTENDED_HISTORY
 
 bindkey -e
+
+system_type=$(uname -s)
 
 # Zsh plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -47,7 +49,14 @@ eval "$(direnv hook zsh)"
 # ghcup setup
 [ -f "/home/caio/.ghcup/env" ] && source "/home/caio/.ghcup/env" # ghcup-env
 
+# sdkman setup
+if [ "$system_type" = "Darwin" ]; then
+  export SDKMAN_DIR="$HOME/.sdkman"
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
 # functions
 update-pkglist() {
   pacman -Qqe > .config/pkglist.txt
 }
+
