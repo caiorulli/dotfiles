@@ -20,9 +20,6 @@ bindkey -e
 
 system_type=$(uname -s)
 
-# Zsh plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias l='ls -la --color'
@@ -36,9 +33,6 @@ alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias csi='chicken-csi'
 alias csc='chicken-csc'
 
-# nvm setup
-[ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
-
 # fzf setup
 [ -s "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
 [ -s "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
@@ -49,10 +43,21 @@ eval "$(direnv hook zsh)"
 # ghcup setup
 [ -f "/home/caio/.ghcup/env" ] && source "/home/caio/.ghcup/env" # ghcup-env
 
-# sdkman setup
 if [ "$system_type" = "Darwin" ]; then
+  # sdkman setup
   export SDKMAN_DIR="$HOME/.sdkman"
-  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+  
+  # nvm setup
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+else
+  # Zsh plugins
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+  # nvm setup
+  [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 fi
 
 # functions

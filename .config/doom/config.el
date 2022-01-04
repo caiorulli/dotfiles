@@ -26,6 +26,10 @@
   (put-clojure-indent 'command-fn 1)
   (put-clojure-indent 'message-fn 1))
 
+(after! cider
+  (set-popup-rules!
+    '(("^\\*cider-repl" :ignore t))))
+
 ;; UI config
 
 (setq doom-theme 'doom-one

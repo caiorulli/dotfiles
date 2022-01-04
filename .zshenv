@@ -31,3 +31,4 @@ export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
 export PROTON_LOG=1
 export WEECHAT_HOME=$XDG_CONFIG_HOME/weechat
+export SDKMAN_DIR="$HOME/.sdkman"
