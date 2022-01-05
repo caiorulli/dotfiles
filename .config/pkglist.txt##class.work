@@ -1,0 +1,15 @@
+awscli
+bat
+borkdude/brew/babashka
+borkdude/brew/clj-kondo
+bottom
+clojure
+direnv
+fd
+gh
+neovim
+postgresql
+ripgrep
+tmux
+wget
+yadm

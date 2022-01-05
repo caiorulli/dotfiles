@@ -41,7 +41,10 @@ alias csc='chicken-csc'
 eval "$(direnv hook zsh)"
 
 # ghcup setup
-[ -f "/home/caio/.ghcup/env" ] && source "/home/caio/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+
+# scripts setup
+[ -f "$HOME/Scripts/shell.zsh" ] && source "$HOME/Scripts/shell.zsh"
 
 if [ "$system_type" = "Darwin" ]; then
   # sdkman setup
