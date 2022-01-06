@@ -1,7 +1,7 @@
 # Zsh setup
 autoload -Uz promptinit compinit
 promptinit
-# compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 prompt_mytheme_setup() {
   PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "

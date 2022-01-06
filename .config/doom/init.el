@@ -52,11 +52,11 @@
        purescript
        idris
        clojure
-       (elixir +lsp)
-       emacs-lisp
-       javascript
-       (python +lsp)
        (rust +lsp)
+       javascript
+       (java +lsp)
+       (python +lsp)
+       emacs-lisp
        markdown
        yaml
        org
