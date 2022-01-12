@@ -23,12 +23,14 @@ brave-bin
 chicken
 clj-kondo-bin
 clojure
+cmake
 cmatrix
 cowsay
 dhcpcd
 direnv
 discord
 discount
+docker
 docker-compose
 dunst
 dwarffortress
@@ -95,6 +97,7 @@ networkmanager-vpnc
 newsboat
 nftables
 nmap
+notmuch
 noto-fonts-emoji
 ntp
 numlockx
@@ -140,6 +143,7 @@ syncthing
 telegram-desktop
 texinfo
 thunderbird
+tidy
 tig
 ttf-hanazono
 ttf-liberation

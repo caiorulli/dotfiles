@@ -62,5 +62,11 @@
        org
        web
 
+       :term
+       vterm
+
+       :email
+       notmuch
+
        :config
        (default +bindings +smartparens))
