@@ -1,7 +1,7 @@
 # Zsh setup
-autoload -Uz promptinit compinit
+autoload -Uz compinit promptinit
+compinit
 promptinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 prompt_mytheme_setup() {
   PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "
@@ -20,12 +20,11 @@ bindkey -e
 
 system_type=$(uname -s)
 
-
 # Aliases
 alias l='ls -la --color'
 alias gst='git status'
 alias gco='git checkout'
-alias doom='~/.emacs.d/bin/doom'
+alias doom='$XDG_CONFIG_HOME/emacs/bin/doom'
 alias fehbg='feh --randomize --bg-scale'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
@@ -46,14 +45,12 @@ eval "$(direnv hook zsh)"
 # scripts setup
 [ -f "$HOME/Scripts/shell.zsh" ] && source "$HOME/Scripts/shell.zsh"
 
+# sdkman setup
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 if [ "$system_type" = "Darwin" ]; then
-  # sdkman setup
-  export SDKMAN_DIR="$HOME/.sdkman"
-  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
-  
   # nvm setup
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 else
   # Zsh plugins
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
