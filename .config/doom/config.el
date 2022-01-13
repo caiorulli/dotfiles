@@ -49,4 +49,12 @@
 
 ;; Email
 
-(setq +notmuch-sync-backend 'mbsync-xdg)
+(after! mu4e
+  (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a")
+  (set-email-account! "mailbox"
+    '((mu4e-sent-folder       . "/mailbox/Sent")
+      (mu4e-drafts-folder     . "/mailbox/Drafts")
+      (mu4e-trash-folder      . "/mailbox/Trash")
+      (user-mail-address      . "caio@crthomaz.com.br")
+      (smtpmail-smtp-user     . "caio@crthomaz.com.br"))
+    t))

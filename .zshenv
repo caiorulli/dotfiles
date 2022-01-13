@@ -12,6 +12,7 @@ export HISTSIZE=1000000000
 export SAVEHIST=1000000000
 
 export EDITOR="nvim"
+export MAILDIR="$HOME/Mail"
 
 export LESSHISTFILE=-
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
@@ -29,6 +30,7 @@ export PROTON_LOG_DIR="$XDG_DATA_HOME/proton_log"
 export XMONAD_CONFIG_HOME="$XDG_CONFIG_HOME/xmonad"
 export XMONAD_DATA_HOME="$XDG_DATA_HOME/xmonad"
 export XMONAD_CACHE_HOME="$XDG_CACHE_HOME/xmonad"
+export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+export MBSYNC_CONFIG="$XDG_CONFIG_HOME/isync/mbsyncrc"
 export PROTON_LOG=1
-export WEECHAT_HOME=$XDG_CONFIG_HOME/weechat
 export SDKMAN_DIR="$HOME/.sdkman"

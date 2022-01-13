@@ -1,0 +1,18 @@
+IMAPStore mailbox-remote
+Host imap.mailbox.org
+User caio@crthomaz.com.br
+PassCmd "pass mailbox"
+SSLType IMAPS
+
+MaildirStore mailbox-local
+Path ~/Mail/mailbox/
+Inbox ~/Mail/mailbox/INBOX
+SubFolders Verbatim
+
+Channel mailbox
+Far :mailbox-remote:
+Near :mailbox-local:
+Patterns * !Archives
+Create Both
+Expunge Both
+SyncState *

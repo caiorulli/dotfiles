@@ -295,7 +295,6 @@ myLogHook = dynamicLog
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce myBrowser
-  spawnOnce "thunderbird"
 
 keyboardGridSelect :: [(String, X ())]
 keyboardGridSelect =

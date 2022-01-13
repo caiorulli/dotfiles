@@ -66,7 +66,7 @@
        vterm
 
        :email
-       notmuch
+       (mu4e +gmail)
 
        :config
        (default +bindings +smartparens))
