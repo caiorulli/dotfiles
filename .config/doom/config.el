@@ -50,11 +50,18 @@
 ;; Email
 
 (after! mu4e
-  (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a")
+  (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a"
+        +mu4e-gmail-accounts '(("caiorulli@gmail.com" . "/gmail")))
+
   (set-email-account! "mailbox"
     '((mu4e-sent-folder       . "/mailbox/Sent")
       (mu4e-drafts-folder     . "/mailbox/Drafts")
       (mu4e-trash-folder      . "/mailbox/Trash")
       (user-mail-address      . "caio@crthomaz.com.br")
       (smtpmail-smtp-user     . "caio@crthomaz.com.br"))
+    t)
+
+  (set-email-account! "gmail"
+    '((user-mail-address      . "caiorulli@gmail.com")
+      (smtpmail-smtp-user     . "caiorulli@gmail.com"))
     t))
