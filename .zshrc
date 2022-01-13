@@ -32,10 +32,6 @@ alias mbsync='mbsync -c $MBSYNC_CONFIG'
 alias csi='chicken-csi'
 alias csc='chicken-csc'
 
-# fzf setup
-[ -s "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
-[ -s "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
-
 # direnv setup
 eval "$(direnv hook zsh)"
 
@@ -51,6 +47,11 @@ eval "$(direnv hook zsh)"
 if [ "$system_type" = "Darwin" ]; then
   # nvm setup
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+  # fzf setup
+  fzf_dir="/usr/local/Cellar/fzf/0.29.0/shell"
+  [ -s "$fzf_dir/key-bindings.zsh" ] && source "$fzf_dir/key-bindings.zsh"
+  [ -s "$fzf_dir/completion.zsh" ] && source "$fzf_dir/completion.zsh"
 else
   # Zsh plugins
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -58,6 +59,10 @@ else
 
   # nvm setup
   [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
+
+  # fzf setup
+  [ -s "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
+  [ -s "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
 fi
 
 # functions
