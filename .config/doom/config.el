@@ -49,19 +49,36 @@
 
 ;; Email
 
+(when (eq system-type 'darwin)
+  (add-to-list 'load-path "/usr/local/Cellar/mu/1.6.10/share/emacs/site-lisp/mu/mu4e"))
+
 (after! mu4e
-  (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a"
-        +mu4e-gmail-accounts '(("caiorulli@gmail.com" . "/gmail")))
+  (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a")
 
-  (set-email-account! "mailbox"
-    '((mu4e-sent-folder       . "/mailbox/Sent")
-      (mu4e-drafts-folder     . "/mailbox/Drafts")
-      (mu4e-trash-folder      . "/mailbox/Trash")
-      (user-mail-address      . "caio@crthomaz.com.br")
-      (smtpmail-smtp-user     . "caio@crthomaz.com.br"))
-    t)
+  (when (eq system-type 'gnu/linux)
+    (setq +mu4e-gmail-accounts '(("caiorulli@gmail.com" . "/gmail")))
 
-  (set-email-account! "gmail"
-    '((user-mail-address      . "caiorulli@gmail.com")
-      (smtpmail-smtp-user     . "caiorulli@gmail.com"))
-    t))
+    (set-email-account! "mailbox"
+                        '((mu4e-sent-folder       . "/mailbox/Sent")
+                          (mu4e-drafts-folder     . "/mailbox/Drafts")
+                          (mu4e-trash-folder      . "/mailbox/Trash")
+                          (user-mail-address      . "caio@crthomaz.com.br")
+                          (smtpmail-smtp-user     . "caio@crthomaz.com.br"))
+                        t)
+
+    (set-email-account! "gmail"
+                        '((user-mail-address      . "caiorulli@gmail.com")
+                          (smtpmail-smtp-user     . "caiorulli@gmail.com"))
+                        t))
+
+  (when (eq system-type 'darwin)
+    (setq +mu4e-gmail-accounts '(("caio.rulli@quintoandar.com.br" . "/gmail")))
+
+    (set-email-account! "gmail"
+                        '((mu4e-sent-folder       . "/gmail/[Gmail]/Sent Mail")
+                          (mu4e-drafts-folder     . "/gmail/[Gmail]/Drafts")
+                          (mu4e-trash-folder      . "/gmail/[Gmail]/Trash")
+                          (user-mail-address      . "caio.rulli@quintoandar.com.br")
+                          (smtpmail-smtp-user     . "caio.rulli@quintoandar.com.br"))
+                        t)))
+
