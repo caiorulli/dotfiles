@@ -49,13 +49,13 @@
 
 ;; Email
 
-(when (eq system-type 'darwin)
+(when IS-MAC
   (add-to-list 'load-path "/usr/local/Cellar/mu/1.6.10/share/emacs/site-lisp/mu/mu4e"))
 
 (after! mu4e
   (setq mu4e-get-mail-command "mbsync -c $MBSYNC_CONFIG -a")
 
-  (when (eq system-type 'gnu/linux)
+  (when IS-LINUX
     (setq +mu4e-gmail-accounts '(("caiorulli@gmail.com" . "/gmail")))
 
     (set-email-account! "mailbox"
@@ -67,11 +67,14 @@
                         t)
 
     (set-email-account! "gmail"
-                        '((user-mail-address      . "caiorulli@gmail.com")
+                        '((mu4e-sent-folder       . "/gmail/[Gmail]/Sent Mail")
+                          (mu4e-drafts-folder     . "/gmail/[Gmail]/Drafts")
+                          (mu4e-trash-folder      . "/gmail/[Gmail]/Trash")
+                          (user-mail-address      . "caiorulli@gmail.com")
                           (smtpmail-smtp-user     . "caiorulli@gmail.com"))
                         t))
 
-  (when (eq system-type 'darwin)
+  (when IS-MAC
     (setq +mu4e-gmail-accounts '(("caio.rulli@quintoandar.com.br" . "/gmail")))
 
     (set-email-account! "gmail"
