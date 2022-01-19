@@ -3,3 +3,5 @@
 
 ;; General
 (package! paredit)
+
+(package! smudge)

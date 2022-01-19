@@ -87,6 +87,7 @@ maven
 mesa-demos
 minecraft-launcher
 mpv
+mu
 mupdf
 ncdu
 neofetch
@@ -97,7 +98,6 @@ networkmanager-vpnc
 newsboat
 nftables
 nmap
-notmuch
 noto-fonts-emoji
 ntp
 numlockx
@@ -137,6 +137,7 @@ sed
 signal-desktop
 smartmontools
 spotify
+spotifyd
 steam
 sudo
 syncthing
