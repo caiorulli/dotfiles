@@ -89,11 +89,13 @@
 
 (map! :leader :prefix "t" :desc "Spotify" "s" #'global-smudge-remote-mode)
 
-(after! smudge
+(use-package! smudge
+  :init
   (setq smudge-oauth2-client-id "4d23f6619825421f85533eebe615fffd"
         smudge-oauth2-client-secret (shell-command "pass spotify/smudge")
         smudge-transport 'connect)
 
+  :config
   ;; A hydra for controlling spotify.
   (defhydra hydra-spotify (:hint nil)
     "

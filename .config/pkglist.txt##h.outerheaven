@@ -137,6 +137,7 @@ sed
 signal-desktop
 smartmontools
 spotify
+spotify-tui-bin
 spotifyd
 steam
 sudo
@@ -160,6 +161,7 @@ vulkan-intel
 vulkan-tools
 wget
 which
+wkhtmltopdf
 wqy-zenhei
 xdg-user-dirs
 xf86-video-intel
