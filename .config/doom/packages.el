@@ -5,3 +5,4 @@
 (package! paredit)
 
 (package! smudge)
+(package! simple-httpd)

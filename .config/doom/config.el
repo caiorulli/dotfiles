@@ -30,6 +30,14 @@
   (set-popup-rules!
     '(("^\\*cider-repl" :ignore t))))
 
+
+;; Java
+(setq lsp-java-java-path (concat (getenv "SDKMAN_DIR") "/candidates/java/11.0.2-open/bin/java")
+      lsp-java-autobuild-enabled nil)
+
+(after! lsp-java
+  (push (concat "-javaagent:" doom-private-dir "lombok.jar") lsp-java-vmargs))
+
 ;; UI config
 
 (setq doom-theme 'doom-one
