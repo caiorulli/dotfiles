@@ -45,11 +45,10 @@
        (debugger +lsp)
        pdf
        docker
+       pass
 
        :lang
        (haskell +lsp)
-       elm
-       purescript
        idris
        clojure
        (rust +lsp)
@@ -57,16 +56,21 @@
        (java +lsp)
        (python +lsp)
        emacs-lisp
-       markdown
-       yaml
+       nix
        org
+       markdown
        web
+       yaml
+       data
 
        :term
        vterm
 
        :email
        (mu4e +gmail)
+
+       :app
+       rss
 
        :config
        (default +bindings +smartparens))

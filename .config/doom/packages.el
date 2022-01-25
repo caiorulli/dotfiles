@@ -6,3 +6,5 @@
 
 (package! smudge)
 (package! simple-httpd)
+
+(package! slack)

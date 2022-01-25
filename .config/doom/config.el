@@ -24,7 +24,10 @@
 
   ;; Morse
   (put-clojure-indent 'command-fn 1)
-  (put-clojure-indent 'message-fn 1))
+  (put-clojure-indent 'message-fn 1)
+
+  ;; Cats
+  (put-clojure-indent 'mlet :defn))
 
 (after! cider
   (set-popup-rules!
@@ -100,7 +103,7 @@
 (use-package! smudge
   :init
   (setq smudge-oauth2-client-id "4d23f6619825421f85533eebe615fffd"
-        smudge-oauth2-client-secret (shell-command "pass spotify/smudge")
+        smudge-oauth2-client-secret (password-store-get "spotify/smudge")
         smudge-transport 'connect)
 
   :config

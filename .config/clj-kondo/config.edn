@@ -1,0 +1,1 @@
+{:lint-as {cats.core/mlet clojure.core/let}}
