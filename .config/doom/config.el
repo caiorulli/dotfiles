@@ -74,7 +74,9 @@
                           (mu4e-drafts-folder     . "/mailbox/Drafts")
                           (mu4e-trash-folder      . "/mailbox/Trash")
                           (user-mail-address      . "caio@crthomaz.com.br")
-                          (smtpmail-smtp-user     . "caio@crthomaz.com.br"))
+                          (smtpmail-smtp-user     . "caio@crthomaz.com.br")
+                          (smtpmail-smtp-server   . "smtp.mailbox.org")
+                          (smtpmail-smtp-service  . 587))
                         t)
 
     (set-email-account! "gmail"
