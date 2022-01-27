@@ -29,6 +29,7 @@
        multiple-cursors
        rotate-text
        snippets
+       format
 
        :emacs
        (dired +ranger)

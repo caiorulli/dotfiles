@@ -15,6 +15,8 @@
 
 ;; Clojure
 
+(set-formatter! 'cljstyle "cljstyle pipe" :modes '(clojure-mode))
+
 (after! clojure-mode
   ;; Midje
   (put-clojure-indent 'fact 1)
