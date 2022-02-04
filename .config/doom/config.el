@@ -13,6 +13,11 @@
           scheme-mode
           lisp-mode) . paredit-mode))
 
+;; Treemacs
+
+(after! treemacs
+  (setq treemacs-collapse-dirs 10))
+
 ;; Clojure
 
 (set-formatter! 'cljstyle "cljstyle pipe" :modes '(clojure-mode))
