@@ -3,7 +3,14 @@
 ;; Directories
 
 (setq org-directory "~/Org")
+
 (setq projectile-project-search-path '("~/Code/"))
+
+(after! projectile
+  (setq projectile-project-root-files-bottom-up '(".projectile" ".git")))
+
+(after! treemacs
+  (setq treemacs-collapse-dirs 10))
 
 ;; Paredit
 
