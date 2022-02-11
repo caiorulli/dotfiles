@@ -52,6 +52,9 @@ if [ "$system_type" = "Darwin" ]; then
   fzf_dir="/usr/local/Cellar/fzf/0.29.0/shell"
   [ -s "$fzf_dir/key-bindings.zsh" ] && source "$fzf_dir/key-bindings.zsh"
   [ -s "$fzf_dir/completion.zsh" ] && source "$fzf_dir/completion.zsh"
+
+  eval "$(pyenv init -)"
+
 else
   # Zsh plugins
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
