@@ -141,14 +141,14 @@ haddock
   -- contents-location:
 
 init
-  -- interactive: False
-  -- cabal-version: 1.10
-  -- license: BSD3
-  -- tests:
-  -- test-dir:
+  interactive: False
+  cabal-version: 3.6
+  license: GPL-3.0-or-later
+  tests: True
+  test-dir: test
   -- language: Haskell2010
-  -- application-dir:
-  -- source-dir:
+  application-dir: app
+  source-dir: src
 
 install-dirs user
   -- prefix: /home/caio/.cache/cabal

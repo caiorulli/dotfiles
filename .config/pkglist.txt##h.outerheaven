@@ -4,6 +4,7 @@ adobe-source-han-serif-jp-fonts
 alacritty
 alsa-firmware
 alsa-utils
+ansible
 arc-gtk-theme
 arp-scan
 autoconf
@@ -33,6 +34,7 @@ discount
 docker
 docker-compose
 dunst
+dust
 dwarffortress
 efibootmgr
 element-desktop
@@ -202,6 +204,7 @@ xorg-xwud
 xss-lock
 yadm
 yay
+zellij
 zerotier-one
 zsh
 zsh-autosuggestions

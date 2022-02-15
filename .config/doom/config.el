@@ -9,9 +9,6 @@
 (after! projectile
   (setq projectile-project-root-files-bottom-up '(".projectile" ".git")))
 
-(after! treemacs
-  (setq treemacs-collapse-dirs 10))
-
 ;; Paredit
 
 (use-package! paredit
