@@ -5,6 +5,7 @@ alacritty
 alsa-firmware
 alsa-utils
 amd-ucode
+ansible
 arc-gtk-theme
 arp-scan
 autoconf
@@ -26,6 +27,7 @@ chicken
 chromium
 clj-kondo-bin
 clojure
+cmake
 cmatrix
 cowsay
 cups
@@ -38,6 +40,7 @@ docker
 docker-compose
 dosbox
 dunst
+dust
 dwarffortress
 efibootmgr
 emacs
@@ -56,20 +59,17 @@ gcc
 gdb
 gimp
 git
-git-lfs
 github-cli
 godot
 gparted
 grub
 hdparm
-i3lock
 isync
 iw
 jdk-openjdk
 jdk11-openjdk
 jdk8-openjdk
 jq
-khal
 leiningen
 lib32-gst-plugins-base-libs
 lib32-gtk3
@@ -95,6 +95,7 @@ maven
 mesa
 minecraft-launcher
 mpv
+mu
 mupdf
 neofetch
 neovim
@@ -138,9 +139,10 @@ rust-analyzer
 rust-racer
 rustup
 samba
-sbcl
 signal-desktop
 spotify
+spotify-tui-bin
+spotifyd
 steam
 steam-native-runtime
 stress
@@ -213,10 +215,10 @@ xss-lock
 yadm
 yay
 youtube-dl
+zellij
 zenpower-dkms
 zerotier-one
 zsh
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
-zulip-desktop
