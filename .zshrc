@@ -54,6 +54,7 @@ if [ "$system_type" = "Darwin" ]; then
   [ -s "$fzf_dir/completion.zsh" ] && source "$fzf_dir/completion.zsh"
 
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 
 else
   # Zsh plugins
