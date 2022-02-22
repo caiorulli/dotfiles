@@ -10,7 +10,7 @@ window:
 font:
   normal:
     family: Fantasque Sans Mono
-  size: 21.0
+  size: 15.0
 
 colors:
   primary:
