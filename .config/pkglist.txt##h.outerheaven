@@ -40,6 +40,7 @@ efibootmgr
 element-desktop
 emacs
 eslint
+exa
 fakeroot
 fd
 feh
@@ -149,6 +150,7 @@ texinfo
 thunderbird
 tidy
 tig
+tokei
 ttf-hanazono
 ttf-liberation
 ttf-sazanami

@@ -21,7 +21,7 @@ bindkey -e
 system_type=$(uname -s)
 
 # Aliases
-alias l='ls -la --color'
+alias l='exa -la'
 alias gst='git status'
 alias gco='git checkout'
 alias doom='$XDG_CONFIG_HOME/emacs/bin/doom'
