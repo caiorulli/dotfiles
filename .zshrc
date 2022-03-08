@@ -24,7 +24,7 @@ system_type=$(uname -s)
 alias l='exa -la'
 alias gst='git status'
 alias gco='git checkout'
-alias doom='$XDG_CONFIG_HOME/emacs/bin/doom'
+alias doom="$XDG_CONFIG_HOME/emacs/bin/doom"
 alias fehbg='feh --randomize --bg-scale'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
