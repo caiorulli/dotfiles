@@ -23,6 +23,7 @@ bluez-utils
 borg
 bottom
 brave-bin
+caddy
 chicken
 chromium
 clj-kondo-bin
@@ -45,6 +46,7 @@ dwarffortress
 efibootmgr
 emacs
 eslint
+exa
 fakeroot
 fcitx
 fcitx-configtool
@@ -110,6 +112,7 @@ noto-fonts-emoji
 ntp
 numlockx
 nvm
+obinskit
 otf-fantasque-sans-mono
 otf-ipafont
 pacman-contrib

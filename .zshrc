@@ -71,6 +71,9 @@ fi
 
 # functions
 update-pkglist() {
-  pacman -Qqe > .config/pkglist.txt
+  pacman -Qqe > "$XDG_CONFIG_HOME/pkglist.txt"
 }
 
+sdseq() {
+  sudo pacman -Syu --noconfirm && poweroff
+}
