@@ -46,6 +46,7 @@
        (debugger +lsp)
        pdf
        docker
+       terraform
        pass
 
        :lang
