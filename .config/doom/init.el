@@ -51,9 +51,9 @@
 
        :lang
        (haskell +lsp)
-       idris
        clojure
        (rust +lsp)
+       (go +lsp)
        javascript
        (java +lsp)
        (python +lsp)

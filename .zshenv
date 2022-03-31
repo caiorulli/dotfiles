@@ -1,7 +1,6 @@
 typeset -U PATH path
 path=("$HOME/.local/bin" "$path[@]")
 export PATH
-export PATH="$HOME/.cache/cabal/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -34,3 +33,6 @@ export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export MBSYNC_CONFIG="$XDG_CONFIG_HOME/isync/mbsyncrc"
 export PROTON_LOG=1
 export SDKMAN_DIR="$HOME/.sdkman"
+export GOPATH="$HOME/Software/go"
+
+export PATH="$CABAL_DIR/bin:$GOPATH/bin:$PATH"

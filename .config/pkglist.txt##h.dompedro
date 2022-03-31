@@ -23,7 +23,6 @@ bluez-utils
 borg
 bottom
 brave-bin
-caddy
 chicken
 chromium
 clj-kondo-bin
@@ -62,11 +61,13 @@ gdb
 gimp
 git
 github-cli
+go-tools
 godot
 gparted
 grub
 hdparm
 isync
+itch
 iw
 jdk-openjdk
 jdk11-openjdk
@@ -80,6 +81,7 @@ lib32-mesa
 lib32-ocl-icd
 lib32-v4l-utils
 lib32-vulkan-radeon
+librewolf-bin
 libtool
 linux
 linux-firmware
@@ -111,6 +113,7 @@ nnn
 noto-fonts-emoji
 ntp
 numlockx
+nushell
 nvm
 obinskit
 otf-fantasque-sans-mono
@@ -130,7 +133,9 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
 pyenv
+python-isort
 python-pipenv
+python-pyflakes
 qpdf
 ranger
 redshift
@@ -150,11 +155,13 @@ spotifyd
 steam
 steam-native-runtime
 stress
+stylelint
 sudo
 syncthing
 telegram-desktop
 texinfo
 thunderbird
+tidy
 tig
 ttf-hanazono
 ttf-sazanami
@@ -215,6 +222,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xplr
 xss-lock
 yadm
 yay
