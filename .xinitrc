@@ -37,7 +37,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # TearFree on
-xrandr --output HDMI-A-0 --set TearFree on
+xrandr --output DisplayPort-0 --mode 1920x1080 --rate 165
 
 # Cursor
 xsetroot -cursor_name left_ptr

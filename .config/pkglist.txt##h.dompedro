@@ -43,7 +43,7 @@ dunst
 dust
 dwarffortress
 efibootmgr
-emacs
+emacs-nativecomp
 eslint
 exa
 fakeroot
@@ -81,7 +81,6 @@ lib32-mesa
 lib32-ocl-icd
 lib32-v4l-utils
 lib32-vulkan-radeon
-librewolf-bin
 libtool
 linux
 linux-firmware
@@ -159,6 +158,7 @@ stylelint
 sudo
 syncthing
 telegram-desktop
+terraform
 texinfo
 thunderbird
 tidy
