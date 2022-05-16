@@ -68,11 +68,5 @@
        :term
        vterm
 
-       :email
-       (mu4e +gmail)
-
-       :app
-       rss
-
        :config
        (default +bindings +smartparens))

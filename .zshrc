@@ -49,19 +49,21 @@ if [ "$system_type" = "Darwin" ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
   # fzf setup
-  fzf_dir="/usr/local/Cellar/fzf/0.29.0/shell"
+  fzf_dir="/usr/local/Cellar/fzf/0.30.0/shell"
   [ -s "$fzf_dir/key-bindings.zsh" ] && source "$fzf_dir/key-bindings.zsh"
   [ -s "$fzf_dir/completion.zsh" ] && source "$fzf_dir/completion.zsh"
 
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 
+  export PATH="/Users/caiorulli/Library/Python/3.9/bin:$PATH"
+
 else
   # Zsh plugins
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-  # nvm setup
+
   [ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
 
   # fzf setup
