@@ -47,13 +47,11 @@
        pdf
        docker
        terraform
-       pass
 
        :lang
        (haskell +lsp)
        clojure
        (rust +lsp)
-       (go +lsp)
        javascript
        (java +lsp)
        (python +lsp)

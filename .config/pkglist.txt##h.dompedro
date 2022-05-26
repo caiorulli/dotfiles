@@ -13,7 +13,6 @@ automake
 aws-cli
 base
 bat
-bdf-unifont
 binutils
 bison
 blender
@@ -87,7 +86,6 @@ linux-firmware
 linux-headers
 lolcat
 lsof
-lutris
 m4
 maim
 make

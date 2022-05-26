@@ -230,8 +230,8 @@ keyboardGridSelect =
 
 monitorGridSelect :: [(String, X ())]
 monitorGridSelect =
-  [ ("Two monitors", spawn "xrandr --output HDMI1 --auto --right-of eDP1; ~/.fehbg"),
-    ("One monitor", spawn "xrandr --output HDMI1 --off; ~/.fehbg")
+  [ ("Activate TV", spawn "xrandr --output HDMI-A-0 --mode 1920x1080 --rate 60 --left-of DisplayPort-0; ~/.fehbg"),
+    ("Turn off TV", spawn "xrandr --output HDMI-A-0 --off; ~/.fehbg")
   ]
 
 myBar :: String
