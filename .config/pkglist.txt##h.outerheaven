@@ -9,10 +9,8 @@ arc-gtk-theme
 arp-scan
 autoconf
 automake
-aws-cli
 base
 bat
-bdf-unifont
 binutils
 bison
 blender
@@ -90,7 +88,6 @@ maven
 mesa-demos
 minecraft-launcher
 mpv
-mu
 mupdf
 ncdu
 neofetch
@@ -100,6 +97,7 @@ networkmanager
 networkmanager-vpnc
 newsboat
 nftables
+nix
 nmap
 noto-fonts-emoji
 ntp
@@ -171,6 +169,10 @@ xdg-user-dirs
 xf86-video-intel
 xf86-video-nouveau
 xf86-video-vesa
+xh
+xmobar
+xmonad-contrib-git
+xmonad-git
 xorg-docs
 xorg-fonts-100dpi
 xorg-fonts-75dpi
@@ -203,6 +205,7 @@ xorg-xvinfo
 xorg-xwayland
 xorg-xwd
 xorg-xwud
+xplr
 xss-lock
 yadm
 yay
