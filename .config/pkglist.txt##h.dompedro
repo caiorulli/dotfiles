@@ -96,7 +96,6 @@ maven
 mesa
 minecraft-launcher
 mpv
-mu
 mupdf
 neofetch
 neovim
@@ -146,9 +145,8 @@ rust-racer
 rustup
 samba
 signal-desktop
+slack-electron
 spotify
-spotify-tui-bin
-spotifyd
 steam
 steam-native-runtime
 stress
@@ -182,6 +180,9 @@ wqy-zenhei
 xdg-user-dirs
 xf86-video-amdgpu
 xf86-video-vesa
+xmobar
+xmonad-contrib-git
+xmonad-git
 xorg-bdftopcf
 xorg-docs
 xorg-font-util
