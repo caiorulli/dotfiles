@@ -219,6 +219,12 @@ myLogHook = dynamicLog
 -- By default, do nothing.
 myStartupHook :: X ()
 myStartupHook = do
+  spawn "xsetroot -cursor_name left_ptr"
+  spawn "~/.fehbg"
+  spawnOnce "picom &"
+  spawnOnce "unclutter &"
+  spawnOnce "dunst &"
+  spawnOnce "udiskie &"
   spawnOnce myBrowser
   spawnOnce "thunderbird"
 

@@ -63,8 +63,5 @@
        yaml
        data
 
-       :term
-       vterm
-
        :config
        (default +bindings +smartparens))
