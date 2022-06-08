@@ -36,3 +36,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 export GOPATH="$HOME/Software/go"
 
 export PATH="$CABAL_DIR/bin:$GOPATH/bin:$PATH"
+
+export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}

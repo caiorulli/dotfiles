@@ -40,7 +40,7 @@ fi
 xrandr --output DisplayPort-0 --mode 1920x1080 --rate 165
 
 # Cursor
-xsetroot -cursor_name left_ptr
+# xsetroot -cursor_name left_ptr
 
 # Keymap setup
 hostname=$(uname -n)
@@ -50,11 +50,11 @@ else
     setxkbmap us -variant alt-intl
 fi
 
-~/.fehbg
-picom &
-unclutter &
-dunst &
-udiskie &
+# ~/.fehbg
+# picom &
+# unclutter &
+# dunst &
+# udiskie &
 # fcitx &
 
 exec xmonad

@@ -38,7 +38,10 @@
   (put-clojure-indent 'message-fn 1)
 
   ;; Cats
-  (put-clojure-indent 'mlet :defn))
+  (put-clojure-indent 'mlet :defn)
+
+  ;; test.check
+  (put-clojure-indent 'for-all 1))
 
 (after! cider
   (set-popup-rules!
