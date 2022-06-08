@@ -79,3 +79,5 @@ update-pkglist() {
 sdseq() {
   sudo pacman -Syu --noconfirm && poweroff
 }
+
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

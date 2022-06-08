@@ -11,9 +11,14 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
+    };
+    blacklistedKernelModules = [ "nouveau" ];
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -29,18 +34,19 @@
   time.timeZone = "America/Sao_Paulo";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.utf8";
-    LC_IDENTIFICATION = "pt_BR.utf8";
-    LC_MEASUREMENT = "pt_BR.utf8";
-    LC_MONETARY = "pt_BR.utf8";
-    LC_NAME = "pt_BR.utf8";
-    LC_NUMERIC = "pt_BR.utf8";
-    LC_PAPER = "pt_BR.utf8";
-    LC_TELEPHONE = "pt_BR.utf8";
-    LC_TIME = "pt_BR.utf8";
+  i18n = {
+    defaultLocale = "en_US.utf8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "pt_BR.utf8";
+      LC_IDENTIFICATION = "pt_BR.utf8";
+      LC_MEASUREMENT = "pt_BR.utf8";
+      LC_MONETARY = "pt_BR.utf8";
+      LC_NAME = "pt_BR.utf8";
+      LC_NUMERIC = "pt_BR.utf8";
+      LC_PAPER = "pt_BR.utf8";
+      LC_TELEPHONE = "pt_BR.utf8";
+      LC_TIME = "pt_BR.utf8";
+    };
   };
 
   services.xserver = {
@@ -53,11 +59,19 @@
       enableContribAndExtras = true;
     };
 
-    videoDrivers = [ "nvidia" ];
+    # oh, nvidia...
+    # videoDrivers = [ "nvidia" ];
 
     layout = "br";
     xkbVariant = "";
   };
+
+  # hardware.nvidia.modesetting.enable = true;
+  hardware = {
+    bluetooth.enable = true;
+  };
+
+  services.blueman.enable = true;
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -89,7 +103,7 @@
   users.users.caio = {
     isNormalUser = true;
     description = "Caio";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -121,22 +135,13 @@
     dunst
     udiskie
     yadm
+    pulsemixer
+    pamixer
+    xclip
+    playerctl
 
     # cli
     git
-    direnv
-    maim
-    bat
-    exa
-    bottom
-    xh
-    ripgrep
-    fd
-    newsboat
-    gh
-    du-dust
-    neofetch
-    fzf
 
     # clojure
     jdk
@@ -144,7 +149,6 @@
     babashka
     clj-kondo
 
-    docker
     docker-compose
     nixfmt
     cmake
@@ -171,6 +175,7 @@
   # services.openssh.enable = true;
 
   programs.zsh.enable = true;
+  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
