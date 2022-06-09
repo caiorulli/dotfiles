@@ -1,9 +1,0 @@
-[git]
-	editor = nvim
-[core]
-	editor = nvim
-[pull]
-	rebase = false
-[include]
-	path = config.local
-
