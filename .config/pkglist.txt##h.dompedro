@@ -19,7 +19,6 @@ blueman
 bluez-plugins
 bluez-utils
 borg
-brave-bin
 chicken
 chromium
 clj-kondo-bin
@@ -30,7 +29,6 @@ cowsay
 cups
 curl
 dhcpcd
-discord
 discount
 docker
 docker-compose
@@ -131,18 +129,14 @@ rust-analyzer
 rust-racer
 rustup
 samba
-signal-desktop
-spotify
 steam
 steam-native-runtime
 stress
 stylelint
 sudo
 syncthing
-telegram-desktop
 terraform
 texinfo
-thunderbird
 tidy
 tig
 tldr
