@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "pipo";
-  home.homeDirectory = "/home/pipo";
+  home.username = "caio";
+  home.homeDirectory = "/home/caio";
 
   home.packages = with pkgs; [
     # cli
@@ -138,6 +138,28 @@
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+
+    associations.added = {
+      "x-scheme-handler/tg" = ["userapp-Telegram Desktop-PGCD00.desktop"
+                               "userapp-Telegram Desktop-4LGCE1.desktop"];
+      "image/png" = "feh.desktop";
+      "application/pdf" = "brave-browser.desktop";
+    };
+
+    defaultApplications = {
+      "text/html" = "brave-browser.desktop";
+      "x-scheme-handler/http" = "brave-browser.desktop";
+      "x-scheme-handler/https" = "brave-browser.desktop";
+      "x-scheme-handler/about" = "brave-browser.desktop";
+      "x-scheme-handler/unknown" = "brave-browser.desktop";
+      "x-scheme-handler/tg" = "userapp-Telegram Desktop-4LGCE1.desktop";
+      "x-scheme-handler/mailto" = "brave-browser.desktop";
+      "x-scheme-handler/webcal" = "brave-browser.desktop";
     };
   };
 
