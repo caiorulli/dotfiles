@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "caio";
-  home.homeDirectory = "/home/caio";
+  home.username = "pipo";
+  home.homeDirectory = "/home/pipo";
 
   home.packages = with pkgs; [
     # cli
@@ -118,6 +118,27 @@
     udiskie.enable = true;
     unclutter.enable = true;
     mpris-proxy.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+
+    iconTheme = {
+      name = "Adwaita";
+    };
+
+    theme = {
+      name = "Arc-Dark";
+    };
+
+    font = {
+      name = "Fantasque Sans Mono";
+      size = 11;
+    };
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
   };
 
   # This value determines the Home Manager release that your
