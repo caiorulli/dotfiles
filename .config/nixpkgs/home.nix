@@ -7,6 +7,7 @@
   home.homeDirectory = "/home/caio";
 
   home.packages = with pkgs; [
+    # cli
     direnv
     maim
     xh
@@ -17,6 +18,9 @@
     du-dust
     neofetch
     fzf
+
+    # applications
+    slack
   ];
 
   programs = {
@@ -84,6 +88,15 @@
         };
       };
     };
+
+    ssh = {
+      enable = true;
+      extraOptionOverrides = {
+        "AddKeysToAgent" = "yes";
+      };
+    };
+
+    home-manager.enable = true;
   };
 
   services = {
@@ -116,7 +129,4 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.05";
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

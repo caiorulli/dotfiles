@@ -132,7 +132,6 @@ rust-racer
 rustup
 samba
 signal-desktop
-slack-electron
 spotify
 steam
 steam-native-runtime
@@ -209,6 +208,7 @@ xorg-xwininfo
 xorg-xwud
 xplr
 xss-lock
+xterm
 yadm
 yay
 youtube-dl
