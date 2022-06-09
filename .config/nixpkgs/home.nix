@@ -96,8 +96,15 @@
       };
     };
 
+    redshift = {
+      enable = true;
+      latitude = -23.5446877;
+      longitude = -46.6821469;
+    };
+
     udiskie.enable = true;
     unclutter.enable = true;
+    mpris-proxy.enable = true;
   };
 
   # This value determines the Home Manager release that your
