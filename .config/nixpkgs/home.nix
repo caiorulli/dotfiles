@@ -14,10 +14,16 @@
       xh
       ripgrep
       fd
-      newsboat
       gh
       du-dust
       neofetch
+      jq
+      cmatrix
+      rsync
+      unzip
+      tig
+      cowsay
+      lolcat
 
       # applications
       slack
@@ -164,9 +170,6 @@
       };
     };
 
-    direnv.enable = true;
-    starship.enable = true;
-
     # TODO crashes on arch xmonad?
     # rofi = {
     #   enable = true;
@@ -179,6 +182,26 @@
       enableAliases = true;
     };
 
+    newsboat = {
+      enable = true;
+      autoReload = true;
+      extraConfig = ''
+        bind-key j next
+        bind-key k prev
+        bind-key J next-feed
+        bind-key K prev-feed
+        bind-key j down article
+        bind-key k up article
+        bind-key J next article
+        bind-key K prev article
+      '';
+      urls = [
+        { tags = [ "news" ]; url = "https://clojure.org/feed.xml"; }
+      ];
+    };
+
+    direnv.enable = true;
+    starship.enable = true;
     bat.enable = true;
     bottom.enable = true;
     fzf.enable = true;

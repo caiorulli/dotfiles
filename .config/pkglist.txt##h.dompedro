@@ -14,18 +14,14 @@ aws-cli
 base
 binutils
 bison
-blender
 blueman
 bluez-plugins
 bluez-utils
 borg
-chicken
 chromium
 clj-kondo-bin
 clojure
 cmake
-cmatrix
-cowsay
 cups
 curl
 dhcpcd
@@ -48,10 +44,8 @@ foliate
 gamemode
 gcc
 gdb
-gimp
 git
 go-tools
-godot
 gparted
 grub
 hdparm
@@ -61,7 +55,6 @@ iw
 jdk-openjdk
 jdk11-openjdk
 jdk8-openjdk
-jq
 leiningen
 lib32-gst-plugins-base-libs
 lib32-gtk3
@@ -74,7 +67,6 @@ libtool
 linux
 linux-firmware
 linux-headers
-lolcat
 lsof
 m4
 make
@@ -123,7 +115,6 @@ qpdf
 ranger
 rlwrap
 rofi
-rsync
 rtorrent
 rust-analyzer
 rust-racer
@@ -154,7 +145,6 @@ wget
 which
 wine-staging
 winetricks
-wkhtmltopdf
 wqy-zenhei
 xdg-user-dirs
 xf86-video-amdgpu
