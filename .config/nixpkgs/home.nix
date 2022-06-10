@@ -5,8 +5,8 @@
     stateVersion = "22.05";
     # enableNixpkgsReleaseCheck = true;
 
-    username = "caio";
-    homeDirectory = "/home/caio";
+    username = "pipo";
+    homeDirectory = "/home/pipo";
 
     packages = with pkgs; [
       # cli
@@ -17,7 +17,6 @@
       gh
       du-dust
       neofetch
-      jq
       cmatrix
       rsync
       unzip
@@ -69,6 +68,13 @@
       fehbg = "feh --randomize --bg-scale";
       telegram-desktop = "nixGL telegram-desktop";
       alacritty = "nixGL alacritty";
+    };
+
+    file = {
+      "${config.xdg.configHome}/clj-kondo/config.edn".source = ./clojure/clj_kondo.edn;
+      "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
+      "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
+      "${config.home.homeDirectory}/.xinitrc".source = ./xinitrc;
     };
   };
 
@@ -205,6 +211,7 @@
     bat.enable = true;
     bottom.enable = true;
     fzf.enable = true;
+    jq.enable = true;
 
     home-manager.enable = true;
   };
