@@ -5,8 +5,8 @@
     stateVersion = "22.05";
     # enableNixpkgsReleaseCheck = true;
 
-    username = "pipo";
-    homeDirectory = "/home/pipo";
+    username = "caio";
+    homeDirectory = "/home/caio";
 
     packages = with pkgs; [
       # cli
@@ -71,10 +71,23 @@
     };
 
     file = {
+      # clojure
       "${config.xdg.configHome}/clj-kondo/config.edn".source = ./clojure/clj_kondo.edn;
       "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
       "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
-      "${config.home.homeDirectory}/.xinitrc".source = ./xinitrc;
+
+      # xmonad
+      "${config.xdg.configHome}/xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+      "${config.xdg.configHome}/xmobar/xmobarrc".source = ./xmonad/xmobarrc;
+
+      # emacs
+      "${config.xdg.configHome}/doom".source = ./doom;
+
+      # misc
+      "${config.xdg.configHome}/nvim/init.vim".source = ./misc/init.vim;
+      "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
+      "${config.xdg.configHome}/rofi/config.rasi".source = ./misc/rofi.rasi;
+      "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };
   };
 
