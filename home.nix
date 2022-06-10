@@ -23,6 +23,9 @@
       tig
       cowsay
       lolcat
+      rtorrent
+      mpv
+      feh
 
       # applications
       slack
@@ -32,6 +35,13 @@
       spotify
       thunderbird
       brave
+      xterm
+
+      # dev
+      terraform
+      ansible
+      clj-kondo
+      clojure
 
       # TODO how to add nixGL?
     ];
@@ -74,7 +84,6 @@
       # clojure
       "${config.xdg.configHome}/clj-kondo/config.edn".source = ./clojure/clj_kondo.edn;
       "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
-      "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
 
       # xmonad
       "${config.xdg.configHome}/xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
@@ -102,7 +111,7 @@
         [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
 
         update-pkglist() {
-          pacman -Qqe > "$XDG_CONFIG_HOME/pkglist.txt"
+          pacman -Qqe > "${config.xdg.configHome}/nixpkgs/pacman/dompedro.txt"
         }
 
         sdseq() {
