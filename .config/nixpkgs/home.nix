@@ -3,11 +3,13 @@
 {
   home = {
     stateVersion = "22.05";
+    # enableNixpkgsReleaseCheck = true;
+
     username = "caio";
     homeDirectory = "/home/caio";
+
     packages = with pkgs; [
       # cli
-      direnv
       maim
       xh
       ripgrep
@@ -16,7 +18,6 @@
       gh
       du-dust
       neofetch
-      fzf
 
       # applications
       slack
@@ -29,12 +30,73 @@
 
       # TODO how to add nixGL?
     ];
+
+    sessionPath = [ "$HOME/.local/bin" ];
+    sessionVariables = {
+      EDITOR = "nvim";
+      MAILDIR = "$HOME/Mail";
+      LESSHISTFILE = "-";
+      GNUPGHOME = "${config.xdg.dataHome}/gnupg";
+      PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
+      RUSTUP_HOME = "${config.xdg.dataHome}/rustup";
+      CARGO_HOME = "${config.xdg.dataHome}/cargo";
+      CABAL_CONFIG = "${config.xdg.configHome}/cabal/config";
+      CABAL_DIR = "${config.xdg.cacheHome}/cabal";
+      STACK_ROOT = "${config.xdg.dataHome}/stack";
+      NVM_DIR = "${config.xdg.dataHome}/nvm";
+      NODE_REPL_HISTORY = "${config.xdg.dataHome}/node_repl_history";
+      NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
+      PSQL_HISTORY = "${config.xdg.cacheHome}/pg/psql_history";
+      PROTON_LOG_DIR = "${config.xdg.dataHome}/proton_log";
+      XMONAD_CONFIG_HOME = "${config.xdg.configHome}/xmonad";
+      XMONAD_DATA_HOME = "${config.xdg.dataHome}/xmonad";
+      XMONAD_CACHE_HOME = "${config.xdg.cacheHome}/xmonad";
+      WEECHAT_HOME = "${config.xdg.configHome}/weechat";
+      MBSYNC_CONFIG = "${config.xdg.configHome}/isync/mbsyncrc";
+      PROTON_LOG = 1;
+      SDKMAN_DIR = "$HOME/.sdkman";
+      GOPATH = "$HOME/Software/go";
+    };
+
+    shellAliases = {
+      doom = "${config.xdg.configHome}/emacs/bin/doom";
+      fehbg = "feh --randomize --bg-scale";
+      telegram-desktop = "nixGL telegram-desktop";
+      alacritty = "nixGL alacritty";
+    };
   };
 
   programs = {
-    exa.enable = true;
-    bat.enable = true;
-    bottom.enable = true;
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      enableSyntaxHighlighting = true;
+      defaultKeymap = "emacs";
+
+      initExtra = ''
+        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+        update-pkglist() {
+          pacman -Qqe > "$XDG_CONFIG_HOME/pkglist.txt"
+        }
+
+        sdseq() {
+          sudo pacman -Syu --noconfirm && poweroff
+        }
+      '';
+
+      profileExtra = ''
+        if [ -z "''${DISPLAY}" ] && [ "''${XDG_VTNR}" -eq 1 ]; then
+            exec ssh-agent startx
+        fi
+      '';
+
+      history = {
+        path = "$XDG_DATA_HOME/zsh/history";
+        save = 1000000000;
+        size = 1000000000;
+      };
+    };
 
     git = {
       enable = true;
@@ -47,6 +109,11 @@
       };
 
       difftastic.enable = true;
+    };
+
+    ssh = {
+      enable = true;
+      extraOptionOverrides = { "AddKeysToAgent" = "yes"; };
     };
 
     alacritty = {
@@ -97,12 +164,8 @@
       };
     };
 
-    ssh = {
-      enable = true;
-      extraOptionOverrides = {
-        "AddKeysToAgent" = "yes";
-      };
-    };
+    direnv.enable = true;
+    starship.enable = true;
 
     # TODO crashes on arch xmonad?
     # rofi = {
@@ -111,17 +174,22 @@
     #   theme = "Arc-Dark";
     # };
 
+    exa = {
+      enable = true;
+      enableAliases = true;
+    };
+
+    bat.enable = true;
+    bottom.enable = true;
+    fzf.enable = true;
+
     home-manager.enable = true;
   };
 
   services = {
     dunst = {
       enable = true;
-      settings = {
-        global = {
-          font = "Fantasque Sans Mono 8";
-        };
-      };
+      settings = { global = { font = "Fantasque Sans Mono 8"; }; };
     };
 
     redshift = {
@@ -141,31 +209,29 @@
   gtk = {
     enable = true;
 
-    iconTheme = {
-      name = "Adwaita";
-    };
+    iconTheme = { name = "Adwaita"; };
 
-    theme = {
-      name = "Arc-Dark";
-    };
+    theme = { name = "Arc-Dark"; };
 
     font = {
       name = "Fantasque Sans Mono";
       size = 11;
     };
 
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
+    gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
   };
 
   xdg = {
+    enable = true;
+
     mimeApps = {
       enable = true;
 
       associations.added = {
-        "x-scheme-handler/tg" = ["userapp-Telegram Desktop-PGCD00.desktop"
-                                "userapp-Telegram Desktop-4LGCE1.desktop"];
+        "x-scheme-handler/tg" = [
+          "userapp-Telegram Desktop-PGCD00.desktop"
+          "userapp-Telegram Desktop-4LGCE1.desktop"
+        ];
         "image/png" = "feh.desktop";
         "application/pdf" = "brave-browser.desktop";
       };
