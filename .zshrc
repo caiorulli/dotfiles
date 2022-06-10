@@ -29,8 +29,8 @@ alias fehbg='feh --randomize --bg-scale'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 alias mbsync='mbsync -c $MBSYNC_CONFIG'
-alias csi='chicken-csi'
-alias csc='chicken-csc'
+alias telegram-desktop='nixGL telegram-desktop'
+alias alacritty='nixGL alacritty'
 
 # direnv setup
 eval "$(direnv hook zsh)"

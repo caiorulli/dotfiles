@@ -12,7 +12,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Layout.NoBorders
 
 myTerminal :: String
-myTerminal = "alacritty"
+myTerminal = "nixGL alacritty"
 
 myBrowser :: String
 myBrowser = "brave"
