@@ -69,10 +69,8 @@
       XMONAD_CONFIG_HOME = "${config.xdg.configHome}/xmonad";
       XMONAD_DATA_HOME = "${config.xdg.dataHome}/xmonad";
       XMONAD_CACHE_HOME = "${config.xdg.cacheHome}/xmonad";
-      WEECHAT_HOME = "${config.xdg.configHome}/weechat";
       MBSYNC_CONFIG = "${config.xdg.configHome}/isync/mbsyncrc";
       PROTON_LOG = 1;
-      SDKMAN_DIR = "$HOME/.sdkman";
       GOPATH = "$HOME/Software/go";
     };
 
