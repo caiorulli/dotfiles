@@ -14,7 +14,6 @@
       xh
       ripgrep
       fd
-      gh
       du-dust
       neofetch
       cmatrix
@@ -36,8 +35,6 @@
       thunderbird
       brave
       xterm
-      emacsNativeComp
-      neovim
 
       # dev
       terraform
@@ -93,7 +90,6 @@
       "${config.xdg.configHome}/doom".source = ./doom;
 
       # misc
-      "${config.xdg.configHome}/nvim/init.vim".source = ./misc/init.vim;
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
       "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };
@@ -212,12 +208,75 @@
       ];
     };
 
+    emacs = {
+      enable = true;
+      package = pkgs.emacsNativeComp;
+    };
+
+    neovim = {
+      enable = true;
+      extraConfig = ''
+        set nocompatible
+        set ruler
+        set laststatus=2
+        set showcmd
+        set showmode
+        set number relativenumber
+        set incsearch
+        set ignorecase
+        set smartcase
+        set hlsearch
+        set shortmess+=Ic
+        set splitbelow splitright
+        set wildmode=longest,list
+        set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+        set cmdheight=2
+        set nobackup
+        set nowritebackup
+        set hidden
+        set updatetime=300
+        set signcolumn=yes
+
+        let mapleader=" "
+
+        nnoremap <leader>n :NERDTreeToggle<CR>
+        nnoremap <leader>. :Files<CR>
+        nnoremap <leader><space> :GFiles<CR>
+        nnoremap <leader>b :Buffers<CR>
+        nnoremap <leader>h :History<CR>
+        nnoremap <leader>f :Rg<CR>
+      '';
+
+      plugins = with pkgs.vimPlugins; [
+        { plugin = nord-vim;
+          config = "colorscheme nord"; }
+        nerdtree
+        vim-fugitive
+        vim-gitgutter
+        vim-commentary
+        fzf-vim
+        vim-polyglot
+        { plugin = ale;
+          config = ''
+            let g:ale_fixers = { 'javascript': ['eslint'], 'rust': ['rustfmt'] }
+            let g:ale_fix_on_save = 1
+          '';
+        }
+        vim-fireplace
+        vim-parinfer
+      ];
+
+      viAlias = true;
+      vimAlias = true;
+    };
+
     direnv.enable = true;
     starship.enable = true;
     bat.enable = true;
     bottom.enable = true;
     fzf.enable = true;
     jq.enable = true;
+    gh.enable = true;
 
     home-manager.enable = true;
   };
