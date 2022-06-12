@@ -12,7 +12,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Layout.NoBorders
 
 myTerminal :: String
-myTerminal = "nixGL alacritty"
+myTerminal = "alacritty"
 
 myBrowser :: String
 myBrowser = "brave"
@@ -221,7 +221,6 @@ myStartupHook :: X ()
 myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr"
   spawn "~/.fehbg"
-  spawnOnce "picom &"
   spawnOnce myBrowser
   spawnOnce "thunderbird"
 

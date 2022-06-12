@@ -3,7 +3,7 @@
 {
   home = {
     stateVersion = "22.05";
-    # enableNixpkgsReleaseCheck = true;
+    enableNixpkgsReleaseCheck = true;
 
     username = "caio";
     homeDirectory = "/home/caio";
@@ -36,14 +36,17 @@
       thunderbird
       brave
       xterm
+      emacsNativeComp
+      neovim
 
       # dev
       terraform
       ansible
       clj-kondo
       clojure
+      nixfmt
 
-      # TODO how to add nixGL?
+      dconf
     ];
 
     sessionPath = [ "$HOME/.local/bin" ];
@@ -77,7 +80,6 @@
       doom = "${config.xdg.configHome}/emacs/bin/doom";
       fehbg = "feh --randomize --bg-scale";
       telegram-desktop = "nixGL telegram-desktop";
-      alacritty = "nixGL alacritty";
     };
 
     file = {
@@ -95,7 +97,6 @@
       # misc
       "${config.xdg.configHome}/nvim/init.vim".source = ./misc/init.vim;
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
-      "${config.xdg.configHome}/rofi/config.rasi".source = ./misc/rofi.rasi;
       "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };
   };
@@ -109,20 +110,6 @@
 
       initExtra = ''
         [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-
-        update-pkglist() {
-          pacman -Qqe > "${config.xdg.configHome}/nixpkgs/pacman/dompedro.txt"
-        }
-
-        sdseq() {
-          sudo pacman -Syu --noconfirm && poweroff
-        }
-      '';
-
-      profileExtra = ''
-        if [ -z "''${DISPLAY}" ] && [ "''${XDG_VTNR}" -eq 1 ]; then
-            exec ssh-agent startx
-        fi
       '';
 
       history = {
@@ -198,12 +185,11 @@
       };
     };
 
-    # TODO crashes on arch xmonad?
-    # rofi = {
-    #   enable = true;
-    #   font = "Fantasque Sans Mono 10";
-    #   theme = "Arc-Dark";
-    # };
+    rofi = {
+      enable = true;
+      font = "Fantasque Sans Mono 10";
+      theme = "Arc-Dark";
+    };
 
     exa = {
       enable = true;
@@ -253,9 +239,7 @@
     udiskie.enable = true;
     unclutter.enable = true;
     mpris-proxy.enable = true;
-
-    # TODO make it work with nixGL
-    # picom.enable = true;
+    picom.enable = true;
   };
 
   gtk = {
