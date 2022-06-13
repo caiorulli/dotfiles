@@ -41,6 +41,7 @@
       ansible
       clj-kondo
       clojure
+      babashka
       nixfmt
 
       dconf
@@ -79,7 +80,8 @@
 
     file = {
       # clojure
-      "${config.xdg.configHome}/clj-kondo/config.edn".source = ./clojure/clj_kondo.edn;
+      "${config.xdg.configHome}/clj-kondo/config.edn".source =
+        ./clojure/clj_kondo.edn;
       "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
 
       # xmonad
@@ -203,9 +205,10 @@
         bind-key J next article
         bind-key K prev article
       '';
-      urls = [
-        { tags = [ "news" ]; url = "https://clojure.org/feed.xml"; }
-      ];
+      urls = [{
+        tags = [ "news" ];
+        url = "https://clojure.org/feed.xml";
+      }];
     };
 
     emacs = {
@@ -248,15 +251,18 @@
       '';
 
       plugins = with pkgs.vimPlugins; [
-        { plugin = nord-vim;
-          config = "colorscheme nord"; }
+        {
+          plugin = nord-vim;
+          config = "colorscheme nord";
+        }
         nerdtree
         vim-fugitive
         vim-gitgutter
         vim-commentary
         fzf-vim
         vim-polyglot
-        { plugin = ale;
+        {
+          plugin = ale;
           config = ''
             let g:ale_fixers = { 'javascript': ['eslint'], 'rust': ['rustfmt'] }
             let g:ale_fix_on_save = 1

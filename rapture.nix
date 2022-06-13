@@ -5,11 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      <home-manager/nixos>
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -56,6 +55,11 @@
 
       layout = "us";
       xkbVariant = "alt-intl";
+
+      deviceSection = ''
+        Option "VariableRefresh" "true"
+        Option "TearFree" "true"
+      '';
     };
 
     printing.enable = true;
@@ -128,13 +132,16 @@
     xclip
     playerctl
 
+    # steam
     steam-run
+    # maybe I need this?
+    # (steam.override {
+    #   extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ];
+    #   withJava = true;
+    # }).run
   ];
 
-  fonts.fonts = with pkgs; [
-    fantasque-sans-mono
-    emacs-all-the-icons-fonts
-  ];
+  fonts.fonts = with pkgs; [ fantasque-sans-mono emacs-all-the-icons-fonts ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
