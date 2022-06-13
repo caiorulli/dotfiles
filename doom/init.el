@@ -54,7 +54,6 @@
        (rust +lsp)
        javascript
        (java +lsp)
-       (python +lsp)
        emacs-lisp
        nix
        org

@@ -5,10 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-    <home-manager/nixos>
-  ];
+  imports =
+    [ # Include the results of the hardware scan.
+      /etc/nixos/hardware-configuration.nix
+      <home-manager/nixos>
+    ];
 
   # Bootloader.
   boot.loader = {
@@ -95,20 +96,25 @@
     users.caio = {
       isNormalUser = true;
       description = "Caio Rulli Thomaz";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "dotfiles" ];
     };
 
     users.pipo = {
       isNormalUser = true;
-      description = "work user";
-      extraGroups = [ "networkmanager" "wheel" ];
+      description = "Pipo Saúde";
+      extraGroups = [ "networkmanager" "wheel" "docker" "dotfiles" ];
+    };
+
+    groups = {
+      dotfiles = {};
     };
 
     defaultUserShell = pkgs.zsh;
   };
 
   home-manager = {
-    users.caio = import /home/caio/.config/nixpkgs/home.nix;
+    users.caio = import /etc/dotfiles/home.nix;
+    users.pipo = import /etc/dotfiles/pipo.nix;
 
     useUserPackages = true;
     useGlobalPkgs = true;

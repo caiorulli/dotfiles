@@ -222,7 +222,6 @@ myStartupHook = do
   spawn "xsetroot -cursor_name left_ptr"
   spawn "~/.fehbg"
   spawnOnce myBrowser
-  spawnOnce "thunderbird"
 
 keyboardGridSelect :: [(String, X ())]
 keyboardGridSelect =
