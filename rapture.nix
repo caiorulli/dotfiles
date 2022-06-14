@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
+      ./system/window-management.nix
     ];
 
   # Bootloader.
@@ -44,16 +45,6 @@
 
   services = {
     xserver = {
-      enable = true;
-
-      displayManager.sddm.enable = true;
-      desktopManager.plasma5.enable = true;
-
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-      };
-
       layout = "us";
       xkbVariant = "alt-intl";
 
@@ -130,13 +121,6 @@
     wget
     vim
     git
-
-    # wm enviroment
-    xmobar
-    pulsemixer
-    pamixer
-    xclip
-    playerctl
 
     # steam
     steam-run

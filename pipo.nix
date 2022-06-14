@@ -37,10 +37,15 @@
       xterm
 
       # dev
-      terraform
-      ansible
-      clj-kondo
       clojure
+      clj-kondo
+      babashka
+      nodejs
+      yarn
+      jdk11
+      maven
+      awscli
+      terraform
       nixfmt
     ];
 
