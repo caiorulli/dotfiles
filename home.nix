@@ -43,6 +43,10 @@
       clojure
       babashka
       nixfmt
+      ghc
+      cabal-install
+      haskell-language-server
+      haskellPackages.hoogle
     ];
 
     sessionPath = [ "$HOME/.local/bin" ];
