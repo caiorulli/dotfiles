@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ./system/window-management.nix
+      ./modules/window-management.nix
+      ./modules/bluetooth.nix
     ];
 
   # Bootloader.
@@ -22,7 +23,7 @@
   };
 
   networking = {
-    hostName = "rapture"; # Define your hostname.
+    hostName = "rapture";
     networkmanager.enable = true;
   };
 
@@ -55,7 +56,6 @@
     };
 
     printing.enable = true;
-    blueman.enable = true;
 
     pipewire = {
       enable = true;
@@ -71,10 +71,7 @@
     };
   };
 
-  hardware = {
-    pulseaudio.enable = false;
-    bluetooth.enable = true;
-  };
+  hardware.pulseaudio.enable = false;
 
   # Configure console keymap
   console.keyMap = "us";
@@ -131,7 +128,7 @@
     # }).run
   ];
 
-  fonts.fonts = with pkgs; [ fantasque-sans-mono emacs-all-the-icons-fonts ];
+  fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -20,21 +20,14 @@
       rsync
       unzip
       tig
-      cowsay
-      lolcat
-      rtorrent
       mpv
       feh
 
       # applications
       slack
       discord
-      tdesktop
-      signal-desktop
       spotify
-      thunderbird
       brave
-      xterm
 
       # dev
       clojure
@@ -45,6 +38,10 @@
       jdk11
       maven
       awscli
+      kubectl
+      kubectx
+      stern
+
       terraform
       nixfmt
     ];

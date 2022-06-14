@@ -9,7 +9,8 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ./system/window-management.nix
+      ./modules/window-management.nix
+      ./modules/bluetooth.nix
     ];
 
   # Bootloader.
@@ -55,12 +56,7 @@
   };
 
   # hardware.nvidia.modesetting.enable = true;
-  hardware = {
-    bluetooth.enable = true;
-    pulseaudio.enable = false;
-  };
-
-  services.blueman.enable = true;
+  hardware.pulseaudio.enable = false;
 
   # Configure console keymap
   console.keyMap = "br-abnt2";
@@ -125,10 +121,7 @@
     nixos-option
   ];
 
-  fonts.fonts = with pkgs; [
-    fantasque-sans-mono
-    emacs-all-the-icons-fonts
-  ];
+  fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
