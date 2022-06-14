@@ -280,8 +280,6 @@ xConfig =
                           ("M-C-e", spawn "emacs"),
                           ("M-C-s", spawn "steam"),
                           ("M-C-d", spawn "discord"),
-                          -- ("M-C-b b", spawn "bluetoothctl -- connect 38:18:4C:02:70:5B"),
-                          -- ("M-C-b B", spawn "bluetoothctl -- disconnect 38:18:4C:02:70:5B"),
                           ("M-C-b", spawn "blueman-manager"),
                           ("M-C-m", spawn "alacritty -e btm"),
                           ("M-C-n", spawn "alacritty -e newsboat"),

@@ -7,7 +7,9 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
+      <home-manager/nixos>
+      ./system/window-management.nix
     ];
 
   # Bootloader.
@@ -20,15 +22,10 @@
     blacklistedKernelModules = [ "nouveau" ];
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "outerheaven";
+    networkmanager.enable = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -50,15 +47,6 @@
   };
 
   services.xserver = {
-    enable = true;
-
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-    };
-
     # oh, nvidia...
     # videoDrivers = [ "nvidia" ];
 
@@ -69,6 +57,7 @@
   # hardware.nvidia.modesetting.enable = true;
   hardware = {
     bluetooth.enable = true;
+    pulseaudio.enable = false;
   };
 
   services.blueman.enable = true;
@@ -81,7 +70,6 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -96,16 +84,19 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.caio = {
     isNormalUser = true;
     description = "Caio";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
   users.defaultUserShell = pkgs.zsh;
+
+  home-manager = {
+    users.caio = import ./home.nix;
+
+    useUserPackages = true;
+    useGlobalPkgs = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -115,30 +106,7 @@
   environment.systemPackages = with pkgs; [
     # applications
     firefox
-    brave
-    thunderbird
-    spotify
-    slack
-    discord
-    tdesktop
-    signal-desktop
-    alacritty
-    emacs28NativeComp
     neovim
-
-    # wm enviroment
-    xmobar
-    rofi
-    feh
-    picom
-    unclutter
-    dunst
-    udiskie
-    yadm
-    pulsemixer
-    pamixer
-    xclip
-    playerctl
 
     # cli
     git
@@ -154,6 +122,7 @@
     cmake
     python3Full
     sqlite
+    nixos-option
   ];
 
   fonts.fonts = with pkgs; [
@@ -174,7 +143,11 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  programs.zsh.enable = true;
+  programs = {
+    zsh.enable = true;
+    dconf.enable = true;
+  };
+
   virtualisation.docker.enable = true;
 
   # Open ports in the firewall.

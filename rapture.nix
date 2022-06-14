@@ -170,6 +170,7 @@
 
   programs = {
     zsh.enable = true;
+    dconf.enable = true;
     steam = {
       enable = true;
       remotePlay.openFirewall = true;

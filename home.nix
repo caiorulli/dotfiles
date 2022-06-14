@@ -43,8 +43,6 @@
       clojure
       babashka
       nixfmt
-
-      dconf
     ];
 
     sessionPath = [ "$HOME/.local/bin" ];
@@ -300,9 +298,7 @@
     };
 
     udiskie.enable = true;
-    unclutter.enable = true;
     mpris-proxy.enable = true;
-    picom.enable = true;
   };
 
   gtk = {
