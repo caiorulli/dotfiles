@@ -34,7 +34,6 @@
       clj-kondo
       babashka
       nodejs
-      yarn
       jdk11
       maven
       awscli
@@ -90,6 +89,7 @@
       "${config.xdg.configHome}/doom".source = ./doom;
 
       # misc
+      "${config.xdg.configHome}/direnv/direnvrc".source = ./misc/direnvrc;
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
       "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };

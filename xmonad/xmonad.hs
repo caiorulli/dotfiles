@@ -18,7 +18,7 @@ myBrowser :: String
 myBrowser = "brave"
 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
