@@ -33,7 +33,6 @@
       clojure
       clj-kondo
       babashka
-      nodejs
       jdk11
       maven
       awscli
