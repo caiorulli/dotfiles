@@ -35,7 +35,7 @@
       babashka
       jdk11
       maven
-      awscli
+      awscli2
       kubectl
       kubectx
       stern
@@ -56,7 +56,6 @@
       CABAL_CONFIG = "${config.xdg.configHome}/cabal/config";
       CABAL_DIR = "${config.xdg.cacheHome}/cabal";
       STACK_ROOT = "${config.xdg.dataHome}/stack";
-      NVM_DIR = "${config.xdg.dataHome}/nvm";
       NODE_REPL_HISTORY = "${config.xdg.dataHome}/node_repl_history";
       NPM_CONFIG_USERCONFIG = "${config.xdg.configHome}/npm/npmrc";
       PSQL_HISTORY = "${config.xdg.cacheHome}/pg/psql_history";
@@ -88,7 +87,6 @@
       "${config.xdg.configHome}/doom".source = ./doom;
 
       # misc
-      "${config.xdg.configHome}/direnv/direnvrc".source = ./misc/direnvrc;
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
       "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };
@@ -100,10 +98,6 @@
       enableAutosuggestions = true;
       enableSyntaxHighlighting = true;
       defaultKeymap = "emacs";
-
-      initExtra = ''
-        [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-      '';
 
       history = {
         path = "$XDG_DATA_HOME/zsh/history";
@@ -270,7 +264,11 @@
       vimAlias = true;
     };
 
-    direnv.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
     starship.enable = true;
     bat.enable = true;
     bottom.enable = true;
