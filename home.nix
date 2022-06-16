@@ -37,12 +37,12 @@
       xterm
 
       # dev
-      terraform
       ansible
       clj-kondo
       clojure
       babashka
       nixfmt
+      nixos-option
       ghc
       cabal-install
       haskell-language-server

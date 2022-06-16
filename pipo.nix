@@ -39,9 +39,11 @@
       kubectl
       kubectx
       stern
-
+      kops
       terraform
+
       nixfmt
+      nixos-option
     ];
 
     sessionPath = [ "$HOME/.local/bin" ];
@@ -71,7 +73,6 @@
     shellAliases = {
       doom = "${config.xdg.configHome}/emacs/bin/doom";
       fehbg = "feh --randomize --bg-scale";
-      telegram-desktop = "nixGL telegram-desktop";
     };
 
     file = {
