@@ -25,6 +25,14 @@
   networking = {
     hostName = "rapture";
     networkmanager.enable = true;
+    hosts = {
+      "192.168.0.42" = [
+        "bigshell"
+        "grafana.bigshell"
+        "prometheus.bigshell"
+        "photo.bigshell"
+      ];
+    };
   };
 
   time.timeZone = "America/Sao_Paulo";

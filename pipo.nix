@@ -41,6 +41,7 @@
       stern
       kops
       terraform
+      gnumake
 
       nixfmt
       nixos-option

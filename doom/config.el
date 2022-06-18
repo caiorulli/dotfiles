@@ -45,7 +45,8 @@
 
 (after! cider
   (set-popup-rules!
-    '(("^\\*cider-repl" :ignore t))))
+    '(("^\\*cider-repl" :ignore t)))
+  (setq cider-clojure-cli-aliases ":dev"))
 
 
 ;; Java
@@ -70,6 +71,6 @@
     (add-to-list 'default-frame-alist '(alpha . (90 . 90)))))
 
 (defun transparency (value)
-  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  "Set VALUE as the transparency of the frame window. 0=transparent/100=opaque."
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))

@@ -300,6 +300,7 @@
       longitude = -46.6821469;
     };
 
+    syncthing.enable = true;
     udiskie.enable = true;
     mpris-proxy.enable = true;
   };
