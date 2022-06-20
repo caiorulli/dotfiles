@@ -42,6 +42,7 @@
       kops
       terraform
       gnumake
+      bash
 
       nixfmt
       nixos-option
