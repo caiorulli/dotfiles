@@ -113,6 +113,11 @@
       enable = true;
       userName = "Caio Rulli Thomaz";
       userEmail = "caio@crthomaz.com.br";
+
+      aliases = {
+        s = "status";
+      };
+
       extraConfig = {
         core.editor = "nvim";
         pull.rebase = false;
