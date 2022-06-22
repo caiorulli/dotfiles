@@ -27,19 +27,6 @@
 (set-formatter! 'cljstyle "cljstyle pipe" :modes '(clojure-mode))
 
 (after! clojure-mode
-  ;; Midje
-  (put-clojure-indent 'fact 1)
-  (put-clojure-indent 'facts 1)
-  (put-clojure-indent 'flow 1)
-  (put-clojure-indent 'provided 0)
-
-  ;; Morse
-  (put-clojure-indent 'command-fn 1)
-  (put-clojure-indent 'message-fn 1)
-
-  ;; Cats
-  (put-clojure-indent 'mlet :defn)
-
   ;; test.check
   (put-clojure-indent 'for-all 1))
 
@@ -48,13 +35,8 @@
     '(("^\\*cider-repl" :ignore t)))
   (setq cider-clojure-cli-aliases ":dev"))
 
-
 ;; Java
-(setq lsp-java-java-path (concat (getenv "SDKMAN_DIR") "/candidates/java/11.0.2-open/bin/java")
-      lsp-java-autobuild-enabled nil)
-
-(after! lsp-java
-  (push (concat "-javaagent:" doom-private-dir "lombok.jar") lsp-java-vmargs))
+(setq lsp-java-autobuild-enabled nil)
 
 ;; UI config
 
