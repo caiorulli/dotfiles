@@ -32,8 +32,10 @@
 
 (after! cider
   (set-popup-rules!
-    '(("^\\*cider-repl" :ignore t)))
-  (setq cider-clojure-cli-aliases ":dev"))
+    '(("^\\*cider-repl" :ignore t)
+      ("^\\*cider-test-report" :ignore t)))
+  (setq cider-clojure-cli-aliases ":dev"
+        cider-shadow-cljs-command "yarn shadow-dev"))
 
 ;; Java
 (setq lsp-java-autobuild-enabled nil)

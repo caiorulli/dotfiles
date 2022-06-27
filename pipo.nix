@@ -43,15 +43,18 @@
       terraform
       gnumake
       bash
+      sentry-cli
+      nodePackages.firebase-tools
 
       nixfmt
       nixos-option
     ];
 
-    sessionPath = [ "$HOME/.local/bin" ];
+    sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
+
     sessionVariables = {
       EDITOR = "nvim";
-      MAILDIR = "$HOME/Mail";
+      MAILDIR = "${config.home.homeDirectory}/Mail";
       LESSHISTFILE = "-";
       GNUPGHOME = "${config.xdg.dataHome}/gnupg";
       PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
@@ -69,7 +72,7 @@
       XMONAD_CACHE_HOME = "${config.xdg.cacheHome}/xmonad";
       MBSYNC_CONFIG = "${config.xdg.configHome}/isync/mbsyncrc";
       PROTON_LOG = 1;
-      GOPATH = "$HOME/Software/go";
+      GOPATH = "${config.home.homeDirectory}/Software/go";
     };
 
     shellAliases = {
@@ -103,7 +106,7 @@
       defaultKeymap = "emacs";
 
       history = {
-        path = "$XDG_DATA_HOME/zsh/history";
+        path = "${config.xdg.dataHome}/zsh/history";
         save = 1000000000;
         size = 1000000000;
       };
