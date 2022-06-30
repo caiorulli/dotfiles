@@ -55,7 +55,7 @@
   services = {
     xserver = {
       layout = "us";
-      xkbVariant = "alt-intl";
+      xkbVariant = "altgr-intl";
 
       deviceSection = ''
         Option "VariableRefresh" "true"

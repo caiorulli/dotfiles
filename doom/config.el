@@ -28,7 +28,10 @@
 
 (after! clojure-mode
   ;; test.check
-  (put-clojure-indent 'for-all 1))
+  (put-clojure-indent 'for-all 1)
+
+  ;; state-flow
+  (put-clojure-indent 'flow 1))
 
 (after! cider
   (set-popup-rules!
