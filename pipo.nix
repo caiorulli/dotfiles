@@ -46,9 +46,8 @@
       sentry-cli
       nodePackages.firebase-tools
 
-      nixfmt
       nixos-option
-    ];
+    ] ++ import ./doom/deps.nix { pkgs = pkgs; };
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
 
