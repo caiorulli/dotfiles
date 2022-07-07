@@ -27,6 +27,9 @@
 (set-formatter! 'cljstyle "cljstyle pipe" :modes '(clojure-mode))
 
 (after! clojure-mode
+
+  (setq cljr-warn-on-eval nil)
+
   ;; test.check
   (put-clojure-indent 'for-all 1)
 

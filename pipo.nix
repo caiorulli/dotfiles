@@ -33,6 +33,7 @@
       clojure
       clj-kondo
       babashka
+      jet
       jdk11
       maven
       awscli2

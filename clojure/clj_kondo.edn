@@ -1,1 +1,3 @@
-{:lint-as {cats.core/mlet clojure.core/let}}
+{:lint-as {cats.core/mlet                 clojure.core/let
+           nubank.workspaces.core/defcard clojure.core/def
+           state-flow.cljtest/defflow     clojure.test/deftest}}
