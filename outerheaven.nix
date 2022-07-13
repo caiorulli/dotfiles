@@ -121,7 +121,11 @@
     nixos-option
   ];
 
-  fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
+  fonts.fonts = with pkgs; [
+    emacs-all-the-icons-fonts
+    hanazono
+    ipafont
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

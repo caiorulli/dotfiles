@@ -84,6 +84,7 @@
       "${config.xdg.configHome}/clj-kondo/config.edn".source =
         ./clojure/clj_kondo.edn;
       "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
+      "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
 
       # xmonad
       "${config.xdg.configHome}/xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;

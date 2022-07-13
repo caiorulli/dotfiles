@@ -1,0 +1,5 @@
+{:lib io.github.borkdude/carve,
+ :coord
+ {:git/tag "v0.1.0",
+  :git/sha "15b010e6950cf917f026833d89b123be11284582",
+  :git/url "https://github.com/borkdude/carve.git"}}
