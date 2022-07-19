@@ -5,8 +5,8 @@
     stateVersion = "22.05";
     enableNixpkgsReleaseCheck = true;
 
-    username = "pipo";
-    homeDirectory = "/home/pipo";
+    username = "caio";
+    homeDirectory = "/home/caio";
 
     packages = with pkgs; [
       # cli
@@ -142,7 +142,7 @@
       settings = {
         env.TERM = "xterm-256color";
         window = {
-          opacity = 0.7;
+          opacity = 1;
           padding = {
             x = 5;
             y = 5;
