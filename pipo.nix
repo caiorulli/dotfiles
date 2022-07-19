@@ -142,7 +142,7 @@
       settings = {
         env.TERM = "xterm-256color";
         window = {
-          opacity = 1;
+          opacity = 0.7;
           padding = {
             x = 5;
             y = 5;

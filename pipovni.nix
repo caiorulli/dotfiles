@@ -20,7 +20,6 @@
       efi.canTouchEfiVariables = true;
       efi.efiSysMountPoint = "/boot/efi";
     };
-    # blacklistedKernelModules = [ "i915" "intel_agp" ];
   };
 
   networking.hostName = "pipovni"; # Define your hostname.
@@ -54,17 +53,11 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  # hardware.nvidia.prime = {
-  #   offload.enable = true;
-  #   nvidiaBusId = "PCI:1:0:0";
-  #   intelBusId = "PCI:0:2:0";
-  # };
-
-  # hardware.nvidia.prime = {
-  #   sync.enable = true;
-  #   nvidiaBusId = "PCI:1:0:0";
-  #   intelBusId = "PCI:0:2:0";
-  # };
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    nvidiaBusId = "PCI:1:0:0";
+    intelBusId = "PCI:0:2:0";
+  };
 
   # Configure console keymap
   console.keyMap = "us-acentos";
