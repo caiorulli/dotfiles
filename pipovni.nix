@@ -4,6 +4,19 @@
 
 { config, pkgs, ... }:
 
+let
+  Ocsinventory-Unix-Agent = pkgs.perlPackages.buildPerlPackage rec {
+    pname = "Ocsinventory-Unix-Agent";
+    version = "2.4.2";
+    src = builtins.fetchurl {
+      url = "https://github.com/OCSInventory-NG/UnixAgent/releases/download/v2.4.2/${pname}-${version}.tar.gz";
+      sha256 = "0ggywrqbm7xl5dgcl511q17ccjxrwdjrn01j9agism5aas65vnny";
+    };
+    propagatedBuildInputs = with pkgs.perlPackages; [
+      XMLSimple
+    ];
+  };
+  in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -51,6 +64,7 @@
     layout = "us";
     xkbVariant = "altgr-intl";
     videoDrivers = [ "nvidia" ];
+    libinput.enable = true;
   };
 
   hardware.nvidia.prime = {
@@ -85,9 +99,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.caio = {
     isNormalUser = true;
@@ -109,9 +120,10 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    nix-index
+    Ocsinventory-Unix-Agent
+  ];
 
   fonts.fonts = with pkgs; [
     emacs-all-the-icons-fonts
