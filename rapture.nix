@@ -92,17 +92,7 @@
     users.caio = {
       isNormalUser = true;
       description = "Caio Rulli Thomaz";
-      extraGroups = [ "networkmanager" "wheel" "docker" "dotfiles" ];
-    };
-
-    users.pipo = {
-      isNormalUser = true;
-      description = "Pipo Saúde";
-      extraGroups = [ "networkmanager" "wheel" "docker" "dotfiles" ];
-    };
-
-    groups = {
-      dotfiles = {};
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
     };
 
     defaultUserShell = pkgs.zsh;
@@ -110,8 +100,6 @@
 
   home-manager = {
     users.caio = import /etc/dotfiles/home.nix;
-    users.pipo = import /etc/dotfiles/pipo.nix;
-
     useUserPackages = true;
     useGlobalPkgs = true;
   };
@@ -145,11 +133,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -164,6 +147,12 @@
   programs = {
     zsh.enable = true;
     dconf.enable = true;
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
