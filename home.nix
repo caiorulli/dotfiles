@@ -87,8 +87,10 @@
       "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
 
       # xmonad
-      "${config.xdg.configHome}/xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
-      "${config.xdg.configHome}/xmobar/xmobarrc".source = ./xmonad/xmobarrc;
+      "${config.xdg.configHome}/xmonad/xmonad.hs".source =
+        ./modules/window-management/xmonad/xmonad.hs;
+      "${config.xdg.configHome}/xmobar/xmobarrc".source =
+        ./modules/window-management/xmonad/xmobarrc;
 
       # emacs
       "${config.xdg.configHome}/doom".source = ./doom;

@@ -49,8 +49,8 @@ let
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ./modules/window-management.nix
-      ./modules/bluetooth.nix
+      ../modules/window-management.nix
+      ../modules/bluetooth.nix
     ];
 
   # Bootloader.
@@ -139,7 +139,7 @@ let
   users.defaultUserShell = pkgs.zsh;
 
   home-manager = {
-    users.caio = import /etc/dotfiles/pipo.nix;
+    users.caio = import ../pipo.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
