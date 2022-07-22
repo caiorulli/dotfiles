@@ -43,6 +43,26 @@ let
       XMLSimple IOSocketSSL CompressZlib NetSSLeay NetIP NetSNMP DigestMD5 LWP FileTemp ProcDaemon ProcPIDFile FileTemp LWPProtocolHttps
     ];
   };
+
+  deps = with pkgs; [
+    Ocsinventory-Unix-Agent
+    clojure
+    clj-kondo
+    babashka
+    jet
+    jdk11
+    maven
+    awscli2
+    kubectl
+    kubectx
+    stern
+    kops
+    terraform
+    gnumake
+    bash
+    sentry-cli
+    nodePackages.firebase-tools
+  ];
   in
 {
   imports =
@@ -139,7 +159,7 @@ let
   users.defaultUserShell = pkgs.zsh;
 
   home-manager = {
-    users.caio = import ../pipo.nix;
+    users.caio = import ../home.nix;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
@@ -147,10 +167,7 @@ let
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    nix-index
-    Ocsinventory-Unix-Agent
-  ];
+  environment.systemPackages = deps;
 
   fonts.fonts = with pkgs; [
     emacs-all-the-icons-fonts

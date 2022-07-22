@@ -47,12 +47,13 @@
       cabal-install
       haskell-language-server
       haskellPackages.hoogle
-    ];
+    ] ++ import ./doom/deps.nix { pkgs = pkgs; };
 
-    sessionPath = [ "$HOME/.local/bin" ];
+    sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
+
     sessionVariables = {
       EDITOR = "nvim";
-      MAILDIR = "$HOME/Mail";
+      MAILDIR = "${config.home.homeDirectory}/Mail";
       LESSHISTFILE = "-";
       GNUPGHOME = "${config.xdg.dataHome}/gnupg";
       PASSWORD_STORE_DIR = "${config.xdg.dataHome}/pass";
@@ -70,13 +71,12 @@
       XMONAD_CACHE_HOME = "${config.xdg.cacheHome}/xmonad";
       MBSYNC_CONFIG = "${config.xdg.configHome}/isync/mbsyncrc";
       PROTON_LOG = 1;
-      GOPATH = "$HOME/Software/go";
+      GOPATH = "${config.home.homeDirectory}/Software/go";
     };
 
     shellAliases = {
       doom = "${config.xdg.configHome}/emacs/bin/doom";
       fehbg = "feh --randomize --bg-scale";
-      telegram-desktop = "nixGL telegram-desktop";
     };
 
     file = {
