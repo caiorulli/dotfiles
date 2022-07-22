@@ -96,6 +96,7 @@
       # misc
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
       "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
+      "${config.xdg.dataHome}/gnupg/gpg-agent.conf".source = ./misc/gpg-agent.conf;
     };
   };
 
