@@ -15,6 +15,9 @@ with pkgs; [
   # markdown
   pandoc
 
+  # treemacs
+  python3Full
+
   # web
   html-tidy
   nodePackages.stylelint

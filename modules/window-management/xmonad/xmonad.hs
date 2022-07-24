@@ -1,15 +1,16 @@
 import qualified Data.Map as M
 import Data.Monoid
 import System.Exit
-import XMonad
+import XMonad 
 import XMonad.Actions.GridSelect
 import XMonad.Actions.NoBorders
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.NoBorders
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.SpawnOnce
-import XMonad.Layout.NoBorders
+import System.IO.Temp (withSystemTempDirectory)
 
 myTerminal :: String
 myTerminal = "alacritty"
@@ -91,7 +92,7 @@ myKeys conf@XConfig {XMonad.modMask = modm} =
       -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
       ((modm .|. shiftMask, xK_q), io exitSuccess),
-      ((modm, xK_q), spawn "xmonad --recompile; xmonad --restart"),
+      ((modm, xK_q), restart "xmonad" True),
       -- Run xmessage with a summary of the default keybindings (useful for beginners)
       ((modm .|. shiftMask, xK_slash), spawn ("echo \"" ++ help ++ "\" | xmessage -file -"))
     ]
@@ -244,10 +245,8 @@ myPP = xmobarPP {ppCurrent = xmobarColor (nord !! 9) "" . wrap "<" ">"}
 toggleStrutsKey :: XConfig l -> (KeyMask, KeySym)
 toggleStrutsKey XConfig {XMonad.modMask = modm} = (modm, xK_b)
 
-main :: IO ()
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey xConfig
-
-xConfig =
+mkXConfig =
+  statusBar myBar myPP toggleStrutsKey $
   ewmhFullscreen . ewmh $
     def
       { terminal = myTerminal,
@@ -289,7 +288,6 @@ xConfig =
                           ("M-x", runSelectedAction def monitorGridSelect)
                         ]
 
--- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String
 help =
   unlines
@@ -342,3 +340,9 @@ help =
       "mod-button2  Raise the window to the top of the stack",
       "mod-button3  Set the window to floating mode and resize by dragging"
     ]
+
+main :: IO ()
+main = do
+  dirs <- getDirectories
+  xconfig <- mkXConfig
+  launch xconfig dirs
