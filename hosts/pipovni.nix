@@ -95,15 +95,20 @@ let
     jdk11
     maven
     awscli2
+
+    # infra
     kubectl
     kubectx
     stern
     kops
+    k9s
     terraform
-    gnumake
-    bash
     sentry-cli
     nodePackages.firebase-tools
+
+    # tools
+    gnumake
+    bash
   ];
   in
 {

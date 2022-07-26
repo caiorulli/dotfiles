@@ -280,6 +280,8 @@ mkXConfig =
                           ("M-C-s", spawn "steam"),
                           ("M-C-d", spawn "discord"),
                           ("M-C-b", spawn "blueman-manager"),
+                          ("M-C-k", spawn "alacritty -e k9s --readonly"),
+                          ("M-C-S-k", spawn "alacritty -e k9s"),
                           ("M-C-m", spawn "alacritty -e btm"),
                           ("M-C-n", spawn "alacritty -e newsboat"),
                           ("M-C-p", spawn "alacritty -e pulsemixer"),
