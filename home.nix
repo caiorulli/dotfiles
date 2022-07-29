@@ -36,17 +36,24 @@
       brave
       xterm
 
-      # dev
-      ansible
+      # clojure
       clj-kondo
       clojure
       babashka
-      nixfmt
-      nixos-option
+
+      # haskell
       ghc
       cabal-install
       haskell-language-server
+      cabal2nix
       haskellPackages.hoogle
+
+      # nix
+      nixfmt
+      nix-index
+      nix-diff
+      nixos-option
+      nixos-generators
     ] ++ import ./doom/deps.nix { pkgs = pkgs; };
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
