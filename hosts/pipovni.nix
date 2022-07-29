@@ -198,10 +198,6 @@ let
     isNormalUser = true;
     description = "Caio Rulli Thomaz";
     extraGroups = [ "networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
-    ];
   };
   users.defaultUserShell = pkgs.zsh;
 

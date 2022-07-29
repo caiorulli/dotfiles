@@ -13,12 +13,13 @@
       ../modules/bluetooth.nix
     ];
 
-  # Bootloader.
   boot = {
     loader = {
       systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      efi.efiSysMountPoint = "/boot/efi";
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
     blacklistedKernelModules = [ "nouveau" ];
   };
@@ -26,12 +27,18 @@
   networking = {
     hostName = "outerheaven";
     networkmanager.enable = true;
+    hosts = {
+      "192.168.0.42" = [
+        "bigshell"
+        "grafana.bigshell"
+        "prometheus.bigshell"
+        "photo.bigshell"
+      ];
+    };
   };
 
-  # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
-  # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.utf8";
     extraLocaleSettings = {
@@ -47,12 +54,30 @@
     };
   };
 
-  services.xserver = {
-    # oh, nvidia...
-    # videoDrivers = [ "nvidia" ];
+  services = {
+    xserver = {
+      # oh, nvidia...
+      # videoDrivers = [ "nvidia" ];
 
-    layout = "br";
-    xkbVariant = "";
+      layout = "br";
+      xkbVariant = "";
+      libinput.enable = true;
+    };
+
+    printing.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      #jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
   };
 
   # hardware.nvidia.modesetting.enable = true;
@@ -61,31 +86,19 @@
   # Configure console keymap
   console.keyMap = "br-abnt2";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
+  users = {
+    users.caio = {
+      isNormalUser = true;
+      description = "Caio Rulli Thomaz";
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
+    };
 
-  users.users.caio = {
-    isNormalUser = true;
-    description = "Caio";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    defaultUserShell = pkgs.zsh;
   };
-  users.defaultUserShell = pkgs.zsh;
 
   home-manager = {
     users.caio = import ../home.nix;
@@ -97,29 +110,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    # applications
-    firefox
-    neovim
-
-    # cli
-    git
-
-    # clojure
-    jdk
-    clojure
-    babashka
-    clj-kondo
-
-    docker-compose
-    nixfmt
-    cmake
-    python3Full
-    sqlite
-    nixos-option
-  ];
+  environment.systemPackages = with pkgs; [];
 
   fonts.fonts = with pkgs; [
     emacs-all-the-icons-fonts
@@ -130,12 +121,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
@@ -143,6 +128,12 @@
   programs = {
     zsh.enable = true;
     dconf.enable = true;
+
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+
   };
 
   virtualisation.docker.enable = true;

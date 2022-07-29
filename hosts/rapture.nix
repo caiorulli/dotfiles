@@ -13,7 +13,6 @@
       ../modules/bluetooth.nix
     ];
 
-  # Bootloader.
   boot.loader = {
     systemd-boot.enable = true;
     efi = {
@@ -107,15 +106,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    firefox
-    wget
-    vim
-    git
-
-    # steam
     steam-run
     # maybe I need this?
     # (steam.override {
@@ -133,7 +124,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
