@@ -109,6 +109,7 @@ let
     # tools
     gnumake
     bash
+    plantuml
   ];
   in
 {

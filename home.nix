@@ -12,6 +12,7 @@
       # cli
       maim
       xh
+      wget
       ripgrep
       fd
       du-dust

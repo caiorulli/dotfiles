@@ -81,6 +81,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+  };
+
   fonts.fonts = with pkgs; [
     emacs-all-the-icons-fonts
     hanazono
@@ -101,3 +106,4 @@
 
   system.stateVersion = "22.05";
 }
+

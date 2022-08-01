@@ -61,6 +61,7 @@
        web
        yaml
        data
+       plantuml
 
        :config
        (default +bindings +smartparens))
