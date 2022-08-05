@@ -5,7 +5,7 @@
     [
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ../modules/window-management
+      ../modules/xmonad
       ../modules/common
     ];
 

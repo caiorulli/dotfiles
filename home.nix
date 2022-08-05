@@ -96,9 +96,9 @@
 
       # xmonad
       "${config.xdg.configHome}/xmonad/xmonad.hs".source =
-        ./modules/window-management/xmonad/xmonad.hs;
+        ./modules/xmonad/xmonad.hs;
       "${config.xdg.configHome}/xmobar/xmobarrc".source =
-        ./modules/window-management/xmonad/xmobarrc;
+        ./modules/xmonad/xmobarrc;
 
       # emacs
       "${config.xdg.configHome}/doom".source = ./doom;

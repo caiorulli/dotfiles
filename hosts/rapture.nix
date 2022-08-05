@@ -9,7 +9,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ../modules/window-management
+      ../modules/xmonad
       ../modules/bluetooth.nix
     ];
 
