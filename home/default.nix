@@ -96,16 +96,15 @@
 
       # xmonad
       "${config.xdg.configHome}/xmonad/xmonad.hs".source =
-        ./modules/xmonad/xmonad.hs;
+        ../modules/xmonad/xmonad.hs;
       "${config.xdg.configHome}/xmobar/xmobarrc".source =
-        ./modules/xmonad/xmobarrc;
+        ../modules/xmonad/xmobarrc;
 
       # emacs
       "${config.xdg.configHome}/doom".source = ./doom;
 
       # misc
       "${config.xdg.configHome}/isync/mbsyncrc".source = ./misc/mbsyncrc;
-      "${config.home.homeDirectory}/.xinitrc".source = ./misc/xinitrc;
     };
   };
 

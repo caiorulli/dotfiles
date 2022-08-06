@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
+  imports = [
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
       ../modules/xmonad

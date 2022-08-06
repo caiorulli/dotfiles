@@ -74,7 +74,7 @@
   };
 
   home-manager = {
-    users.caio = import ../../home.nix;
+    users.caio = import ../../home;
     useUserPackages = true;
     useGlobalPkgs = true;
   };
