@@ -37,6 +37,14 @@
     };
   };
 
+  fileSystems."/mnt/steam" = {
+    device = "/dev/disk/by-label/steam";
+    fsType = "ext4";
+    options = [ "nofail" ];
+  };
+
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
