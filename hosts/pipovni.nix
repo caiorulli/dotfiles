@@ -36,12 +36,11 @@
     clojure
     clj-kondo
     babashka
-    jet
     jdk11
     maven
-    awscli2
 
     # infra
+    awscli2
     kubectl
     kubectx
     stern
@@ -56,5 +55,7 @@
     bash
     plantuml
     libreoffice
+    jet
+    nodePackages.prettier
   ];
 }
