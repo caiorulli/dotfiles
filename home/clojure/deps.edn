@@ -1,6 +1,5 @@
 {:aliases
- {:dev   {:extra-deps {expound/expound {:mvn/version "0.9.0"}}}
-  :nrepl {:extra-deps {nrepl/nrepl                   {:mvn/version "0.8.3"}
-                       cider/cider-nrepl             {:mvn/version "0.28.5"}
-                       cider/piggieback              {:mvn/version "0.5.3"}
-                       refactor-nrepl/refactor-nrepl {:mvn/version "3.5.2"}}}}}
+ {:dev {:extra-deps {expound/expound         {:mvn/version "0.9.0"}
+                     hashp/hashp             {:mvn/version "0.2.1"}
+                     philoskim/debux         {:mvn/version "0.8.2"}
+                     org.clojure/tools.trace {:mvn/version "0.7.11"}}}}}
