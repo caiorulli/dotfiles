@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let
+  dotfilesDir = "/etc/dotfiles";
+in {
   home = {
     stateVersion = "22.05";
     enableNixpkgsReleaseCheck = true;
@@ -80,6 +82,7 @@
       MBSYNC_CONFIG = "${config.xdg.configHome}/isync/mbsyncrc";
       PROTON_LOG = 1;
       GOPATH = "${config.home.homeDirectory}/Software/go";
+      CLJ_CONFIG = "${dotfilesDir}/home/clojure";
     };
 
     shellAliases = {
@@ -88,12 +91,6 @@
     };
 
     file = {
-      # clojure
-      "${config.xdg.configHome}/clj-kondo/config.edn".source =
-        ./clojure/clj_kondo.edn;
-      "${config.xdg.configHome}/clojure/deps.edn".source = ./clojure/deps.edn;
-      "${config.xdg.configHome}/clojure/tools".source = ./clojure/tools;
-
       # xmonad
       "${config.xdg.configHome}/xmonad/xmonad.hs".source =
         ../modules/xmonad/xmonad.hs;
