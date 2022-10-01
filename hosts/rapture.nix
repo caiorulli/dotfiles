@@ -22,11 +22,7 @@
 
   environment.systemPackages = with pkgs; [
     steam-run
-    # maybe I need this?
-    # (steam.override {
-    #   extraPkgs = pkgs: [ mono gtk3 gtk3-x11 libgdiplus zlib ];
-    #   withJava = true;
-    # }).run
+    minecraft
   ];
 
   programs = {
