@@ -14,7 +14,6 @@
 
   services.xserver = {
     layout = "br";
-    xkbVariant = "";
     libinput.enable = true;
   };
 

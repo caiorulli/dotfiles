@@ -290,7 +290,11 @@ in {
       nix-direnv.enable = true;
     };
 
-    starship.enable = true;
+    starship = {
+      enable = true;
+      settings.battery.disabled = true;
+    };
+
     bat.enable = true;
     bottom.enable = true;
     fzf.enable = true;
