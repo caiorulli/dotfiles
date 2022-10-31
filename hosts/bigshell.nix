@@ -40,5 +40,9 @@
     };
   };
 
+  nix.settings.trusted-public-keys = [
+    "rapture-cache:Pqqrc9pEfzYwCguwLwKRXsrvWtC6vg2CewKeYez7IDc="
+  ];
+
   system.stateVersion = "22.11";
 }

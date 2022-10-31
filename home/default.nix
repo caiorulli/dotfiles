@@ -37,6 +37,7 @@ in {
       spotify
       thunderbird
       brave
+      libreoffice
       xterm
 
       # clojure
