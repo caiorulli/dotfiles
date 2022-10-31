@@ -28,7 +28,11 @@
   ];
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      permitRootLogin = "yes";
+    };
+
     prometheus.enable = true;
     grafana.enable = true;
   };
@@ -44,7 +48,6 @@
     trusted-public-keys = [
       "rapture-cache:Pqqrc9pEfzYwCguwLwKRXsrvWtC6vg2CewKeYez7IDc="
     ];
-    require-sigs = false; # Temporary
   };
 
   system.stateVersion = "22.11";
