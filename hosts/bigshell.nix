@@ -30,7 +30,6 @@
   services = {
     openssh = {
       enable = true;
-      permitRootLogin = "yes";
     };
 
     prometheus.enable = true;

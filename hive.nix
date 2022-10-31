@@ -6,7 +6,6 @@
   bigshell = { config, pkgs, lib, ... }: {
     deployment = {
       targetHost = "192.168.0.35";
-      targetUser = "caio";
     };
 
     nixpkgs.localSystem = {
