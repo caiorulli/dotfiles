@@ -12,7 +12,7 @@
   networking = {
     networkmanager.enable = true;
     hosts = {
-      "192.168.0.42" = [
+      "192.168.0.35" = [
         "bigshell"
         "grafana.bigshell"
         "prometheus.bigshell"
@@ -79,7 +79,12 @@
     useGlobalPkgs = true;
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    overlays = [
+      (import "${fetchTarball "https://github.com/nix-community/fenix/archive/main.tar.gz"}/overlay.nix")
+    ];
+    config.allowUnfree = true;
+  };
 
   nix.gc = {
     automatic = true;

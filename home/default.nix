@@ -28,6 +28,7 @@ in {
       rtorrent
       mpv
       feh
+      wkhtmltopdf
 
       # applications
       slack
@@ -52,12 +53,23 @@ in {
       cabal2nix
       haskellPackages.hoogle
 
+      # rust
+      (fenix.stable.withComponents [
+        "cargo"
+        "clippy"
+        "rust-src"
+        "rustc"
+        "rustfmt"
+      ])
+      rust-analyzer
+
       # nix
       nixfmt
       nix-index
       nix-diff
       nixos-option
       nixos-generators
+      colmena
     ] ++ import ./doom/deps.nix { pkgs = pkgs; };
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
