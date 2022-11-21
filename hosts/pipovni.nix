@@ -38,6 +38,7 @@
     babashka
     jdk11
     maven
+    gradle
 
     # infra
     awscli2

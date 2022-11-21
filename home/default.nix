@@ -29,6 +29,11 @@ in {
       mpv
       feh
       wkhtmltopdf
+      arp-scan
+      gifsicle
+      i3lock
+      menyoki
+      yamllint
 
       # applications
       slack
@@ -38,6 +43,7 @@ in {
       spotify
       thunderbird
       brave
+      firefox
       libreoffice
       xterm
 
