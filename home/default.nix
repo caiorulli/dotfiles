@@ -10,73 +10,7 @@ in {
     username = "caio";
     homeDirectory = "/home/caio";
 
-    packages = with pkgs; [
-      # cli
-      maim
-      xh
-      wget
-      ripgrep
-      fd
-      du-dust
-      neofetch
-      cmatrix
-      rsync
-      unzip
-      tig
-      cowsay
-      lolcat
-      rtorrent
-      mpv
-      feh
-      wkhtmltopdf
-      arp-scan
-      gifsicle
-      i3lock
-      menyoki
-      yamllint
-
-      # applications
-      slack
-      discord
-      tdesktop
-      signal-desktop
-      spotify
-      thunderbird
-      brave
-      firefox
-      libreoffice
-      xterm
-
-      # clojure
-      clj-kondo
-      clojure
-      babashka
-
-      # haskell
-      ghc
-      cabal-install
-      haskell-language-server
-      cabal2nix
-      haskellPackages.hoogle
-
-      # rust
-      (fenix.stable.withComponents [
-        "cargo"
-        "clippy"
-        "rust-src"
-        "rustc"
-        "rustfmt"
-      ])
-      rust-analyzer
-
-      # nix
-      nixfmt
-      nix-index
-      nix-diff
-      nixos-option
-      nixos-generators
-      colmena
-    ] ++ import ./doom/deps.nix { pkgs = pkgs; };
+    packages = import ./deps.nix { pkgs = pkgs; } ++ import ./doom/deps.nix { pkgs = pkgs; };
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
 
