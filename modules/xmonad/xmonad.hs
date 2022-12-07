@@ -16,7 +16,7 @@ myTerminal :: String
 myTerminal = "alacritty"
 
 myBrowser :: String
-myBrowser = "brave"
+myBrowser = "firefox"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = False

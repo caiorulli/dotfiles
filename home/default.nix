@@ -253,6 +253,7 @@ in {
     fzf.enable = true;
     jq.enable = true;
     gh.enable = true;
+    go.enable = true;
 
     home-manager.enable = true;
   };
