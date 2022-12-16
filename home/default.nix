@@ -302,18 +302,18 @@ in {
           "userapp-Telegram Desktop-4LGCE1.desktop"
         ];
         "image/png" = "feh.desktop";
-        "application/pdf" = "brave-browser.desktop";
+        "application/pdf" = "firefox.desktop";
       };
 
       defaultApplications = {
-        "text/html" = "brave-browser.desktop";
-        "x-scheme-handler/http" = "brave-browser.desktop";
-        "x-scheme-handler/https" = "brave-browser.desktop";
-        "x-scheme-handler/about" = "brave-browser.desktop";
-        "x-scheme-handler/unknown" = "brave-browser.desktop";
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
         "x-scheme-handler/tg" = "userapp-Telegram Desktop-4LGCE1.desktop";
-        "x-scheme-handler/mailto" = "brave-browser.desktop";
-        "x-scheme-handler/webcal" = "brave-browser.desktop";
+        "x-scheme-handler/mailto" = "firefox.desktop";
+        "x-scheme-handler/webcal" = "firefox.desktop";
       };
     };
 

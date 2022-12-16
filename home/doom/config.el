@@ -1,5 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
+;;; Code:
+
 ;; Directories
 
 (setq org-directory "~/Org")
@@ -40,7 +42,8 @@
   (set-popup-rules!
     '(("^\\*cider-repl" :ignore t)
       ("^\\*cider-test-report" :ignore t)))
-  (setq cider-clojure-cli-aliases ":dev"))
+  (setq cider-clojure-cli-aliases ":dev"
+        cider-offer-to-open-cljs-app-in-browser nil))
 
 ;; Java
 (setq lsp-java-autobuild-enabled nil)
