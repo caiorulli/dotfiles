@@ -16,15 +16,11 @@ with pkgs; [
       cowsay
       lolcat
       rtorrent
-      mpv
-      feh
       wkhtmltopdf
       arp-scan
       gifsicle
-      i3lock
       menyoki
       yamllint
-      zathura
 
       # applications
       slack

@@ -4,15 +4,18 @@
   imports = [
       /etc/nixos/hardware-configuration.nix
       <home-manager/nixos>
-      ../modules/xmonad
       ../modules/common
     ];
 
   networking.hostName = "rapture";
 
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "altgr-intl";
+
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
 
     deviceSection = ''
       Option "VariableRefresh" "true"

@@ -143,12 +143,6 @@ in {
       };
     };
 
-    rofi = {
-      enable = true;
-      font = "Fantasque Sans Mono 10";
-      theme = "Arc-Dark";
-    };
-
     exa = {
       enable = true;
       enableAliases = true;
@@ -259,69 +253,6 @@ in {
   };
 
   services = {
-    dunst = {
-      enable = true;
-      settings = { global = { font = "Fantasque Sans Mono 8"; }; };
-    };
-
-    redshift = {
-      enable = true;
-      latitude = -23.5446877;
-      longitude = -46.6821469;
-    };
-
     syncthing.enable = true;
-    udiskie.enable = true;
-    mpris-proxy.enable = true;
-  };
-
-  gtk = {
-    enable = true;
-
-    iconTheme = { name = "Adwaita"; };
-
-    theme = { name = "Arc-Dark"; };
-
-    font = {
-      name = "Fantasque Sans Mono";
-      size = 11;
-    };
-
-    gtk3.extraConfig = { gtk-application-prefer-dark-theme = true; };
-  };
-
-  xdg = {
-    enable = true;
-
-    mimeApps = {
-      enable = true;
-
-      associations.added = {
-        "x-scheme-handler/tg" = [
-          "userapp-Telegram Desktop-PGCD00.desktop"
-          "userapp-Telegram Desktop-4LGCE1.desktop"
-        ];
-        "image/png" = "feh.desktop";
-        "application/pdf" = "firefox.desktop";
-      };
-
-      defaultApplications = {
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
-        "x-scheme-handler/unknown" = "firefox.desktop";
-        "x-scheme-handler/tg" = "userapp-Telegram Desktop-4LGCE1.desktop";
-        "x-scheme-handler/mailto" = "firefox.desktop";
-        "x-scheme-handler/webcal" = "firefox.desktop";
-      };
-    };
-
-    userDirs = {
-      enable = true;
-      desktop = "$HOME/";
-      publicShare = "$HOME/";
-      templates = "$HOME/";
-    };
   };
 }
