@@ -97,6 +97,7 @@
     emacs-all-the-icons-fonts
     hanazono
     ipafont
+    fantasque-sans-mono
   ];
 
   programs = {

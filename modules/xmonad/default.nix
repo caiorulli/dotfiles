@@ -24,6 +24,4 @@
     xclip
     playerctl
   ];
-
-  fonts.fonts = with pkgs; [ fantasque-sans-mono ];
 }
