@@ -52,6 +52,7 @@
        (haskell +lsp)
        clojure
        (rust +lsp)
+       (go +lsp)
        javascript
        (java +lsp)
        emacs-lisp
