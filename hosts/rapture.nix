@@ -26,6 +26,8 @@
   environment.systemPackages = with pkgs; [
     steam-run
     minecraft
+    mangohud
+    gamemode
   ];
 
   programs = {
