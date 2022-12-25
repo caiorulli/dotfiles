@@ -16,7 +16,6 @@ with pkgs; [
       cowsay
       lolcat
       rtorrent
-      wkhtmltopdf
       arp-scan
       gifsicle
       menyoki
@@ -32,7 +31,6 @@ with pkgs; [
       brave
       firefox
       libreoffice
-      xterm
 
       # clojure
       clj-kondo

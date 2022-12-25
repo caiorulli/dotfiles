@@ -4,7 +4,7 @@ let
   dotfilesDir = "/etc/dotfiles";
 in {
   home = {
-    stateVersion = "22.05";
+    stateVersion = "22.11";
     enableNixpkgsReleaseCheck = true;
 
     username = "caio";
@@ -66,7 +66,7 @@ in {
       defaultKeymap = "emacs";
 
       history = {
-        path = "$XDG_DATA_HOME/zsh/history";
+        path = "${config.xdg.dataHome}/zsh/history";
         save = 1000000000;
         size = 1000000000;
       };
