@@ -70,6 +70,19 @@ in {
         save = 1000000000;
         size = 1000000000;
       };
+      initExtra = ''
+if [[ -z "$ZELLIJ" ]]; then
+    if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+        zellij attach -c
+    else
+        zellij
+    fi
+
+    if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+        exit
+    fi
+fi
+'';
     };
 
     git = {
@@ -247,6 +260,7 @@ in {
     jq.enable = true;
     gh.enable = true;
     go.enable = true;
+    zellij.enable = true;
 
     home-manager.enable = true;
   };
