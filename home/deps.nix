@@ -54,6 +54,10 @@ with pkgs; [
       ])
       rust-analyzer
 
+      # go
+      godef
+      gopls
+
       # nix
       nixfmt
       nix-index

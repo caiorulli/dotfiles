@@ -28,6 +28,9 @@
     minecraft
     mangohud
     gamemode
+
+    # can't add it to home manager apparently
+    gcc
   ];
 
   programs = {
