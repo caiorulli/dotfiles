@@ -72,6 +72,19 @@ in {
       };
     };
 
+    tmux = {
+      enable = true;
+      # customPaneNavigationAndResize = true;
+      extraConfig = ''
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+set -g history-limit 10000
+'';
+    };
+
     git = {
       enable = true;
       userName = "Caio Rulli Thomaz";
