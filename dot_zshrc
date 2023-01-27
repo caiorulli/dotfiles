@@ -1,0 +1,43 @@
+# Zsh setup
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+prompt_mytheme_setup() {
+  PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "
+}
+
+prompt_themes+=( mytheme )
+prompt mytheme
+
+zstyle ':completion:*' menu select
+setopt COMPLETE_ALIASES
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt EXTENDED_HISTORY
+
+bindkey -e
+
+system_type=$(uname -s)
+
+# Aliases
+alias l='exa -la'
+alias gst='git status'
+alias gco='git checkout'
+alias doom="$XDG_CONFIG_HOME/emacs/bin/doom"
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
+
+# direnv setup
+eval "$(direnv hook zsh)"
+
+# Zsh plugins
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+[ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
+
+# fzf setup
+[ -s "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
+[ -s "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
+
