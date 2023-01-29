@@ -40,7 +40,6 @@ groff
 gst-plugin-pipewire
 gzip
 htop
-iwd
 kate
 konsole
 libpulse
@@ -70,6 +69,7 @@ sed
 signal-desktop
 smartmontools
 spotify
+starship
 steam
 sudo
 syncthing
