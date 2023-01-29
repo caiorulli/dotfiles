@@ -12,10 +12,12 @@ bottom
 btrfs-progs
 chezmoi
 clojure
+cmatrix
 debugedit
 direnv
 discord
 dolphin
+dust
 efibootmgr
 egl-wayland
 emacs-nativecomp
@@ -39,7 +41,7 @@ grep
 groff
 gst-plugin-pipewire
 gzip
-htop
+jq
 kate
 konsole
 libpulse
@@ -89,6 +91,7 @@ xclip
 xdg-utils
 xf86-video-amdgpu
 xf86-video-ati
+xh
 xorg-server
 xorg-xinit
 yay
