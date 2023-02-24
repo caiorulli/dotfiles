@@ -2,4 +2,4 @@
 	email = caio@crthomaz.com.br
 	name = Caio Rulli Thomaz
 [core]
-	editor = vim
+	editor = nvim
