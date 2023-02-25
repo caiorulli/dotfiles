@@ -24,4 +24,28 @@ return require('packer').startup(function(use)
 	  end
   }
 
+  use('tpope/vim-fugitive')
+
+  use {
+	  "folke/which-key.nvim",
+	  config = function()
+		  vim.o.timeout = true
+		  vim.o.timeoutlen = 300
+		  require("which-key").setup { }
+	  end
+  }
+
+  -- for neotree
+  vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+  use {
+	  "nvim-neo-tree/neo-tree.nvim",
+	  branch = "v2.x",
+	  requires = { 
+		  "nvim-lua/plenary.nvim",
+		  "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+		  "MunifTanjim/nui.nvim",
+	  }
+  }
+
 end)
