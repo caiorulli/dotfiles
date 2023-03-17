@@ -42,27 +42,24 @@
        (eval +overlay)
        (lookup +docsets)
        magit
-       lsp
+       (lsp +peek)
        (debugger +lsp)
        pdf
        docker
-       terraform
+       make
+       tree-sitter
 
        :lang
-       (haskell +lsp)
-       clojure
-       (rust +lsp)
-       (go +lsp)
-       javascript
-       (java +lsp)
+       (go +lsp +tree-sitter)
+       (java +lsp +tree-sitter)
+       (python +lsp +tree-sitter)
+       (clojure +tree-sitter)
        emacs-lisp
-       nix
        org
        markdown
        web
        yaml
        data
-       plantuml
 
        :config
        (default +bindings +smartparens))
