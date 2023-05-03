@@ -3,27 +3,25 @@ autoload -Uz compinit promptinit
 compinit
 promptinit
 
-prompt_mytheme_setup() {
-  PS1="(%F{green}%M%f/%F{blue}%n%f %B%~%b)> "
-}
-
-prompt_themes+=( mytheme )
-prompt mytheme
-
 zstyle ':completion:*' menu select
 setopt COMPLETE_ALIASES
 setopt INC_APPEND_HISTORY
 setopt HIST_FIND_NO_DUPS
 setopt EXTENDED_HISTORY
 
+# set terminal bindings to emacs
+set -o emacs
+
 bindkey -e
 
 system_type=$(uname -s)
 
 # Aliases
-alias l='exa -la'
-alias gst='git status'
-alias gco='git checkout'
+alias ls='lsd'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias l='lla'
 alias vim='nvim'
 alias doom="$XDG_CONFIG_HOME/emacs/bin/doom"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
@@ -33,18 +31,20 @@ alias mvn='mvn -gs "$XDG_CONFIG_HOME"/maven/settings.xml'
 eval "$(direnv hook zsh)"
 
 # Zsh plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-[ -s "/usr/share/nvm/init-nvm.sh" ] && source "/usr/share/nvm/init-nvm.sh"
+[ -s "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -s "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # fzf setup
 [ -s "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
 [ -s "/usr/share/fzf/completion.zsh" ] && source "/usr/share/fzf/completion.zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# tmux autostart
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    tmux attach || tmux >/dev/null 2>&1
+# nvm
+export NVM_DIR="$HOME/.nvm"
+if [[ -s "$NVM_DIR/nvm.sh" ]]; then
+  \. "$NVM_DIR/nvm.sh"
+elif [[ -s "/usr/share/nvm/init-nvm.sh" ]]; then
+  source "/usr/share/nvm/init-nvm.sh"
 fi
 
 # starship
