@@ -61,12 +61,11 @@
       zathura
 
       # applications
-      discord
-      tdesktop
-      signal-desktop
-      spotify
-      thunderbird
-      firefox
+      #discord
+      #tdesktop
+      #signal-desktop
+      #spotify
+      #firefox
       xterm
 
       # clojure
@@ -116,18 +115,18 @@
   };
 
   programs = {
-#    zsh = {
-#      enable = true;
-#      enableAutosuggestions = true;
-#      enableSyntaxHighlighting = true;
-#      defaultKeymap = "emacs";
-#
-#      history = {
-#        path = "$XDG_DATA_HOME/zsh/history";
-#        save = 1000000000;
-#        size = 1000000000;
-#      };
-#    };
+    zsh = {
+      enable = true;
+      enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
+      defaultKeymap = "emacs";
+
+      history = {
+        path = "${config.xdg.dataHome}/zsh/history";
+        save = 1000000000;
+        size = 1000000000;
+      };
+    };
 
     git = {
       enable = true;
@@ -153,53 +152,53 @@
       extraOptionOverrides = { "AddKeysToAgent" = "yes"; };
     };
 
-    alacritty = {
-      enable = true;
-      settings = {
-        env.TERM = "xterm-256color";
-        window = {
-          opacity = 0.7;
-          padding = {
-            x = 5;
-            y = 5;
-          };
-        };
-        font = {
-          normal.family = "Fantasque Sans Mono";
-          size = 11.0;
-        };
-        colors = {
-          primary = {
-            background = "0x2E3440";
-            foreground = "0xD8DEE9";
-          };
-          cursor = {
-            text = "0x2E3440";
-            cursor = "0xD8DEE9";
-          };
-          normal = {
-            black = "0x3B4252";
-            red = "0xBF616A";
-            green = "0xA3BE8C";
-            yellow = "0xEBCB8B";
-            blue = "0x81A1C1";
-            magenta = "0xB48EAD";
-            cyan = "0x88C0D0";
-            white = "0xE5E9F0";
-          };
-          bright = {
-            black = "0x4C566A";
-            red = "0xBF616A";
-            green = "0xA3BE8C";
-            yellow = "0xEBCB8B";
-            blue = "0x81A1C1";
-            magenta = "0xB48EAD";
-            cyan = "0x8FBCBB";
-            white = "0xECEFF4";
-          };
-        };
-      };
-    };
+    # alacritty = {
+    #   enable = true;
+    #   settings = {
+    #     env.TERM = "xterm-256color";
+    #     window = {
+    #       opacity = 0.7;
+    #       padding = {
+    #         x = 5;
+    #         y = 5;
+    #       };
+    #     };
+    #     font = {
+    #       normal.family = "Fantasque Sans Mono";
+    #       size = 11.0;
+    #     };
+    #     colors = {
+    #       primary = {
+    #         background = "0x2E3440";
+    #         foreground = "0xD8DEE9";
+    #       };
+    #       cursor = {
+    #         text = "0x2E3440";
+    #         cursor = "0xD8DEE9";
+    #       };
+    #       normal = {
+    #         black = "0x3B4252";
+    #         red = "0xBF616A";
+    #         green = "0xA3BE8C";
+    #         yellow = "0xEBCB8B";
+    #         blue = "0x81A1C1";
+    #         magenta = "0xB48EAD";
+    #         cyan = "0x88C0D0";
+    #         white = "0xE5E9F0";
+    #       };
+    #       bright = {
+    #         black = "0x4C566A";
+    #         red = "0xBF616A";
+    #         green = "0xA3BE8C";
+    #         yellow = "0xEBCB8B";
+    #         blue = "0x81A1C1";
+    #         magenta = "0xB48EAD";
+    #         cyan = "0x8FBCBB";
+    #         white = "0xECEFF4";
+    #       };
+    #     };
+    #   };
+    # };
 
     rofi = {
       enable = true;
@@ -239,4 +238,6 @@
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
   };
+
+  xdg.enable = true;
 }
