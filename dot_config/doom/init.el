@@ -50,10 +50,11 @@
        tree-sitter
 
        :lang
-       (go +lsp +tree-sitter)
-       (java +lsp +tree-sitter)
-       (python +lsp +tree-sitter)
+       (haskell +lsp +tree-sitter)
+       idris
+       (rust +lsp +tree-sitter)
        (clojure +tree-sitter)
+       (nix +tree-sitter)
        emacs-lisp
        org
        markdown

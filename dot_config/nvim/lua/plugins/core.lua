@@ -1,3 +1,5 @@
+-- Refer for examples here: https://www.lazyvim.org/configuration/examples
+
 return {
     {
         "LazyVim/LazyVim",
