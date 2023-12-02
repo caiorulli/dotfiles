@@ -49,9 +49,6 @@
         ./xmonad/xmonad.hs;
       "${config.xdg.configHome}/xmobar/xmobarrc".source =
         ./xmonad/xmobarrc;
- 
-      # neovim
-      "${config.xdg.configHome}/nvim".source = ./nvim;
 
       # zellij
       "${config.xdg.configHome}/zellij".source = ./zellij;
