@@ -10,7 +10,6 @@
       spotify
       discord
 
-      alacritty
       zellij
       bat
       bottom
@@ -24,6 +23,12 @@
       unzip
       tig
       lazygit
+      xclip
+      tree-sitter
+      nodejs
+      python3
+      rustc
+      cargo
     ];
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
@@ -93,6 +98,13 @@
       vimAlias = true;
     };
 
+    alacritty.enable = true;
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -103,5 +115,6 @@
     bottom.enable = true;
     fzf.enable = true;
     jq.enable = true;
+    gh.enable = true;
   };
 }

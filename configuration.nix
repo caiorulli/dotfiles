@@ -117,6 +117,8 @@
 
     xmobar
     nerdfonts
+    gcc
+    gnumake
   ];
 
   programs = {

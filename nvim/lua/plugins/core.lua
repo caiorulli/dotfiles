@@ -12,9 +12,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "go",
-        "java",
-        "python",
         "haskell",
         "rust",
         "lua",
@@ -28,15 +25,6 @@ return {
         "vim",
         "yaml",
         "nix",
-      },
-    },
-  },
-
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "gopls",
       },
     },
   },
@@ -60,4 +48,8 @@ return {
       },
     },
   },
+
+  { 'junegunn/goyo.vim' },
+  { 'junegunn/limelight.vim' },
+  { 'preservim/vim-pencil' }
 }
