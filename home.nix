@@ -95,6 +95,8 @@
       vimAlias = true;
     };
 
+    emacs.enable = true;
+
     alacritty.enable = true;
 
     zoxide = {

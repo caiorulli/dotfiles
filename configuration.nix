@@ -117,6 +117,7 @@
 
     xmobar
     nerdfonts
+    emacs-all-the-icons-fonts
     gcc
     gnumake
   ];
