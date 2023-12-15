@@ -9,6 +9,7 @@
       firefox
       spotify
       discord
+      telegram-desktop
 
       zellij
       bat
@@ -29,6 +30,11 @@
       python3
       rustc
       cargo
+
+      # clojure
+      clojure
+      babashka
+      clj-kondo
     ];
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
