@@ -2,7 +2,7 @@
 
 {
   home = {
-    stateVersion = "23.05";
+    stateVersion = "23.11";
     enableNixpkgsReleaseCheck = true;
 
     packages = with pkgs; [
@@ -10,6 +10,7 @@
       spotify
       discord
       telegram-desktop
+      libreoffice
 
       zellij
       bat
@@ -28,13 +29,32 @@
       tree-sitter
       nodejs
       python3
-      rustc
+
       cargo
+      zulu11
+      cmake
+      pandoc
+      shellcheck
 
       # clojure
       clojure
       babashka
       clj-kondo
+
+      # haskell
+      haskell-language-server
+      haskellPackages.hoogle
+      haskellPackages.cabal-install
+
+      # idris
+      idris2
+
+      # rust
+      rustc
+      rust-analyzer
+
+      # nix
+      nixfmt
     ];
 
     sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
@@ -58,6 +78,10 @@
 
       # zellij
       "${config.xdg.configHome}/zellij".source = ./zellij;
+    };
+
+    shellAliases = {
+      doom = "${config.xdg.configHome}/emacs/bin/doom";
     };
   };
 
@@ -103,7 +127,13 @@
 
     emacs.enable = true;
 
-    alacritty.enable = true;
+    alacritty = {
+      enable = true;
+      settings = {
+        window.opacity = 0.8;
+        font.size = 7;
+      };
+    };
 
     zoxide = {
       enable = true;

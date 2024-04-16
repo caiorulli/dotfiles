@@ -42,6 +42,13 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
+;; Set transparency of emacs
+(defun transparency (value)
+   "Sets the transparency of the frame window. 0=transparent/100=opaque"
+   (interactive "nTransparency Value 0 - 100 opaque:")
+   (set-frame-parameter (selected-frame) 'alpha value))
+
+(transparency 90)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
