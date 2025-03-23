@@ -1,0 +1,8 @@
+[user]
+	email = caiorulli@gmail.com
+	name = Caio Rulli Thomaz
+[alias]
+	co = checkout
+	s = status
+[core]
+	editor = nvim
