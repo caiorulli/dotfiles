@@ -12,9 +12,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "go",
-        "java",
-        "python",
         "javascript",
         "lua",
         "bash",
@@ -34,7 +31,20 @@ return {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
-        "gopls",
+        -- TypeScript/JavaScript ecosystem
+        "typescript-language-server",
+        "eslint-lsp",
+        "prettier",
+        -- JSON/YAML for configs
+        "json-lsp",
+        "yaml-language-server",
+        -- Web development
+        "html-lsp",
+        "css-lsp",
+        "emmet-ls",
+        -- Docker for your containerized services
+        "docker-compose-language-service",
+        "dockerfile-language-server",
       },
     },
   },
@@ -57,57 +67,5 @@ return {
         desc = "Pick buffer",
       },
     },
-  },
-
-  {
-    "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      -- setup dap config by VsCode launch.json file
-      -- require("dap.ext.vscode").load_launchjs()
-      local dap = require("dap")
-      local dapui = require("dapui")
-
-      dap.adapters.delve = {
-        type = "server",
-        port = 2345,
-      }
-      dap.configurations.go = {
-        {
-          type = "delve",
-          request = "attach",
-          name = "Attach to Go",
-          mode = "remote",
-          substitutePath = {
-            {
-              from = "${env:GOPATH}/src",
-              to = "src",
-            },
-            {
-              from = "${env:GOPATH}/bazel-go-code/external/",
-              to = "external/",
-            },
-            {
-              from = "${env:GOPATH}/bazel-out/",
-              to = "bazel-out/",
-            },
-            {
-              from = "${env:GOPATH}/bazel-go-code/external/go_sdk",
-              to = "GOROOT/",
-            },
-          },
-        },
-      }
-
-      dapui.setup(opts)
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open({})
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close({})
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close({})
-      end
-    end,
   },
 }

@@ -1,0 +1,7 @@
+{
+  "eslint.validate": [
+    "json"
+  ],
+  "nxConsole.generateAiAgentRules": true
+}
+
