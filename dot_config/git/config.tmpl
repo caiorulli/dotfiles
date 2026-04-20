@@ -1,0 +1,23 @@
+[user]
+	email = {{ if eq .chezmoi.os "darwin" }}caio@8arm.io{{ else }}caiorulli@gmail.com{{ end }}
+	name = Caio Rulli Thomaz
+{{- if eq .chezmoi.os "darwin" }}
+	signingkey = /Users/caiorulli/.ssh/id_ed25519.pub
+{{- end }}
+[alias]
+	co = checkout
+	s = status
+[core]
+	editor = nvim
+{{- if eq .chezmoi.os "darwin" }}
+[push]
+	autoSetupRemote = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
+{{- end }}

@@ -12,11 +12,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        "javascript",
         "lua",
         "bash",
         "html",
-        "json",
         "markdown",
         "markdown_inline",
         "query",
@@ -28,15 +26,10 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
-        -- TypeScript/JavaScript ecosystem
-        "typescript-language-server",
-        "eslint-lsp",
-        "prettier",
-        -- JSON/YAML for configs
-        "json-lsp",
+        -- YAML for configs
         "yaml-language-server",
         -- Web development
         "html-lsp",
@@ -49,7 +42,7 @@ return {
     },
   },
 
-  {
+{
     "nvim-telescope/telescope.nvim",
     keys = {
       {

@@ -4,67 +4,64 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Neovim configuration based on LazyVim, a modern Neovim configuration framework. The setup uses Lua for configuration and includes debugging capabilities specifically configured for Go development.
+This is a Neovim configuration based on LazyVim, tailored for TypeScript/JavaScript development in Nx monorepos. All configuration is written in Lua.
 
 ## Development Commands
 
 ### Formatting
 ```bash
-# Format Lua code using stylua (configuration in stylua.toml)
+# Format Lua code (configuration in stylua.toml)
 stylua .
 ```
 
-### Plugin Management
-```bash
-# Update plugins (run from within Neovim)
-:Lazy update
-
-# Check plugin status
-:Lazy
-
-# Clean unused plugins
-:Lazy clean
+### Plugin Management (run from within Neovim)
+```
+:Lazy update    # Update plugins
+:Lazy           # Check plugin status
+:Lazy clean     # Remove unused plugins
 ```
 
-### Testing Configuration
+### Validating Configuration
 ```bash
-# Test Neovim configuration by starting Neovim
-nvim
-
-# Check for configuration errors
 nvim --headless -c "checkhealth" -c "quit"
 ```
 
 ## Architecture
 
+### LazyExtras
+Extras are managed via `lazyvim.json` (use `:LazyExtras` inside Neovim to toggle):
+- `lang.typescript`, `lang.json` — LSP, treesitter, DAP for TS/JS and JSON
+- `formatting.prettier`, `linting.eslint` — formatting and linting
+- `test.core` — neotest + nvim-dap base
+- `ai.claudecode` — Claude Code integration
+
 ### Configuration Structure
-- `init.lua`: Main entry point that bootstraps the lazy.nvim plugin manager
-- `lua/config/`: Core configuration modules
-  - `lazy.lua`: LazyVim setup and plugin specification
-  - `options.lua`: Vim options (tabstop=2, shiftwidth=2)
-  - `keymaps.lua`: Custom key mappings
-  - `autocmds.lua`: Auto commands
-- `lua/plugins/`: Plugin configurations
-  - `core.lua`: Core plugin overrides and custom configurations
+- `init.lua`: Entry point — bootstraps lazy.nvim
+- `lua/config/lazy.lua`: LazyVim setup (no manual extra imports — use `lazyvim.json`)
+- `lua/config/options.lua`: Vim options (tabstop=2, shiftwidth=2)
+- `lua/config/keymaps.lua`: Global key mappings
+- `lua/plugins/`: One file per concern:
+  - `core.lua`: Colorscheme, Treesitter parsers, Mason tools, Telescope keymaps
+  - `testing.lua`: Empty — test stack managed by `test.core` extra
+  - `monorepo.lua`: monorepo.nvim project switcher + Telescope scoped search for `packages/{apps,libs,services}/`
+  - `nx-keymaps.lua`: Which-key groups and keymaps that shell out to `pnpm` Nx scripts
+  - `package-management.lua`: package-info.nvim for inline npm version display
 
-### Key Plugins and Configuration
-- **LazyVim**: Base configuration framework with sensible defaults
-- **Telescope**: Custom keymaps for finding usages (`<leader>fu`) and buffer picking (`<leader>bi`)
-- **Treesitter**: Configured for JavaScript, Lua, Bash, HTML, JSON, Markdown, Vim, YAML
-- **Mason**: Ensures `gopls` LSP is installed for Go development
-- **DAP (Debug Adapter Protocol)**: 
-  - Configured for Go debugging with Delve adapter
-  - Remote debugging on port 2345
-  - Custom path substitutions for Bazel/Go workspace setup
-  - Auto-opens DAP UI on debug sessions
+### Key Custom Keymaps
+| Key | Action |
+|-----|--------|
+| `<leader>fu` | LSP references (Find Usages) |
+| `<leader>bi` | Buffer picker |
+| `<leader>mp` | Switch monorepo project |
+| `<leader>fp/sp` | Find/grep in `packages/` |
+| `<leader>fa/fl/fs` | Find files in apps/libs/services |
+| `<leader>nx*` | Nx build/test/lint commands |
+| `<leader>n*` | package-info.nvim actions |
 
-### Debugging Setup
-The DAP configuration includes specific path mappings for a Bazel-based Go development environment:
-- Maps `${env:GOPATH}/src` to `src`
-- Maps Bazel external dependencies and build outputs
-- Connects to remote Delve debugger on port 2345
+### Mason-managed Tools
+Via custom config: `yaml-language-server`, `html-lsp`, `css-lsp`, `emmet-ls`, `docker-compose-language-service`, `dockerfile-language-server`
+
+Via LazyExtras: `vtsls`, `eslint-lsp`, `prettier`, `json-lsp` (managed by their respective extras)
 
 ### Code Style
-- Uses StyLua for Lua formatting with 2-space indentation
-- Column width set to 80 characters
-- LazyVim defaults apply for most styling conventions
+- StyLua: 2-space indent, 80-column width
