@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.doomemacs.org)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(rtk ls *)",
+      "Bash(rtk grep *)",
+      "Bash(claude --version)"
+    ]
+  }
+}
