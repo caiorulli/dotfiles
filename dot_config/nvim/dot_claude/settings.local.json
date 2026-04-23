@@ -8,7 +8,10 @@
       "WebFetch(domain:github.com)",
       "Bash(git config:*)",
       "WebFetch(domain:www.lazyvim.org)",
-      "Bash(nvim:*)"
+      "Bash(nvim:*)",
+      "Read(//Users/caiorulli/.claude/**)",
+      "Read(//Users/caiorulli/Library/**)",
+      "Bash(chezmoi source-path *)"
     ],
     "deny": [],
     "ask": []

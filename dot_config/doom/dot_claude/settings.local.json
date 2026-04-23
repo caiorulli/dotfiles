@@ -7,7 +7,9 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(rtk ls *)",
       "Bash(rtk grep *)",
-      "Bash(claude --version)"
+      "Bash(claude --version)",
+      "Bash(/bin/ls *)",
+      "Bash(rtk find *)"
     ]
   }
 }
